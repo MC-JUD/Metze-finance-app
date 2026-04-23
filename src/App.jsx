@@ -659,11 +659,11 @@ const CHARGES_FIXES = [
 ]
 
 const TRESORERIE = [
-  { mois:"Déc-25", debut:262639.08, encaiss:319333.01, decaiss:254307.14, fin:328488.51 },
-  { mois:"Jan-26", debut:328488.51, encaiss:316892.51, decaiss:269953.50, fin:375427.52 },
+  { mois:"Déc-25", debut:262639.08, encaiss:319333.01, decaiss:254307.14, fin:253750.65 },
+  { mois:"Jan-26", debut:253750.65, encaiss:316892.51, decaiss:269953.50, fin:375427.52 },
   { mois:"Fév-26", debut:375427.52, encaiss:255774.31, decaiss:238596.56, fin:392605.27 },
-  { mois:"Mar-26", debut:392605.27, encaiss:340504.01, decaiss:282637.44, fin:450471.84 },
-  { mois:"Avr-26", debut:450471.84, encaiss:0,         decaiss:0,         fin:450471.84 },
+  { mois:"Mar-26", debut:392605.27, encaiss:340504.01, decaiss:282637.44, fin:75452.98 },
+  { mois:"Avr-26", debut:75452.98, encaiss:0,         decaiss:0,         fin:75452.98 },
 ]
 
 const BFR_DATA = [
