@@ -659,11 +659,11 @@ const CHARGES_FIXES = [
 ]
 
 const TRESORERIE = [
-  { mois:"Déc-25", debut:262639.08, encaiss:319333.01, decaiss:254307.14, fin:253750.65 },
-  { mois:"Jan-26", debut:253750.65, encaiss:316892.51, decaiss:269953.50, fin:375427.52 },
-  { mois:"Fév-26", debut:375427.52, encaiss:255774.31, decaiss:238596.56, fin:392605.27 },
-  { mois:"Mar-26", debut:392605.27, encaiss:340504.01, decaiss:282637.44, fin:75452.98 },
-  { mois:"Avr-26", debut:75452.98, encaiss:0,         decaiss:0,         fin:75452.98 },
+  { mois:"Déc-25", debut:262639.08, encaiss:244595.15, decaiss:254307.14, fin:253750.65 },
+  { mois:"Jan-26", debut:253750.65, encaiss:206892.51, decaiss:269953.50, fin:190689.66 },
+  { mois:"Fév-26", debut:190689.66, encaiss:176447.31, decaiss:238596.56, fin:128540.41 },
+  { mois:"Mar-26", debut:128540.41, encaiss:229550.01, decaiss:282637.44, fin:75452.98  },
+  { mois:"Avr-26", debut:75452.98,  encaiss:0,         decaiss:0,         fin:75452.98  },
 ]
 
 const BFR_DATA = [
@@ -702,7 +702,7 @@ function BudgetPage(){
       <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:14,padding:"20px 24px 0",flexShrink:0}}>
         <StatCard label={`CA Réel YTD (${nMois} mois)`} value={`${fmtK(ytdCA)} €`} sub={`Budget : ${fmtK(ytdBudget)} €`} color={ytdCA>=ytdBudget?T.green:T.amber} accentTop={T.accentHi}/>
         <StatCard label="EBITDA YTD" value={`${fmtK(Math.abs(ytdEBITDA))} €`} sub={ytdEBITDA<0?"Déficitaire":"Bénéficiaire"} color={ytdEBITDA>=0?T.green:T.red} accentTop={ytdEBITDA>=0?T.green:T.red}/>
-        <StatCard label="Tréso Fin Mars" value="450 472 €" sub="Début déc-25 : 262 639 €" color={T.green} accentTop={T.green}/>
+        <StatCard label="Tréso Fin Mars" value={`${TRESORERIE.find(t=>t.mois==="Mar-26")?.fin.toLocaleString("fr-FR",{maximumFractionDigits:0})} €`} sub={`Début déc-25 : ${TRESORERIE[0]?.debut.toLocaleString("fr-FR",{maximumFractionDigits:0})} €`} color={TRESORERIE.find(t=>t.mois==="Mar-26")?.fin > TRESORERIE[0]?.debut ? T.green : T.red} accentTop={TRESORERIE.find(t=>t.mois==="Mar-26")?.fin > TRESORERIE[0]?.debut ? T.green : T.red}/>
         <StatCard label="BFR Mars 2026" value="912 k€" sub="↑ vs Jan : 191k€" color={T.amber} accentTop={T.amber}/>
       </div>
 
@@ -810,12 +810,19 @@ function BudgetPage(){
               </div>
               <div style={{background:T.surface,border:`1px solid ${T.border}`,borderRadius:10,padding:"14px 20px",flex:1}}>
                 <div style={{fontSize:10,color:T.muted,fontFamily:"'JetBrains Mono',monospace",letterSpacing:"1px",marginBottom:6}}>TRÉSORERIE FIN MARS</div>
-                <div style={{fontSize:22,fontWeight:700,color:T.green,fontFamily:"'JetBrains Mono',monospace"}}>450 472 €</div>
-                <div style={{fontSize:11,color:T.muted}}>+71% vs Déc-25</div>
+                <div style={{fontSize:22,fontWeight:700,fontFamily:"'JetBrains Mono',monospace",color:TRESORERIE.find(t=>t.mois==="Mar-26")?.fin>0?T.green:T.red}}>
+                  {TRESORERIE.find(t=>t.mois==="Mar-26")?.fin.toLocaleString("fr-FR",{maximumFractionDigits:0})} €
+                </div>
+                <div style={{fontSize:11,color:T.muted}}>
+                  {((TRESORERIE.find(t=>t.mois==="Mar-26")?.fin/TRESORERIE[0]?.debut-1)*100).toFixed(0)}% vs Déc-25
+                </div>
               </div>
               <div style={{background:T.surface,border:`1px solid ${T.border}`,borderRadius:10,padding:"14px 20px",flex:1}}>
                 <div style={{fontSize:10,color:T.muted,fontFamily:"'JetBrains Mono',monospace",letterSpacing:"1px",marginBottom:6}}>VARIATION NETTE</div>
-                <div style={{fontSize:22,fontWeight:700,color:T.green,fontFamily:"'JetBrains Mono',monospace"}}>+187 833 €</div>
+                <div style={{fontSize:22,fontWeight:700,fontFamily:"'JetBrains Mono',monospace",color:(TRESORERIE.find(t=>t.mois==="Mar-26")?.fin-TRESORERIE[0]?.debut)>=0?T.green:T.red}}>
+                  {((TRESORERIE.find(t=>t.mois==="Mar-26")?.fin-TRESORERIE[0]?.debut)>=0?"+":"")}
+                  {(TRESORERIE.find(t=>t.mois==="Mar-26")?.fin-TRESORERIE[0]?.debut).toLocaleString("fr-FR",{maximumFractionDigits:0})} €
+                </div>
                 <div style={{fontSize:11,color:T.muted}}>Sur 3 mois</div>
               </div>
             </div>
