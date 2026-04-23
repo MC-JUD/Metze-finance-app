@@ -126,6 +126,7 @@ const NAV = [
   {id:"dashboard",     icon:"🏠", label:"Dashboard",     sub:"Vue globale"},
   {id:"encours-bnp",   icon:"🏦", label:"Encours BNP",   sub:"Échus & règlements"},
   {id:"encours-cic",   icon:"🏛️", label:"Encours CIC",   sub:"Échus & règlements"},
+  {id:"budget",        icon:"📊", label:"Budget 2026",   sub:"P&L · Tréso · BFR"},
   {id:"transactions",  icon:"💸", label:"Transactions",  sub:"Pennylane"},
   {id:"sharepoint",    icon:"📁", label:"Documents",     sub:"SharePoint"},
   {id:"parametres",    icon:"⚙️", label:"Paramètres",    sub:""},
@@ -623,7 +624,271 @@ function SharePointPage(){
   )
 }
 
-// ─── PARAMETRES PAGE ──────────────────────────────────────────────────────────
+// ─── BUDGET PAGE ──────────────────────────────────────────────────────────────
+const CR_MOIS = [
+  { mois:"Jan", budget:170000, reel:184520.58, cf_b:75645, cf_r:87615.71, ebitda_b:2555, ebitda_r:-32281.45, taux_r:30 },
+  { mois:"Fév", budget:170000, reel:195533.00, cf_b:75645, cf_r:98304.11, ebitda_b:2555, ebitda_r:-24235.04, taux_r:46 },
+  { mois:"Mar", budget:170000, reel:184415.10, cf_b:75645, cf_r:85851.26, ebitda_b:2555, ebitda_r:86389.33,  taux_r:93 },
+  { mois:"Avr", budget:170000, reel:null, cf_b:75645, cf_r:null, ebitda_b:2555, ebitda_r:null, taux_r:null },
+  { mois:"Mai", budget:170000, reel:null, cf_b:75645, cf_r:null, ebitda_b:2555, ebitda_r:null, taux_r:null },
+  { mois:"Jun", budget:170000, reel:null, cf_b:75645, cf_r:null, ebitda_b:2555, ebitda_r:null, taux_r:null },
+  { mois:"Jul", budget:170000, reel:null, cf_b:75645, cf_r:null, ebitda_b:2555, ebitda_r:null, taux_r:null },
+  { mois:"Aoû", budget:170000, reel:null, cf_b:75645, cf_r:null, ebitda_b:2555, ebitda_r:null, taux_r:null },
+  { mois:"Sep", budget:170000, reel:null, cf_b:75645, cf_r:null, ebitda_b:2555, ebitda_r:null, taux_r:null },
+  { mois:"Oct", budget:170000, reel:null, cf_b:75645, cf_r:null, ebitda_b:2555, ebitda_r:null, taux_r:null },
+  { mois:"Nov", budget:170000, reel:null, cf_b:75645, cf_r:null, ebitda_b:2555, ebitda_r:null, taux_r:null },
+  { mois:"Déc", budget:170000, reel:null, cf_b:75645, cf_r:null, ebitda_b:2555, ebitda_r:null, taux_r:null },
+]
+
+const CHARGES_FIXES = [
+  { label:"Communication & Marketing", budget:2000,  jan:583.91,   fev:682.33,   mar:112.74  },
+  { label:"Centrale d'achat",          budget:2300,  jan:568.66,   fev:568.66,   mar:0       },
+  { label:"Télécommunication",         budget:20,    jan:8.99,     fev:8.99,     mar:8.99    },
+  { label:"Informatique",              budget:1000,  jan:1511.11,  fev:653.99,   mar:1523.80 },
+  { label:"Assurance",                 budget:500,   jan:467.79,   fev:292.20,   mar:253.50  },
+  { label:"Véhicules",                 budget:2000,  jan:1256.73,  fev:1794.30,  mar:1571.04 },
+  { label:"Location bureau",           budget:2025,  jan:2313.34,  fev:1865.31,  mar:230.87  },
+  { label:"Frais administratifs",      budget:0,     jan:2345.91,  fev:0,        mar:1769.96 },
+  { label:"Sous-traitance",            budget:1000,  jan:6080.00,  fev:2767.76,  mar:0       },
+  { label:"Personnel chargé",          budget:50000, jan:53040.82, fev:70606.32, mar:57439.10},
+  { label:"NDF Autres",                budget:3500,  jan:5053.43,  fev:2998.00,  mar:16.00   },
+  { label:"NDF Déplacements",          budget:0,     jan:811.15,   fev:964.00,   mar:3297.29 },
+  { label:"NDF Restaurant",            budget:0,     jan:992.61,   fev:542.44,   mar:495.34  },
+  { label:"Frais bancaires",           budget:2500,  jan:1264.02,  fev:1569.36,  mar:0       },
+  { label:"Autres charges",            budget:1000,  jan:2251.93,  fev:1390.00,  mar:6255.32 },
+]
+
+const TRESORERIE = [
+  { mois:"Déc-25", debut:262639.08, encaiss:319333.01, decaiss:254307.14, fin:328488.51 },
+  { mois:"Jan-26", debut:328488.51, encaiss:316892.51, decaiss:269953.50, fin:375427.52 },
+  { mois:"Fév-26", debut:375427.52, encaiss:255774.31, decaiss:238596.56, fin:392605.27 },
+  { mois:"Mar-26", debut:392605.27, encaiss:340504.01, decaiss:282637.44, fin:450471.84 },
+  { mois:"Avr-26", debut:450471.84, encaiss:0,         decaiss:0,         fin:450471.84 },
+]
+
+const BFR_DATA = [
+  { mois:"Jan-26", stock:557063, bnp_ne:11298,   cic_ne:14378,   bnp_e:47447,  cic_e:70919,  dettes:17561,  bfr:191321  },
+  { mois:"Fév-26", stock:550420, bnp_ne:59222,   cic_ne:48846,   bnp_e:63470,  cic_e:94997,  dettes:28539,  bfr:680348  },
+  { mois:"Mar-26", stock:538672, bnp_ne:126325,  cic_ne:140186,  bnp_e:64030,  cic_e:96226,  dettes:53045,  bfr:912394  },
+]
+
+function BudgetPage(){
+  const [tab, setTab] = useState("pl")
+  const tabs = [
+    {id:"pl",    label:"P&L mensuel"},
+    {id:"cf",    label:"Charges fixes"},
+    {id:"treso", label:"Trésorerie"},
+    {id:"bfr",   label:"BFR & Créances"},
+  ]
+
+  const ytdCA    = CR_MOIS.filter(m=>m.reel).reduce((s,m)=>s+m.reel,0)
+  const ytdBudget= CR_MOIS.filter(m=>m.reel).reduce((s,m)=>s+m.budget,0)
+  const ytdEBITDA= CR_MOIS.filter(m=>m.ebitda_r!==null).reduce((s,m)=>s+m.ebitda_r,0)
+  const nMois    = CR_MOIS.filter(m=>m.reel).length
+
+  return (
+    <div style={{display:"flex",flexDirection:"column",height:"100%",overflow:"hidden"}}>
+      <Topbar title="Budget 2026" sub="Source : BUDGET 2026.xlsx · SharePoint METZECARE · Dernière MAJ : 21/04/2026"
+        right={
+          <a href="https://metzecarecom.sharepoint.com/sites/METZECARE/Shared%20Documents/General/COMPTABILITE/Rapports%20comptables%20et%20financiers/2026/BUDGET%202026.xlsx"
+            target="_blank" rel="noopener noreferrer"
+            style={{display:"flex",alignItems:"center",gap:6,padding:"5px 12px",background:T.accentGlow,border:`1px solid rgba(37,99,235,0.3)`,borderRadius:7,color:T.accentHi,fontSize:12,fontWeight:600}}>
+            📊 Ouvrir Excel ↗
+          </a>
+        }
+      />
+
+      {/* KPIs */}
+      <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:14,padding:"20px 24px 0",flexShrink:0}}>
+        <StatCard label={`CA Réel YTD (${nMois} mois)`} value={`${fmtK(ytdCA)} €`} sub={`Budget : ${fmtK(ytdBudget)} €`} color={ytdCA>=ytdBudget?T.green:T.amber} accentTop={T.accentHi}/>
+        <StatCard label="EBITDA YTD" value={`${fmtK(Math.abs(ytdEBITDA))} €`} sub={ytdEBITDA<0?"Déficitaire":"Bénéficiaire"} color={ytdEBITDA>=0?T.green:T.red} accentTop={ytdEBITDA>=0?T.green:T.red}/>
+        <StatCard label="Tréso Fin Mars" value="450 472 €" sub="Début déc-25 : 262 639 €" color={T.green} accentTop={T.green}/>
+        <StatCard label="BFR Mars 2026" value="912 k€" sub="↑ vs Jan : 191k€" color={T.amber} accentTop={T.amber}/>
+      </div>
+
+      {/* Onglets */}
+      <div style={{display:"flex",borderBottom:`1px solid ${T.border}`,margin:"16px 24px 0",flexShrink:0}}>
+        {tabs.map(t=>(
+          <button key={t.id} onClick={()=>setTab(t.id)} style={{padding:"10px 16px",fontSize:12,fontWeight:tab===t.id?600:400,color:tab===t.id?T.accentHi:T.muted,borderBottom:tab===t.id?`2px solid ${T.accentHi}`:"2px solid transparent",background:"transparent",border:"none",cursor:"pointer",transition:"color .12s",marginBottom:-1}}>{t.label}</button>
+        ))}
+      </div>
+
+      <div style={{flex:1,overflowY:"auto",padding:"20px 24px"}} className="up">
+
+        {/* P&L */}
+        {tab==="pl" && (
+          <div style={{overflowX:"auto"}}>
+            <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
+              <thead>
+                <tr>
+                  {["Mois","CA Budget","CA Réel","Écart CA","Charges Fixes Budget","Charges Fixes Réel","EBITDA Budget","EBITDA Réel","Taux marge"].map(h=>(
+                    <th key={h} style={{textAlign:h==="Mois"?"left":"right",padding:"9px 12px",fontSize:10,color:T.muted,fontFamily:"'JetBrains Mono',monospace",letterSpacing:"1px",textTransform:"uppercase",background:T.elevated,borderBottom:`1px solid ${T.border}`,whiteSpace:"nowrap"}}>{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {CR_MOIS.map(m=>{
+                  const ecart = m.reel ? m.reel - m.budget : null
+                  return (
+                    <tr key={m.mois} style={{borderBottom:`1px solid rgba(33,41,58,.5)`}}
+                      onMouseEnter={e=>e.currentTarget.style.background=T.elevated}
+                      onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
+                      <td style={{padding:"10px 12px",fontWeight:600}}>{m.mois}</td>
+                      <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{color:T.muted}}>{m.budget.toLocaleString("fr-FR")} €</Mono></td>
+                      <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{color:m.reel?T.text:T.dim}}>{m.reel?m.reel.toLocaleString("fr-FR",{maximumFractionDigits:0})+" €":"—"}</Mono></td>
+                      <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{color:ecart===null?T.dim:ecart>=0?T.green:T.red}}>{ecart===null?"—":(ecart>=0?"+":"")+ecart.toLocaleString("fr-FR",{maximumFractionDigits:0})+" €"}</Mono></td>
+                      <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{color:T.muted}}>{m.cf_b.toLocaleString("fr-FR")} €</Mono></td>
+                      <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{color:m.cf_r?m.cf_r>m.cf_b?T.red:T.green:T.dim}}>{m.cf_r?m.cf_r.toLocaleString("fr-FR",{maximumFractionDigits:0})+" €":"—"}</Mono></td>
+                      <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{color:T.muted}}>{m.ebitda_b.toLocaleString("fr-FR")} €</Mono></td>
+                      <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{color:m.ebitda_r===null?T.dim:m.ebitda_r>=0?T.green:T.red}}>{m.ebitda_r===null?"—":(m.ebitda_r>=0?"+":"")+m.ebitda_r.toLocaleString("fr-FR",{maximumFractionDigits:0})+" €"}</Mono></td>
+                      <td style={{padding:"10px 12px",textAlign:"right"}}>{m.taux_r!==null?<Pill color={m.taux_r>=46?T.green:T.amber} dim={m.taux_r>=46?T.greenDim:T.amberDim}>{m.taux_r}%</Pill>:<Mono style={{color:T.dim}}>—</Mono>}</td>
+                    </tr>
+                  )
+                })}
+                <tr style={{borderTop:`2px solid ${T.borderHi}`,background:T.elevated}}>
+                  <td style={{padding:"10px 12px",fontWeight:700}}>TOTAL YTD</td>
+                  <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{color:T.muted,fontWeight:700}}>{ytdBudget.toLocaleString("fr-FR",{maximumFractionDigits:0})} €</Mono></td>
+                  <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{color:T.accentHi,fontWeight:700}}>{ytdCA.toLocaleString("fr-FR",{maximumFractionDigits:0})} €</Mono></td>
+                  <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{color:ytdCA>=ytdBudget?T.green:T.red,fontWeight:700}}>{(ytdCA-ytdBudget>=0?"+":"")+(ytdCA-ytdBudget).toLocaleString("fr-FR",{maximumFractionDigits:0})} €</Mono></td>
+                  <td colSpan={5}/>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        )}
+
+        {/* CHARGES FIXES */}
+        {tab==="cf" && (
+          <div style={{overflowX:"auto"}}>
+            <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
+              <thead>
+                <tr>
+                  {["Poste de charge","Budget/mois","Janvier","Février","Mars","Écart cumulé"].map(h=>(
+                    <th key={h} style={{textAlign:h==="Poste de charge"?"left":"right",padding:"9px 12px",fontSize:10,color:T.muted,fontFamily:"'JetBrains Mono',monospace",letterSpacing:"1px",textTransform:"uppercase",background:T.elevated,borderBottom:`1px solid ${T.border}`}}>{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {CHARGES_FIXES.map(c=>{
+                  const cumul = c.jan+c.fev+c.mar
+                  const budgetCumul = c.budget*3
+                  const ecart = cumul - budgetCumul
+                  return (
+                    <tr key={c.label} style={{borderBottom:`1px solid rgba(33,41,58,.5)`}}
+                      onMouseEnter={e=>e.currentTarget.style.background=T.elevated}
+                      onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
+                      <td style={{padding:"10px 12px",fontWeight:500}}>{c.label}</td>
+                      <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{color:T.muted}}>{c.budget.toLocaleString("fr-FR")} €</Mono></td>
+                      <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{color:c.jan>c.budget?T.amber:T.text}}>{c.jan.toLocaleString("fr-FR",{minimumFractionDigits:2})} €</Mono></td>
+                      <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{color:c.fev>c.budget?T.amber:T.text}}>{c.fev.toLocaleString("fr-FR",{minimumFractionDigits:2})} €</Mono></td>
+                      <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{color:c.mar>c.budget?T.amber:T.text}}>{c.mar.toLocaleString("fr-FR",{minimumFractionDigits:2})} €</Mono></td>
+                      <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{color:ecart>0?T.red:T.green,fontWeight:600}}>{(ecart>=0?"+":"")+ecart.toLocaleString("fr-FR",{maximumFractionDigits:0})} €</Mono></td>
+                    </tr>
+                  )
+                })}
+                <tr style={{borderTop:`2px solid ${T.borderHi}`,background:T.elevated}}>
+                  <td style={{padding:"10px 12px",fontWeight:700}}>TOTAL</td>
+                  <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{fontWeight:700,color:T.muted}}>{CHARGES_FIXES.reduce((s,c)=>s+c.budget,0).toLocaleString("fr-FR")} €</Mono></td>
+                  <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{fontWeight:700}}>{CHARGES_FIXES.reduce((s,c)=>s+c.jan,0).toLocaleString("fr-FR",{maximumFractionDigits:0})} €</Mono></td>
+                  <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{fontWeight:700}}>{CHARGES_FIXES.reduce((s,c)=>s+c.fev,0).toLocaleString("fr-FR",{maximumFractionDigits:0})} €</Mono></td>
+                  <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{fontWeight:700}}>{CHARGES_FIXES.reduce((s,c)=>s+c.mar,0).toLocaleString("fr-FR",{maximumFractionDigits:0})} €</Mono></td>
+                  <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{fontWeight:700,color:T.red}}>+{(CHARGES_FIXES.reduce((s,c)=>s+c.jan+c.fev+c.mar,0)-CHARGES_FIXES.reduce((s,c)=>s+c.budget*3,0)).toLocaleString("fr-FR",{maximumFractionDigits:0})} €</Mono></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        )}
+
+        {/* TRÉSORERIE */}
+        {tab==="treso" && (
+          <div style={{overflowX:"auto"}}>
+            <div style={{marginBottom:16,display:"flex",gap:20}}>
+              <div style={{background:T.surface,border:`1px solid ${T.border}`,borderRadius:10,padding:"14px 20px",flex:1}}>
+                <div style={{fontSize:10,color:T.muted,fontFamily:"'JetBrains Mono',monospace",letterSpacing:"1px",marginBottom:6}}>TRÉSORERIE DÉBUT</div>
+                <div style={{fontSize:22,fontWeight:700,color:T.text,fontFamily:"'JetBrains Mono',monospace"}}>262 639 €</div>
+                <div style={{fontSize:11,color:T.muted}}>Déc-25</div>
+              </div>
+              <div style={{background:T.surface,border:`1px solid ${T.border}`,borderRadius:10,padding:"14px 20px",flex:1}}>
+                <div style={{fontSize:10,color:T.muted,fontFamily:"'JetBrains Mono',monospace",letterSpacing:"1px",marginBottom:6}}>TRÉSORERIE FIN MARS</div>
+                <div style={{fontSize:22,fontWeight:700,color:T.green,fontFamily:"'JetBrains Mono',monospace"}}>450 472 €</div>
+                <div style={{fontSize:11,color:T.muted}}>+71% vs Déc-25</div>
+              </div>
+              <div style={{background:T.surface,border:`1px solid ${T.border}`,borderRadius:10,padding:"14px 20px",flex:1}}>
+                <div style={{fontSize:10,color:T.muted,fontFamily:"'JetBrains Mono',monospace",letterSpacing:"1px",marginBottom:6}}>VARIATION NETTE</div>
+                <div style={{fontSize:22,fontWeight:700,color:T.green,fontFamily:"'JetBrains Mono',monospace"}}>+187 833 €</div>
+                <div style={{fontSize:11,color:T.muted}}>Sur 3 mois</div>
+              </div>
+            </div>
+            <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
+              <thead>
+                <tr>
+                  {["Mois","Tréso début","Encaissements","Décaissements","Variation","Tréso fin"].map(h=>(
+                    <th key={h} style={{textAlign:h==="Mois"?"left":"right",padding:"9px 12px",fontSize:10,color:T.muted,fontFamily:"'JetBrains Mono',monospace",letterSpacing:"1px",textTransform:"uppercase",background:T.elevated,borderBottom:`1px solid ${T.border}`}}>{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {TRESORERIE.map(t=>{
+                  const variation = t.encaiss - t.decaiss
+                  return (
+                    <tr key={t.mois} style={{borderBottom:`1px solid rgba(33,41,58,.5)`}}
+                      onMouseEnter={e=>e.currentTarget.style.background=T.elevated}
+                      onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
+                      <td style={{padding:"10px 12px",fontWeight:600}}>{t.mois}</td>
+                      <td style={{padding:"10px 12px",textAlign:"right"}}><Mono>{t.debut.toLocaleString("fr-FR",{maximumFractionDigits:0})} €</Mono></td>
+                      <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{color:t.encaiss>0?T.green:T.dim}}>{t.encaiss>0?t.encaiss.toLocaleString("fr-FR",{maximumFractionDigits:0})+" €":"—"}</Mono></td>
+                      <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{color:t.decaiss>0?T.red:T.dim}}>{t.decaiss>0?t.decaiss.toLocaleString("fr-FR",{maximumFractionDigits:0})+" €":"—"}</Mono></td>
+                      <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{color:variation>=0?T.green:T.red,fontWeight:600}}>{t.encaiss>0?(variation>=0?"+":"")+variation.toLocaleString("fr-FR",{maximumFractionDigits:0})+" €":"—"}</Mono></td>
+                      <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{color:T.accentHi,fontWeight:600}}>{t.fin.toLocaleString("fr-FR",{maximumFractionDigits:0})} €</Mono></td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
+
+        {/* BFR */}
+        {tab==="bfr" && (
+          <div>
+            <div style={{overflowX:"auto"}}>
+              <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
+                <thead>
+                  <tr>
+                    {["Mois","Stock","BNP non échu","CIC non échu","Encours BNP","Encours CIC","Dettes fourn.","BFR Total"].map(h=>(
+                      <th key={h} style={{textAlign:h==="Mois"?"left":"right",padding:"9px 12px",fontSize:10,color:T.muted,fontFamily:"'JetBrains Mono',monospace",letterSpacing:"1px",textTransform:"uppercase",background:T.elevated,borderBottom:`1px solid ${T.border}`,whiteSpace:"nowrap"}}>{h}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {BFR_DATA.map(b=>(
+                    <tr key={b.mois} style={{borderBottom:`1px solid rgba(33,41,58,.5)`}}
+                      onMouseEnter={e=>e.currentTarget.style.background=T.elevated}
+                      onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
+                      <td style={{padding:"10px 12px",fontWeight:600}}>{b.mois}</td>
+                      <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{color:T.text}}>{b.stock.toLocaleString("fr-FR")} €</Mono></td>
+                      <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{color:T.accentHi}}>{b.bnp_ne.toLocaleString("fr-FR")} €</Mono></td>
+                      <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{color:T.teal}}>{b.cic_ne.toLocaleString("fr-FR")} €</Mono></td>
+                      <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{color:T.amber}}>{b.bnp_e.toLocaleString("fr-FR")} €</Mono></td>
+                      <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{color:T.amber}}>{b.cic_e.toLocaleString("fr-FR")} €</Mono></td>
+                      <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{color:T.red}}>{b.dettes.toLocaleString("fr-FR")} €</Mono></td>
+                      <td style={{padding:"10px 12px",textAlign:"right"}}><Mono style={{color:b.bfr>500000?T.red:T.amber,fontWeight:700}}>{b.bfr.toLocaleString("fr-FR")} €</Mono></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div style={{marginTop:16,padding:"14px 16px",background:T.elevated,border:`1px solid ${T.border}`,borderRadius:8,fontSize:12,color:T.muted}}>
+              💡 <strong style={{color:T.text}}>BFR = Stocks + Créances clients − Dettes fournisseurs</strong> · Le BFR de mars (912k€) reflète la forte croissance des créances non échues BNP/CIC liée à l'affacturage.
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
+
+
 function ParametresPage(){
   const items=[
     {titre:"Pennylane",     desc:"Make · Connexion 'Anthropic CLAUDE V3' · Mars 2026",                    badge:"Actif",     color:T.green},
@@ -667,6 +932,7 @@ export default function App(){
     if(page==="dashboard")    return <DashboardPage/>
     if(page==="encours-bnp")  return <EncoursPage banque="BNP"/>
     if(page==="encours-cic")  return <EncoursPage banque="CIC"/>
+    if(page==="budget")       return <BudgetPage/>
     if(page==="transactions") return <TransactionsPage/>
     if(page==="sharepoint")   return <SharePointPage/>
     if(page==="parametres")   return <ParametresPage/>
