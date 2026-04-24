@@ -445,11 +445,8 @@ function EncoursPage({banque}){
   )
 }
 
-// ─── TRANSACTIONS PAGE — TEMPS RÉEL via Make Webhook ─────────────────────────
-const MAKE_WEBHOOK = "https://hook.eu1.make.com/dloxwtt4hstc5t7r2ob6ebukjdi6ahfw"
-
+// ─── TRANSACTIONS PAGE — TEMPS RÉEL via Make Tool (ID: 5431290) ──────────────
 function normalizeTransaction(tx) {
-  // Normalise les données Pennylane depuis le webhook Make
   return {
     id:                  tx.id,
     date:                tx.date,
@@ -480,25 +477,59 @@ function TransactionsPage(){
     setLoading(true)
     setError(null)
     try {
-      const res = await fetch(`${MAKE_WEBHOOK}?limit=100`, {
-        method: "GET",
-        headers: { "Accept": "application/json" }
+      // Appel via API Anthropic avec le Tool Make (scénario 5431290)
+      const res = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          model: "claude-sonnet-4-20250514",
+          max_tokens: 1000,
+          system: "Tu es un assistant qui retourne uniquement du JSON valide, sans markdown. Quand tu reçois des données de transactions Pennylane, retourne-les en JSON avec le format: {\"transactions\": [...liste des items...]}",
+          mcp_servers: [{ type: "url", url: "https://mcp.make.com", name: "make-mcp" }],
+          messages: [{
+            role: "user",
+            content: "Exécute le scénario Make ID 5431290 'Lire Toutes Transactions Pennylane - Finance App' et retourne le résultat en JSON avec le format {\"transactions\": [...]}. Inclus tous les champs: id, date, label, amount, currency, currency_amount, attachment_required, categories."
+          }]
+        })
       })
-      if (!res.ok) throw new Error(`HTTP ${res.status}`)
       const data = await res.json()
 
-      // Pennylane retourne { transactions: [...] } ou directement un tableau
+      // Extraire les données depuis la réponse
       let list = []
-      if (Array.isArray(data)) list = data
-      else if (data.transactions) list = data.transactions
-      else if (data.data) list = Array.isArray(data.data) ? data.data : []
+      const textBlocks = (data.content || []).filter(b => b.type === "text").map(b => b.text).join("")
+      const toolResults = (data.content || []).filter(b => b.type === "mcp_tool_result")
 
-      const normalized = list.map(normalizeTransaction)
-      setTxData(normalized)
-      setLastSync(new Date())
-      setLoaded(true)
+      // Chercher dans les tool results
+      for (const block of toolResults) {
+        try {
+          const txt = block?.content?.[0]?.text || ""
+          const parsed = JSON.parse(txt)
+          if (parsed.transactions) { list = parsed.transactions; break }
+          if (Array.isArray(parsed)) { list = parsed; break }
+          if (parsed.body?.items) { list = parsed.body.items; break }
+        } catch(e) {}
+      }
+
+      // Chercher dans le texte si pas trouvé
+      if (list.length === 0 && textBlocks) {
+        try {
+          const clean = textBlocks.replace(/```json|```/g, "").trim()
+          const parsed = JSON.parse(clean)
+          if (parsed.transactions) list = parsed.transactions
+          else if (Array.isArray(parsed)) list = parsed
+          else if (parsed.body?.items) list = parsed.body.items
+        } catch(e) {}
+      }
+
+      if (list.length > 0) {
+        setTxData(list.map(normalizeTransaction))
+        setLastSync(new Date())
+        setLoaded(true)
+      } else {
+        throw new Error("Aucune transaction reçue de Make")
+      }
     } catch(e) {
-      setError("Impossible de charger les transactions. " + e.message)
+      setError("Impossible de charger les transactions : " + e.message)
       setLoaded(true)
     }
     setLoading(false)
