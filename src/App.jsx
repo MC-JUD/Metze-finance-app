@@ -445,18 +445,67 @@ function EncoursPage({banque}){
   )
 }
 
-// ─── TRANSACTIONS PAGE ────────────────────────────────────────────────────────
+// ─── TRANSACTIONS PAGE — TEMPS RÉEL via Make Webhook ─────────────────────────
+const MAKE_WEBHOOK = "https://hook.eu1.make.com/dloxwtt4hstc5t7r2ob6ebukjdi6ahfw"
+
+function normalizeTransaction(tx) {
+  // Normalise les données Pennylane depuis le webhook Make
+  return {
+    id:                  tx.id,
+    date:                tx.date,
+    label:               tx.label || tx.description || "",
+    amount:              tx.amount?.toString() || "0",
+    currency:            tx.currency || "EUR",
+    currency_amount:     tx.currency_amount?.toString() || tx.amount?.toString() || "0",
+    attachment_required: tx.attachment_required || false,
+    categories:          tx.categories || [],
+  }
+}
+
 function TransactionsPage(){
-  const [search,   setSearch]  = useState("")
-  const [tab,      setTab]     = useState("toutes")
-  const [cat,      setCat]     = useState("all")
-  const [sortCol,  setSort]    = useState("date")
-  const [sortDir,  setDir]     = useState("desc")
-  const [page,     setPage]    = useState(0)
-  const PER = 10
+  const [txData,    setTxData]  = useState([])
+  const [loading,   setLoading] = useState(false)
+  const [error,     setError]   = useState(null)
+  const [loaded,    setLoaded]  = useState(false)
+  const [search,    setSearch]  = useState("")
+  const [tab,       setTab]     = useState("toutes")
+  const [cat,       setCat]     = useState("all")
+  const [sortCol,   setSort]    = useState("date")
+  const [sortDir,   setDir]     = useState("desc")
+  const [page,      setPage]    = useState(0)
+  const [lastSync,  setLastSync]= useState(null)
+  const PER = 15
+
+  async function loadTransactions() {
+    setLoading(true)
+    setError(null)
+    try {
+      const res = await fetch(`${MAKE_WEBHOOK}?limit=100`, {
+        method: "GET",
+        headers: { "Accept": "application/json" }
+      })
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      const data = await res.json()
+
+      // Pennylane retourne { transactions: [...] } ou directement un tableau
+      let list = []
+      if (Array.isArray(data)) list = data
+      else if (data.transactions) list = data.transactions
+      else if (data.data) list = Array.isArray(data.data) ? data.data : []
+
+      const normalized = list.map(normalizeTransaction)
+      setTxData(normalized)
+      setLastSync(new Date())
+      setLoaded(true)
+    } catch(e) {
+      setError("Impossible de charger les transactions. " + e.message)
+      setLoaded(true)
+    }
+    setLoading(false)
+  }
 
   const tabs    = ["toutes","débits","crédits","non classés"]
-  const allCats = [...new Set(TRANSACTIONS.map(t=>inferCategory(t).label))]
+  const allCats = [...new Set(txData.map(t=>inferCategory(t).label))]
 
   function toggleSort(col){
     if(sortCol===col) setDir(d=>d==="asc"?"desc":"asc")
@@ -464,13 +513,13 @@ function TransactionsPage(){
     setPage(0)
   }
 
-  const filtered = useMemo(()=>TRANSACTIONS
+  const filtered = useMemo(()=>txData
     .filter(t=>{
       const v=parseFloat(t.amount), c=inferCategory(t)
-      if(tab==="débits"      && v>=0)                  return false
-      if(tab==="crédits"     && v<0)                   return false
+      if(tab==="débits"      && v>=0)                   return false
+      if(tab==="crédits"     && v<0)                    return false
       if(tab==="non classés" && c.label!=="Non classé") return false
-      if(cat!=="all"         && c.label!==cat)         return false
+      if(cat!=="all"         && c.label!==cat)          return false
       if(search && !t.label.toLowerCase().includes(search.toLowerCase())) return false
       return true
     })
@@ -480,10 +529,9 @@ function TransactionsPage(){
       const r=av<bv?-1:av>bv?1:0
       return sortDir==="asc"?r:-r
     })
-  ,[search,tab,cat,sortCol,sortDir])
+  ,[txData,search,tab,cat,sortCol,sortDir])
 
   const paged = filtered.slice(page*PER,(page+1)*PER)
-  const totalOut = TRANSACTIONS.filter(t=>parseFloat(t.amount)<0).reduce((s,t)=>s+Math.abs(parseFloat(t.amount)),0)
 
   const Th=({col,children,align="left",w})=>(
     <th onClick={()=>toggleSort(col)} style={{textAlign:align,padding:"9px 12px",fontSize:10,fontWeight:600,letterSpacing:"1.1px",textTransform:"uppercase",color:T.muted,fontFamily:"'JetBrains Mono',monospace",background:T.elevated,borderBottom:`1px solid ${T.border}`,cursor:"pointer",userSelect:"none",whiteSpace:"nowrap",width:w}}>
@@ -491,18 +539,52 @@ function TransactionsPage(){
     </th>
   )
 
+  // Écran de chargement initial
+  if (!loaded) {
+    return (
+      <div style={{display:"flex",flexDirection:"column",height:"100%",overflow:"hidden"}}>
+        <Topbar title="Transactions Pennylane" sub="Temps réel · Make 'Anthropic CLAUDE V3'"/>
+        <div style={{flex:1,display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",gap:20}}>
+          <div style={{fontSize:40}}>💸</div>
+          <div style={{fontWeight:700,fontSize:16}}>Transactions Pennylane</div>
+          <div style={{color:T.muted,fontSize:13,textAlign:"center",maxWidth:400}}>
+            Chargez toutes les transactions en temps réel depuis Pennylane via Make.<br/>
+            <span style={{color:T.accentHi}}>Toutes les transactions — sans filtre de date.</span>
+          </div>
+          {error && <div style={{padding:"10px 16px",background:T.redDim,border:`1px solid ${T.red}30`,borderRadius:8,fontSize:12,color:T.red,maxWidth:400,textAlign:"center"}}>{error}</div>}
+          <button onClick={loadTransactions} disabled={loading} style={{display:"inline-flex",alignItems:"center",gap:8,padding:"10px 24px",background:T.accent,color:"#fff",border:"none",borderRadius:8,fontSize:14,fontWeight:600,cursor:loading?"not-allowed":"pointer",opacity:loading?0.7:1}}>
+            {loading ? "⏳ Chargement…" : "⚡ Charger les transactions"}
+          </button>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div style={{display:"flex",flexDirection:"column",height:"100%",overflow:"hidden"}}>
-      <Topbar title="Transactions Pennylane" sub="Mars 2026 · Make 'Anthropic CLAUDE V3'"
-        right={<div style={{display:"flex",alignItems:"center",gap:6,fontSize:12,color:T.green}}><span style={{width:6,height:6,borderRadius:"50%",background:T.green,animation:"pulse 2s infinite",display:"inline-block"}}/> Sync active</div>}/>
+      <Topbar title="Transactions Pennylane" sub={`Temps réel · Make 'Anthropic CLAUDE V3'${lastSync?" · Sync : "+lastSync.toLocaleTimeString("fr-FR"):""}`}
+        right={
+          <div style={{display:"flex",alignItems:"center",gap:10}}>
+            {loading && <Mono style={{color:T.amber}}>⏳ Chargement…</Mono>}
+            <button onClick={loadTransactions} disabled={loading} style={{display:"inline-flex",alignItems:"center",gap:5,padding:"5px 12px",background:T.accentGlow,border:`1px solid rgba(37,99,235,0.3)`,borderRadius:7,color:T.accentHi,fontSize:12,fontWeight:600,cursor:loading?"not-allowed":"pointer"}}>
+              🔄 Rafraîchir
+            </button>
+            <div style={{display:"flex",alignItems:"center",gap:5,fontSize:12,color:T.green}}>
+              <span style={{width:6,height:6,borderRadius:"50%",background:T.green,animation:"pulse 2s infinite",display:"inline-block"}}/>
+              Live
+            </div>
+          </div>
+        }/>
+
+      {error && <div style={{padding:"10px 16px",background:T.redDim,border:`1px solid ${T.red}30`,fontSize:12,color:T.red,flexShrink:0}}>{error}</div>}
 
       {/* Compteurs */}
       <div style={{display:"flex",borderBottom:`1px solid ${T.border}`,background:T.surface,flexShrink:0}}>
         {[
-          {count:TRANSACTIONS.length,            label:"Total",       color:T.text},
-          {count:TRANSACTIONS.filter(t=>parseFloat(t.amount)<0).length, label:"Débits",  color:T.red},
-          {count:TRANSACTIONS.filter(t=>parseFloat(t.amount)>0).length, label:"Crédits", color:T.green},
-          {count:TRANSACTIONS.filter(t=>t.categories.length===0).length,label:"Non classés",color:T.amber},
+          {count:txData.length,                                                           label:"Total",       color:T.text},
+          {count:txData.filter(t=>parseFloat(t.amount)<0).length,                        label:"Débits",      color:T.red},
+          {count:txData.filter(t=>parseFloat(t.amount)>0).length,                        label:"Crédits",     color:T.green},
+          {count:txData.filter(t=>!t.categories||t.categories.length===0).length,        label:"Non classés", color:T.amber},
         ].map((c,i)=>(
           <div key={i} style={{flex:1,textAlign:"center",padding:"12px 0",borderRight:i<3?`1px solid ${T.border}`:"none"}}>
             <div style={{fontSize:22,fontWeight:700,color:c.color,fontFamily:"'JetBrains Mono',monospace",lineHeight:1}}>{c.count}</div>
@@ -512,7 +594,7 @@ function TransactionsPage(){
       </div>
 
       {/* Onglets + filtres */}
-      <div style={{borderBottom:`1px solid ${T.border}`,background:T.surface,display:"flex",alignItems:"center",padding:"0 12px 0 0",gap:0,flexShrink:0}}>
+      <div style={{borderBottom:`1px solid ${T.border}`,background:T.surface,display:"flex",alignItems:"center",padding:"0 12px 0 0",flexShrink:0}}>
         {tabs.map(t=>(
           <button key={t} onClick={()=>{setTab(t);setPage(0)}} style={{padding:"10px 12px",fontSize:12,fontWeight:tab===t?600:400,color:tab===t?T.accentHi:T.muted,borderBottom:tab===t?`2px solid ${T.accentHi}`:"2px solid transparent",background:"transparent",border:"none",cursor:"pointer",textTransform:"capitalize",marginBottom:-1,transition:"color .12s"}}>{t}</button>
         ))}
@@ -527,6 +609,7 @@ function TransactionsPage(){
             <option value="all">Catégorie</option>
             {allCats.map(c=><option key={c} value={c}>{c}</option>)}
           </select>
+          <Mono style={{color:T.muted}}>{filtered.length} résultats</Mono>
         </div>
       </div>
 
@@ -561,7 +644,7 @@ function TransactionsPage(){
                   </td>
                   <td style={{padding:"11px 12px"}}><Tag icon={c.icon} label={c.label} color={c.color} dim={c.dim}/></td>
                   <td style={{padding:"11px 12px",textAlign:"right"}}><Mono style={{color:pos?T.green:T.red,fontWeight:500,fontSize:13}}>{fmtEur(tx.amount)}</Mono></td>
-                  <td style={{padding:"11px 12px",textAlign:"right"}}><Mono style={{color:T.muted}}>{parseFloat(tx.currency_amount).toLocaleString("fr-FR",{minimumFractionDigits:2})} {tx.currency}</Mono></td>
+                  <td style={{padding:"11px 12px",textAlign:"right"}}><Mono style={{color:T.muted}}>{parseFloat(tx.currency_amount||tx.amount||0).toLocaleString("fr-FR",{minimumFractionDigits:2})} {tx.currency}</Mono></td>
                   <td style={{padding:"11px 12px",textAlign:"center"}}>{tx.attachment_required?<span style={{fontSize:11,color:T.amber}}>📎</span>:<span style={{fontSize:11,color:T.green}}>✓</span>}</td>
                 </tr>
               )
@@ -572,7 +655,7 @@ function TransactionsPage(){
 
       {/* Pagination */}
       <div style={{display:"flex",alignItems:"center",justifyContent:"flex-end",gap:8,padding:"10px 16px",borderTop:`1px solid ${T.border}`,background:T.surface,flexShrink:0}}>
-        <Mono style={{color:T.muted}}>{page*PER+1}–{Math.min((page+1)*PER,filtered.length)} / {filtered.length}</Mono>
+        <Mono style={{color:T.muted}}>{Math.min(page*PER+1,filtered.length)}–{Math.min((page+1)*PER,filtered.length)} / {filtered.length}</Mono>
         <button onClick={()=>setPage(p=>Math.max(0,p-1))} disabled={page===0} style={{padding:"5px 12px",background:T.elevated,border:`1px solid ${T.border}`,borderRadius:6,color:page===0?T.dim:T.muted,cursor:page===0?"not-allowed":"pointer",fontSize:12}}>← Préc.</button>
         <button onClick={()=>setPage(p=>p+1)} disabled={(page+1)*PER>=filtered.length} style={{padding:"5px 12px",background:T.elevated,border:`1px solid ${T.border}`,borderRadius:6,color:(page+1)*PER>=filtered.length?T.dim:T.muted,cursor:(page+1)*PER>=filtered.length?"not-allowed":"pointer",fontSize:12}}>Suiv. →</button>
       </div>
