@@ -445,8 +445,9 @@ function EncoursPage({banque}){
   )
 }
 
-// ─── TRANSACTIONS PAGE — TEMPS RÉEL via Make Webhook ─────────────────────────
-const MAKE_WEBHOOK = "https://hook.eu1.make.com/dloxwtt4hstc5t7r2ob6ebukjdi6ahfw"
+// ─── TRANSACTIONS PAGE — via fichier JSON statique mis à jour par Make ────────
+// Make lit Pennylane toutes les heures et écrit public/transactions.json
+// Zéro CORS, zéro problème, données automatiquement à jour
 
 function normalizeTransaction(tx) {
   return {
@@ -479,30 +480,17 @@ function TransactionsPage(){
     setLoading(true)
     setError(null)
     try {
-      const res = await fetch(MAKE_WEBHOOK, {
-        method: "GET",
-        mode: "cors",
-      })
-      const text = await res.text()
-
-      let list = []
-      try {
-        const data = JSON.parse(text)
-        // Pennylane API retourne { items: [...], has_more, next_cursor }
-        if (data.items)        list = data.items
-        else if (data.transactions) list = data.transactions
-        else if (Array.isArray(data)) list = data
-        else if (data.body?.items)    list = data.body.items
-      } catch(e) {
-        throw new Error("Réponse Make non valide : " + text.substring(0, 100))
-      }
-
+      // Lit le fichier JSON statique mis à jour automatiquement par Make
+      const res = await fetch("/Metze-finance-app/transactions.json?t=" + Date.now())
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      const data = await res.json()
+      const list = data.items || data.transactions || (Array.isArray(data) ? data : [])
       if (list.length > 0) {
         setTxData(list.map(normalizeTransaction))
-        setLastSync(new Date())
+        setLastSync(data.updated_at ? new Date(data.updated_at) : new Date())
         setLoaded(true)
       } else {
-        throw new Error("Aucune transaction reçue")
+        throw new Error("Fichier vide ou format inattendu")
       }
     } catch(e) {
       setError("Impossible de charger : " + e.message)
