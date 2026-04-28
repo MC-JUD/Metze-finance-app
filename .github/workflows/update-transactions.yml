@@ -15,7 +15,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GH_PAT }}
+          token: ${{ secrets.GH_TOKEN }}
 
       - name: Fetch all 2026 transactions from Pennylane via Make
         id: fetch
@@ -104,4 +104,4 @@ jobs:
           git diff --staged --quiet || git commit -m "Auto-update: ${{ steps.fetch.outputs.transactions_count }} transactions Pennylane 2026 - $(date -u +%Y-%m-%d\ %H:%M)"
           git push
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
