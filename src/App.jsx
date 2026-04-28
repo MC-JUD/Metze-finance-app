@@ -521,6 +521,8 @@ function TransactionsPage(){
     .sort((a,b)=>{
       let av=a[sortCol],bv=b[sortCol]
       if(sortCol==="amount"){av=parseFloat(a.amount);bv=parseFloat(b.amount)}
+      else if(sortCol==="date"){av=new Date(a.date).getTime();bv=new Date(b.date).getTime()}
+      else if(sortCol==="currency_amount"){av=parseFloat(a.currency_amount);bv=parseFloat(b.currency_amount)}
       const r=av<bv?-1:av>bv?1:0
       return sortDir==="asc"?r:-r
     })
