@@ -26,19 +26,7 @@
       "pro_account_expense": null,
       "customer": null,
       "supplier": null,
-      "categories": [
-        {
-          "weight": "1.0",
-          "id": 18229548,
-          "label": "1 - ACHAT MARCHANDISES - HORS UE  ",
-          "analytical_code": null,
-          "created_at": "2025-07-01T09:10:57.489845Z",
-          "updated_at": "2025-11-18T09:54:19.484052Z",
-          "category_group": {
-            "id": 806933
-          }
-        }
-      ],
+      "categories": [],
       "matched_invoices": {
         "url": "https://app.pennylane.com/api/external/v2/transactions/5048320382/matched_invoices"
       }
@@ -69,7 +57,19 @@
       "pro_account_expense": null,
       "customer": null,
       "supplier": null,
-      "categories": [],
+      "categories": [
+        {
+          "weight": "1.0",
+          "id": 18229548,
+          "label": "1 - ACHAT MARCHANDISES - HORS UE  ",
+          "analytical_code": null,
+          "created_at": "2025-07-01T09:10:57.489845Z",
+          "updated_at": "2025-11-18T09:54:19.484052Z",
+          "category_group": {
+            "id": 806933
+          }
+        }
+      ],
       "matched_invoices": {
         "url": "https://app.pennylane.com/api/external/v2/transactions/5048320381/matched_invoices"
       }
@@ -100,7 +100,19 @@
       "pro_account_expense": null,
       "customer": null,
       "supplier": null,
-      "categories": [],
+      "categories": [
+        {
+          "weight": "1.0",
+          "id": 9874613,
+          "label": "4 - CHARGES DE PERSONNEL",
+          "analytical_code": null,
+          "created_at": "2024-05-28T09:08:47.640200Z",
+          "updated_at": "2025-11-18T14:50:17.495291Z",
+          "category_group": {
+            "id": 806933
+          }
+        }
+      ],
       "matched_invoices": {
         "url": "https://app.pennylane.com/api/external/v2/transactions/5048320380/matched_invoices"
       }
@@ -131,7 +143,19 @@
       "pro_account_expense": null,
       "customer": null,
       "supplier": null,
-      "categories": [],
+      "categories": [
+        {
+          "weight": "1.0",
+          "id": 9874613,
+          "label": "4 - CHARGES DE PERSONNEL",
+          "analytical_code": null,
+          "created_at": "2024-05-28T09:08:47.640200Z",
+          "updated_at": "2025-11-18T14:50:17.495291Z",
+          "category_group": {
+            "id": 806933
+          }
+        }
+      ],
       "matched_invoices": {
         "url": "https://app.pennylane.com/api/external/v2/transactions/5048320379/matched_invoices"
       }
@@ -148,8 +172,8 @@
       "fee": "0.0",
       "id": 5048320378,
       "label": "CLINIQUE DE L ANJOU\n- CLINIQUE DE L ANJOU\n(ref: METZ00 V240426 - METZ00 V240426)",
-      "outstanding_balance": "-1173.52",
-      "updated_at": "2026-04-28T07:05:37.199948Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-04-28T10:28:33.994625Z",
       "interbank_code": "18C",
       "journal": {
         "id": 3786218,
@@ -160,9 +184,24 @@
         "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
       },
       "pro_account_expense": null,
-      "customer": null,
+      "customer": {
+        "id": 238786644,
+        "url": "https://app.pennylane.com/api/external/v2/customers/238786644"
+      },
       "supplier": null,
-      "categories": [],
+      "categories": [
+        {
+          "weight": "1.0",
+          "id": 10565795,
+          "label": "7 - VENTES",
+          "analytical_code": null,
+          "created_at": "2024-07-04T10:42:16.198767Z",
+          "updated_at": "2025-07-28T14:48:21.226881Z",
+          "category_group": {
+            "id": 806933
+          }
+        }
+      ],
       "matched_invoices": {
         "url": "https://app.pennylane.com/api/external/v2/transactions/5048320378/matched_invoices"
       }
@@ -179,8 +218,8 @@
       "fee": "0.0",
       "id": 5048320377,
       "label": "CENTRALE RAMSAY SANTE\n202602616\n- CENTRALE RAMSAY SANTE\n(ref: 114-FSCT LOUVIER - 114-FSCT LOUVIERE)",
-      "outstanding_balance": "-1152.0",
-      "updated_at": "2026-04-28T07:05:37.199945Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-04-28T10:31:55.001162Z",
       "interbank_code": "18C",
       "journal": {
         "id": 3786218,
@@ -191,9 +230,24 @@
         "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
       },
       "pro_account_expense": null,
-      "customer": null,
+      "customer": {
+        "id": 238787925,
+        "url": "https://app.pennylane.com/api/external/v2/customers/238787925"
+      },
       "supplier": null,
-      "categories": [],
+      "categories": [
+        {
+          "weight": "1.0",
+          "id": 10565795,
+          "label": "7 - VENTES",
+          "analytical_code": null,
+          "created_at": "2024-07-04T10:42:16.198767Z",
+          "updated_at": "2025-07-28T14:48:21.226881Z",
+          "category_group": {
+            "id": 806933
+          }
+        }
+      ],
       "matched_invoices": {
         "url": "https://app.pennylane.com/api/external/v2/transactions/5048320377/matched_invoices"
       }
@@ -210,8 +264,8 @@
       "fee": "0.0",
       "id": 5048320376,
       "label": "ASSISTANCE PUBLIQUE-HOPITAUX DE\n0000000000000243MD 5100086871 GH A.CHENEVIER-H.MO026NSI\n- DIRECTION SPECIALISEE DES FINANCES PUBLIQUES POUR APHP\n(ref: 2C07530005100086 - 2C075300051000868712026001)",
-      "outstanding_balance": "-792.0",
-      "updated_at": "2026-04-28T07:05:37.199943Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-04-28T14:59:15.049800Z",
       "interbank_code": "18C",
       "journal": {
         "id": 3786218,
@@ -222,9 +276,24 @@
         "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
       },
       "pro_account_expense": null,
-      "customer": null,
+      "customer": {
+        "id": 247908359,
+        "url": "https://app.pennylane.com/api/external/v2/customers/247908359"
+      },
       "supplier": null,
-      "categories": [],
+      "categories": [
+        {
+          "weight": "1.0",
+          "id": 10565795,
+          "label": "7 - VENTES",
+          "analytical_code": null,
+          "created_at": "2024-07-04T10:42:16.198767Z",
+          "updated_at": "2025-07-28T14:48:21.226881Z",
+          "category_group": {
+            "id": 806933
+          }
+        }
+      ],
       "matched_invoices": {
         "url": "https://app.pennylane.com/api/external/v2/transactions/5048320376/matched_invoices"
       }
@@ -241,8 +310,8 @@
       "fee": "0.0",
       "id": 5048320375,
       "label": "GCS PUI VIA AMBRUSSUM\n2025007092 202602 709\n- GCS PUI VIA AMBRUSSUM\n(ref: TRG-PUIVA2604-19 - TRG-PUIVA2604-197)",
-      "outstanding_balance": "-720.0",
-      "updated_at": "2026-04-28T07:05:37.199940Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-04-28T10:32:43.272279Z",
       "interbank_code": "18C",
       "journal": {
         "id": 3786218,
@@ -255,7 +324,19 @@
       "pro_account_expense": null,
       "customer": null,
       "supplier": null,
-      "categories": [],
+      "categories": [
+        {
+          "weight": "1.0",
+          "id": 10565795,
+          "label": "7 - VENTES",
+          "analytical_code": null,
+          "created_at": "2024-07-04T10:42:16.198767Z",
+          "updated_at": "2025-07-28T14:48:21.226881Z",
+          "category_group": {
+            "id": 806933
+          }
+        }
+      ],
       "matched_invoices": {
         "url": "https://app.pennylane.com/api/external/v2/transactions/5048320375/matched_invoices"
       }
@@ -272,8 +353,8 @@
       "fee": "0.0",
       "id": 5048320374,
       "label": "SERIENCE SOINS DE SUITE ET DE R\nSERIENCE SOINS SUITE READAPTATIONF0293 INICEA ROUGEMONT\n- SERIENCE SOINS DE SUITE ET DE READAPTATION\n(ref: 058ISC1001134 - 058ISC1001134)",
-      "outstanding_balance": "-512.45",
-      "updated_at": "2026-04-28T07:05:37.199938Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-04-28T10:33:52.250191Z",
       "interbank_code": "18C",
       "journal": {
         "id": 3786218,
@@ -284,9 +365,24 @@
         "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
       },
       "pro_account_expense": null,
-      "customer": null,
+      "customer": {
+        "id": 259369407,
+        "url": "https://app.pennylane.com/api/external/v2/customers/259369407"
+      },
       "supplier": null,
-      "categories": [],
+      "categories": [
+        {
+          "weight": "1.0",
+          "id": 10565795,
+          "label": "7 - VENTES",
+          "analytical_code": null,
+          "created_at": "2024-07-04T10:42:16.198767Z",
+          "updated_at": "2025-07-28T14:48:21.226881Z",
+          "category_group": {
+            "id": 806933
+          }
+        }
+      ],
       "matched_invoices": {
         "url": "https://app.pennylane.com/api/external/v2/transactions/5048320374/matched_invoices"
       }
@@ -303,8 +399,8 @@
       "fee": "0.0",
       "id": 5048320373,
       "label": "GCS PHARMACOOPE 31\n202601-135\n- GCS PHARMACOOPE 31\n(ref: TRG-GCS012604017 - TRG-GCS0126040170)",
-      "outstanding_balance": "-507.0",
-      "updated_at": "2026-04-28T07:05:37.199935Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-04-28T10:34:49.071256Z",
       "interbank_code": "18C",
       "journal": {
         "id": 3786218,
@@ -315,9 +411,24 @@
         "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
       },
       "pro_account_expense": null,
-      "customer": null,
+      "customer": {
+        "id": 238787075,
+        "url": "https://app.pennylane.com/api/external/v2/customers/238787075"
+      },
       "supplier": null,
-      "categories": [],
+      "categories": [
+        {
+          "weight": "1.0",
+          "id": 10565795,
+          "label": "7 - VENTES",
+          "analytical_code": null,
+          "created_at": "2024-07-04T10:42:16.198767Z",
+          "updated_at": "2025-07-28T14:48:21.226881Z",
+          "category_group": {
+            "id": 806933
+          }
+        }
+      ],
       "matched_invoices": {
         "url": "https://app.pennylane.com/api/external/v2/transactions/5048320373/matched_invoices"
       }
@@ -334,8 +445,8 @@
       "fee": "0.0",
       "id": 5048320372,
       "label": "CLINIQUE ESTHETIQUE PARIS ETOIL\nCLINIQUE ESTHETIQUE PARIS ET\n- CLINIQUE ESTHETIQUE PARIS ETOILE\n(ref: VK606140SY85L201 - VK606140SY85L201)",
-      "outstanding_balance": "-483.6",
-      "updated_at": "2026-04-28T07:05:37.199932Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-04-28T10:36:06.613890Z",
       "interbank_code": "18C",
       "journal": {
         "id": 3786218,
@@ -346,9 +457,24 @@
         "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
       },
       "pro_account_expense": null,
-      "customer": null,
+      "customer": {
+        "id": 257332425,
+        "url": "https://app.pennylane.com/api/external/v2/customers/257332425"
+      },
       "supplier": null,
-      "categories": [],
+      "categories": [
+        {
+          "weight": "1.0",
+          "id": 10565795,
+          "label": "7 - VENTES",
+          "analytical_code": null,
+          "created_at": "2024-07-04T10:42:16.198767Z",
+          "updated_at": "2025-07-28T14:48:21.226881Z",
+          "category_group": {
+            "id": 806933
+          }
+        }
+      ],
       "matched_invoices": {
         "url": "https://app.pennylane.com/api/external/v2/transactions/5048320372/matched_invoices"
       }
@@ -365,8 +491,8 @@
       "fee": "0.0",
       "id": 5048320371,
       "label": "UNION SANITAIRE ET SOCIALE POUR\n202601355 METZE\n- UNION SANITAIRE ET SOCIALE POUR L ACCOMPAGNEMENT ET LA\n(ref: 5E08-0)METZE 202 - 5E08-0)METZE 202601355)",
-      "outstanding_balance": "-464.2",
-      "updated_at": "2026-04-28T07:05:37.199930Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-04-28T10:36:53.682241Z",
       "interbank_code": "18C",
       "journal": {
         "id": 3786218,
@@ -377,9 +503,24 @@
         "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
       },
       "pro_account_expense": null,
-      "customer": null,
+      "customer": {
+        "id": 245118158,
+        "url": "https://app.pennylane.com/api/external/v2/customers/245118158"
+      },
       "supplier": null,
-      "categories": [],
+      "categories": [
+        {
+          "weight": "1.0",
+          "id": 10565795,
+          "label": "7 - VENTES",
+          "analytical_code": null,
+          "created_at": "2024-07-04T10:42:16.198767Z",
+          "updated_at": "2025-07-28T14:48:21.226881Z",
+          "category_group": {
+            "id": 806933
+          }
+        }
+      ],
       "matched_invoices": {
         "url": "https://app.pennylane.com/api/external/v2/transactions/5048320371/matched_invoices"
       }
@@ -397,7 +538,7 @@
       "id": 5048320370,
       "label": "ZZ1KD0N78O480Z1A8\n- ZARYS INTERNATIONAL SPOLKA Z OGRANICZONA ODPOWIEDZIALNOSCIA\n- 1428857\n(ref: ZZ1KD0N78O480Z1A - ZZ1KD0N78O480Z1A8 - 90022776 260427091428857)",
       "outstanding_balance": "391.13",
-      "updated_at": "2026-04-28T07:05:37.199928Z",
+      "updated_at": "2026-04-28T10:34:19.582763Z",
       "interbank_code": "C1D",
       "journal": {
         "id": 3786218,
@@ -409,8 +550,23 @@
       },
       "pro_account_expense": null,
       "customer": null,
-      "supplier": null,
-      "categories": [],
+      "supplier": {
+        "id": 211669749,
+        "url": "https://app.pennylane.com/api/external/v2/suppliers/211669749"
+      },
+      "categories": [
+        {
+          "weight": "1.0",
+          "id": 10172406,
+          "label": "1 - ACHAT MARCHANDISES - UE",
+          "analytical_code": null,
+          "created_at": "2024-06-12T06:41:57.553636Z",
+          "updated_at": "2025-07-28T14:36:53.283408Z",
+          "category_group": {
+            "id": 806933
+          }
+        }
+      ],
       "matched_invoices": {
         "url": "https://app.pennylane.com/api/external/v2/transactions/5048320370/matched_invoices"
       }
@@ -427,8 +583,8 @@
       "fee": "0.0",
       "id": 5048320369,
       "label": "GCS LES JOCKEYS\n- GCS LES JOCKEYS\n(ref: 0000008600012286 - 0000008600012286)",
-      "outstanding_balance": "-370.94",
-      "updated_at": "2026-04-28T07:05:37.199925Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-04-28T10:37:40.801458Z",
       "interbank_code": "18C",
       "journal": {
         "id": 3786218,
@@ -439,9 +595,24 @@
         "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
       },
       "pro_account_expense": null,
-      "customer": null,
+      "customer": {
+        "id": 238786781,
+        "url": "https://app.pennylane.com/api/external/v2/customers/238786781"
+      },
       "supplier": null,
-      "categories": [],
+      "categories": [
+        {
+          "weight": "1.0",
+          "id": 10565795,
+          "label": "7 - VENTES",
+          "analytical_code": null,
+          "created_at": "2024-07-04T10:42:16.198767Z",
+          "updated_at": "2025-07-28T14:48:21.226881Z",
+          "category_group": {
+            "id": 806933
+          }
+        }
+      ],
       "matched_invoices": {
         "url": "https://app.pennylane.com/api/external/v2/transactions/5048320369/matched_invoices"
       }
@@ -458,8 +629,8 @@
       "fee": "0.0",
       "id": 5048320368,
       "label": "L HOPITAL PRIVE DU CONFLUENT\n- L HOPITAL PRIVE DU CONFLUENT\n(ref: METZE SAS - 0227 - METZE SAS - 0227786)",
-      "outstanding_balance": "-342.35",
-      "updated_at": "2026-04-28T07:05:37.199922Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-04-28T10:39:34.248308Z",
       "interbank_code": "18C",
       "journal": {
         "id": 3786218,
@@ -470,9 +641,24 @@
         "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
       },
       "pro_account_expense": null,
-      "customer": null,
+      "customer": {
+        "id": 240861155,
+        "url": "https://app.pennylane.com/api/external/v2/customers/240861155"
+      },
       "supplier": null,
-      "categories": [],
+      "categories": [
+        {
+          "weight": "1.0",
+          "id": 10565795,
+          "label": "7 - VENTES",
+          "analytical_code": null,
+          "created_at": "2024-07-04T10:42:16.198767Z",
+          "updated_at": "2025-07-28T14:48:21.226881Z",
+          "category_group": {
+            "id": 806933
+          }
+        }
+      ],
       "matched_invoices": {
         "url": "https://app.pennylane.com/api/external/v2/transactions/5048320368/matched_invoices"
       }
@@ -489,8 +675,8 @@
       "fee": "0.0",
       "id": 5048320367,
       "label": "HOPITAL PRIVE DE LA MANCHE\n202603756 METZE HOPITAL PRIVE DE LA MANCHE PP46238588\n- HOPITAL PRIVE DE LA MANCHE\n(ref: PP46238588 - PP46238588)",
-      "outstanding_balance": "-331.8",
-      "updated_at": "2026-04-28T07:05:37.199919Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-04-28T10:40:08.478147Z",
       "interbank_code": "18C",
       "journal": {
         "id": 3786218,
@@ -501,9 +687,24 @@
         "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
       },
       "pro_account_expense": null,
-      "customer": null,
+      "customer": {
+        "id": 238298383,
+        "url": "https://app.pennylane.com/api/external/v2/customers/238298383"
+      },
       "supplier": null,
-      "categories": [],
+      "categories": [
+        {
+          "weight": "1.0",
+          "id": 10565795,
+          "label": "7 - VENTES",
+          "analytical_code": null,
+          "created_at": "2024-07-04T10:42:16.198767Z",
+          "updated_at": "2025-07-28T14:48:21.226881Z",
+          "category_group": {
+            "id": 806933
+          }
+        }
+      ],
       "matched_invoices": {
         "url": "https://app.pennylane.com/api/external/v2/transactions/5048320367/matched_invoices"
       }
@@ -521,7 +722,7 @@
       "id": 5048320366,
       "label": "PRLV SEPA/TOTALENERGIES MARKETI\n/INV/F6B84508/0087559000 //20260420-SAGR4\n- TOTALENERGIES MARKETING FRANCE\n(ref: FR46ZZZ002674 - I0000089635479-010032048848342026)",
       "outstanding_balance": "182.01",
-      "updated_at": "2026-04-28T07:05:37.199914Z",
+      "updated_at": "2026-04-28T14:04:14.780251Z",
       "interbank_code": "B1D",
       "journal": {
         "id": 3786218,
@@ -533,8 +734,23 @@
       },
       "pro_account_expense": null,
       "customer": null,
-      "supplier": null,
-      "categories": [],
+      "supplier": {
+        "id": 158428454,
+        "url": "https://app.pennylane.com/api/external/v2/suppliers/158428454"
+      },
+      "categories": [
+        {
+          "weight": "1.0",
+          "id": 9874609,
+          "label": "3 - LOYERS FRANCE ",
+          "analytical_code": null,
+          "created_at": "2024-05-28T09:08:47.640200Z",
+          "updated_at": "2025-11-18T14:50:46.915426Z",
+          "category_group": {
+            "id": 806933
+          }
+        }
+      ],
       "matched_invoices": {
         "url": "https://app.pennylane.com/api/external/v2/transactions/5048320366/matched_invoices"
       }
@@ -565,7 +781,19 @@
       "pro_account_expense": null,
       "customer": null,
       "supplier": null,
-      "categories": [],
+      "categories": [
+        {
+          "weight": "1.0",
+          "id": 18229548,
+          "label": "1 - ACHAT MARCHANDISES - HORS UE  ",
+          "analytical_code": null,
+          "created_at": "2025-07-01T09:10:57.489845Z",
+          "updated_at": "2025-11-18T09:54:19.484052Z",
+          "category_group": {
+            "id": 806933
+          }
+        }
+      ],
       "matched_invoices": {
         "url": "https://app.pennylane.com/api/external/v2/transactions/5048320365/matched_invoices"
       }
@@ -7681,7 +7909,7 @@
       "id": 4811908585,
       "label": "PRLV SEPA/TOTALENERGIES MARKETI\n/INV/F6A96929/0087559000 //20260403-SAGR4\n- TOTALENERGIES MARKETING FRANCE\n(ref: FR46ZZZ002674 - I0000089129242-010032045643122026)",
       "outstanding_balance": "175.32",
-      "updated_at": "2026-04-13T07:02:58.690656Z",
+      "updated_at": "2026-04-28T14:04:54.600137Z",
       "interbank_code": "B1D",
       "journal": {
         "id": 3786218,
@@ -7693,7 +7921,10 @@
       },
       "pro_account_expense": null,
       "customer": null,
-      "supplier": null,
+      "supplier": {
+        "id": 158428454,
+        "url": "https://app.pennylane.com/api/external/v2/suppliers/158428454"
+      },
       "categories": [
         {
           "weight": "1.0",
@@ -15965,7 +16196,7 @@
       "id": 4692596111,
       "label": "DU 190326 NESPRESSO PARIS CARTE\n6\n(ref: 4974XXXXXXXX265)",
       "outstanding_balance": "62.6",
-      "updated_at": "2026-04-09T13:51:23.683160Z",
+      "updated_at": "2026-04-28T13:54:49.834054Z",
       "interbank_code": "28D",
       "journal": {
         "id": 3786218,
@@ -15977,7 +16208,10 @@
       },
       "pro_account_expense": null,
       "customer": null,
-      "supplier": null,
+      "supplier": {
+        "id": 145951750,
+        "url": "https://app.pennylane.com/api/external/v2/suppliers/145951750"
+      },
       "categories": [
         {
           "weight": "1.0",
@@ -17562,7 +17796,7 @@
       }
     }
   ],
-  "updated_at": "2026-04-28T07:57:43Z",
+  "updated_at": "2026-04-28T16:13:37Z",
   "total": 400,
   "source": "Pennylane API via GitHub Actions"
 }
