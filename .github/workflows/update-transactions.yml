@@ -2,106 +2,92 @@ name: Update Pennylane Transactions
 
 on:
   schedule:
-    # Toutes les heures
     - cron: '0 * * * *'
-  # Permet de lancer manuellement depuis GitHub
   workflow_dispatch:
 
 jobs:
   update-transactions:
     runs-on: ubuntu-latest
-    
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GH_TOKEN }}
 
-      - name: Fetch all 2026 transactions from Pennylane via Make
-        id: fetch
+      - name: Fetch transactions from Pennylane
         run: |
-          echo "Fetching transactions from Pennylane..."
-          
-          # Initialiser le tableau de toutes les transactions
-          ALL_ITEMS="[]"
-          CURSOR=""
-          PAGE=1
-          HAS_MORE=true
-          
-          while [ "$HAS_MORE" = "true" ]; do
-            echo "Page $PAGE..."
-            
-            # Construire l'URL avec cursor si disponible
-            if [ -z "$CURSOR" ]; then
-              URL="https://app.pennylane.com/api/external/v2/transactions?sort=-id&page_size=100&min_date=2026-01-01&max_date=2026-12-31"
-            else
-              ENCODED_CURSOR=$(python3 -c "import urllib.parse; print(urllib.parse.quote('$CURSOR'))")
-              URL="https://app.pennylane.com/api/external/v2/transactions?sort=-id&page_size=100&min_date=2026-01-01&max_date=2026-12-31&cursor=$ENCODED_CURSOR"
-            fi
-            
-            # Appel API Pennylane
-            RESPONSE=$(curl -s -H "Authorization: Bearer ${{ secrets.PENNYLANE_TOKEN }}" \
-              -H "Content-Type: application/json" \
-              "$URL")
-            
-            # Extraire les items et le cursor
-            ITEMS=$(echo "$RESPONSE" | python3 -c "import json,sys; d=json.load(sys.stdin); print(json.dumps(d.get('items', [])))")
-            HAS_MORE=$(echo "$RESPONSE" | python3 -c "import json,sys; d=json.load(sys.stdin); print(str(d.get('has_more', False)).lower())")
-            CURSOR=$(echo "$RESPONSE" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('next_cursor', ''))" 2>/dev/null || echo "")
-            
-            # Compter les items de cette page
-            COUNT=$(echo "$ITEMS" | python3 -c "import json,sys; print(len(json.load(sys.stdin)))")
-            echo "Page $PAGE: $COUNT transactions, has_more=$HAS_MORE"
-            
-            # Fusionner avec le tableau global
-            ALL_ITEMS=$(python3 -c "
-          import json, sys
-          existing = json.loads('$ALL_ITEMS')
-          new_items = json.loads(sys.stdin.read())
-          existing.extend(new_items)
-          print(json.dumps(existing))
-          " <<< "$ITEMS")
-            
-            PAGE=$((PAGE + 1))
-            
-            # Sécurité : max 20 pages (2000 transactions)
-            if [ $PAGE -gt 20 ]; then
-              echo "Reached page limit (20)"
-              break
-            fi
-            
-            # Si pas de cursor ou has_more = false, on arrête
-            if [ -z "$CURSOR" ] || [ "$HAS_MORE" = "false" ]; then
-              break
-            fi
-          done
-          
-          # Compter le total
-          TOTAL=$(echo "$ALL_ITEMS" | python3 -c "import json,sys; print(len(json.load(sys.stdin)))")
-          echo "Total transactions fetched: $TOTAL"
-          
-          # Créer le fichier JSON final
-          python3 -c "
-          import json, sys
-          items = json.loads(sys.stdin.read())
-          output = {
-            'items': items,
-            'updated_at': '$(date -u +%Y-%m-%dT%H:%M:%SZ)',
-            'total': len(items),
-            'source': 'Pennylane API via GitHub Actions'
-          }
-          print(json.dumps(output, ensure_ascii=False, indent=2))
-          " <<< "$ALL_ITEMS" > public/transactions.json
-          
-          echo "transactions_count=$TOTAL" >> $GITHUB_OUTPUT
-          echo "Done! $TOTAL transactions saved."
+          python3 << 'PYEOF'
+          import urllib.request, urllib.parse, json, os
+          from datetime import datetime
 
-      - name: Commit and push transactions.json
+          token = os.environ['PENNYLANE_TOKEN']
+          all_items = []
+          cursor = None
+          page = 1
+
+          while page <= 20:
+              print(f"Fetching page {page}...")
+
+              params = {
+                  'sort': '-id',
+                  'page_size': '100',
+                  'min_date': '2026-01-01',
+                  'max_date': '2026-12-31'
+              }
+              if cursor:
+                  params['cursor'] = cursor
+
+              url = 'https://app.pennylane.com/api/external/v2/transactions?' + urllib.parse.urlencode(params)
+
+              req = urllib.request.Request(url, headers={
+                  'Authorization': f'Bearer {token}',
+                  'Content-Type': 'application/json'
+              })
+
+              try:
+                  with urllib.request.urlopen(req) as resp:
+                      data = json.loads(resp.read().decode())
+              except Exception as e:
+                  print(f"Error on page {page}: {e}")
+                  break
+
+              items = data.get('items', [])
+              has_more = data.get('has_more', False)
+              cursor = data.get('next_cursor', None)
+
+              print(f"Page {page}: {len(items)} transactions, has_more={has_more}")
+              all_items.extend(items)
+
+              if not has_more or not cursor:
+                  break
+
+              page += 1
+
+          print(f"Total: {len(all_items)} transactions fetched")
+
+          output = {
+              'items': all_items,
+              'updated_at': datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ'),
+              'total': len(all_items),
+              'source': 'Pennylane API via GitHub Actions'
+          }
+
+          os.makedirs('public', exist_ok=True)
+          with open('public/transactions.json', 'w', encoding='utf-8') as f:
+              json.dump(output, f, ensure_ascii=False, indent=2)
+
+          print(f"Done! File written with {len(all_items)} transactions.")
+          PYEOF
+        env:
+          PENNYLANE_TOKEN: ${{ secrets.PENNYLANE_TOKEN }}
+
+      - name: Commit and push
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add public/transactions.json
-          git diff --staged --quiet || git commit -m "Auto-update: ${{ steps.fetch.outputs.transactions_count }} transactions Pennylane 2026 - $(date -u +%Y-%m-%d\ %H:%M)"
+          git diff --staged --quiet || git commit -m "Auto-update transactions Pennylane 2026 - $(date -u +%Y-%m-%d)"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
