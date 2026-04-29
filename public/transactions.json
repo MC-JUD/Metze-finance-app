@@ -1341,8 +1341,8 @@
       "fee": null,
       "id": 5037150571,
       "label": "Notes de frais - Rany Khem (1)",
-      "outstanding_balance": "1.2",
-      "updated_at": "2026-04-27T10:20:44.145658Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-04-29T16:17:42.036060Z",
       "interbank_code": "06D",
       "journal": {
         "id": 7207904,
@@ -1355,8 +1355,8 @@
       "pro_account_expense": null,
       "customer": null,
       "supplier": {
-        "id": 112044507,
-        "url": "https://app.pennylane.com/api/external/v2/suppliers/112044507"
+        "id": 125838857,
+        "url": "https://app.pennylane.com/api/external/v2/suppliers/125838857"
       },
       "categories": [
         {
@@ -16037,8 +16037,8 @@
       "fee": null,
       "id": 4787832432,
       "label": "Paiement PI6286117EBPOTR4809687 Beijing ZKSK Technology Co., Ltd  BIC : BKNBCN2NBEI METZE SAS EBPOTR4809687 ZKSKME260226",
-      "outstanding_balance": "1378.05",
-      "updated_at": "2026-04-09T17:22:51.218399Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-04-29T16:32:08.387808Z",
       "interbank_code": null,
       "journal": {
         "id": 13790485,
@@ -16050,7 +16050,10 @@
       },
       "pro_account_expense": null,
       "customer": null,
-      "supplier": null,
+      "supplier": {
+        "id": 266552479,
+        "url": "https://app.pennylane.com/api/external/v2/suppliers/266552479"
+      },
       "categories": [
         {
           "weight": "1.0",
@@ -17770,7 +17773,7 @@
       }
     }
   ],
-  "updated_at": "2026-04-29T16:16:53Z",
+  "updated_at": "2026-04-29T20:43:44Z",
   "total": 400,
   "source": "Pennylane API via GitHub Actions"
 }
