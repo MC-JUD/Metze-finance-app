@@ -66,9 +66,9 @@ jobs:
 
           print(f"Total: {len(all_items)} transactions fetched")
 
-          # Trier par date décroissante (plus récent en premier)
-          all_items.sort(key=lambda x: x.get('date', ''), reverse=True)
-          print(f"Sorted by date descending.")
+          # Trier par date décroissante, puis par ID décroissant (plus récent en premier)
+          all_items.sort(key=lambda x: (x.get('date', ''), x.get('id', 0)), reverse=True)
+          print(f"Sorted by date desc, then id desc.")
 
           output = {
               'items': all_items,
