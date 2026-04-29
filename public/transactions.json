@@ -1252,8 +1252,8 @@
       "fee": "0.0",
       "id": 5048320366,
       "label": "PRLV SEPA/TOTALENERGIES MARKETI\n/INV/F6B84508/0087559000 //20260420-SAGR4\n- TOTALENERGIES MARKETING FRANCE\n(ref: FR46ZZZ002674 - I0000089635479-010032048848342026)",
-      "outstanding_balance": "182.01",
-      "updated_at": "2026-04-28T14:04:14.780251Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-04-29T16:16:19.629021Z",
       "interbank_code": "B1D",
       "journal": {
         "id": 3786218,
@@ -1626,7 +1626,7 @@
       "id": 5035694668,
       "label": "BIOCOMED\nCOMMANDE UNITES PRELEVEMENT POUR ESSAI KIT KAYZEN\n- BIOCOMED\n(ref: PI202620 - PI202620)",
       "outstanding_balance": "-52.8",
-      "updated_at": "2026-04-27T06:32:16.692898Z",
+      "updated_at": "2026-04-29T13:45:51.737530Z",
       "interbank_code": "18C",
       "journal": {
         "id": 3786218,
@@ -1637,7 +1637,10 @@
         "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
       },
       "pro_account_expense": null,
-      "customer": null,
+      "customer": {
+        "id": 1173685854208,
+        "url": "https://app.pennylane.com/api/external/v2/customers/1173685854208"
+      },
       "supplier": null,
       "categories": [
         {
@@ -2522,8 +2525,8 @@
       "fee": null,
       "id": 5010863089,
       "label": "Notes de frais - Anne Sophie Viaud (44)",
-      "outstanding_balance": "493.0",
-      "updated_at": "2026-04-24T13:16:05.846757Z",
+      "outstanding_balance": "34.32",
+      "updated_at": "2026-04-29T16:09:54.968395Z",
       "interbank_code": "06D",
       "journal": {
         "id": 7207904,
@@ -6751,8 +6754,8 @@
       "fee": null,
       "id": 4854517975,
       "label": "THE CONNEMARA",
-      "outstanding_balance": "11.9",
-      "updated_at": "2026-04-16T09:48:01.657680Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-04-29T16:05:10.318209Z",
       "interbank_code": "28D",
       "journal": {
         "id": 7207904,
@@ -6804,8 +6807,8 @@
       "fee": null,
       "id": 4853687570,
       "label": "THE CONNEMARA",
-      "outstanding_balance": "43.2",
-      "updated_at": "2026-04-16T09:44:44.522778Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-04-29T16:04:44.591226Z",
       "interbank_code": "28D",
       "journal": {
         "id": 7207904,
@@ -6857,8 +6860,8 @@
       "fee": null,
       "id": 4851961305,
       "label": "PACKHELP_STRIPE",
-      "outstanding_balance": "210.82",
-      "updated_at": "2026-04-27T09:14:47.592583Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-04-29T16:02:27.344655Z",
       "interbank_code": "28D",
       "journal": {
         "id": 7207904,
@@ -7353,7 +7356,7 @@
       "id": 4855380498,
       "label": "DU 140426 OPENAI *CHATGPT CARTE\n5 USA 20 00USD COMMISSION   1 39\n(ref: 4974XXXXXXXX545)",
       "outstanding_balance": "18.54",
-      "updated_at": "2026-04-16T06:58:27.961336Z",
+      "updated_at": "2026-04-29T15:38:52.959405Z",
       "interbank_code": "28D",
       "journal": {
         "id": 3786218,
@@ -7619,8 +7622,8 @@
       "fee": null,
       "id": 4824323257,
       "label": "AUCHAN 0029M",
-      "outstanding_balance": "39.0",
-      "updated_at": "2026-04-14T06:54:40.022105Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-04-29T15:45:32.297902Z",
       "interbank_code": "28D",
       "journal": {
         "id": 7207904,
@@ -7640,8 +7643,8 @@
       },
       "customer": null,
       "supplier": {
-        "id": 125836885,
-        "url": "https://app.pennylane.com/api/external/v2/suppliers/125836885"
+        "id": 161080029,
+        "url": "https://app.pennylane.com/api/external/v2/suppliers/161080029"
       },
       "categories": [
         {
@@ -7672,8 +7675,8 @@
       "fee": null,
       "id": 4813575198,
       "label": "NEWREST WAGONS-LITS",
-      "outstanding_balance": "3.0",
-      "updated_at": "2026-04-14T03:21:55.792411Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-04-29T15:59:27.186652Z",
       "interbank_code": "28D",
       "journal": {
         "id": 7207904,
@@ -7693,8 +7696,8 @@
       },
       "customer": null,
       "supplier": {
-        "id": 192014156,
-        "url": "https://app.pennylane.com/api/external/v2/suppliers/192014156"
+        "id": 112044504,
+        "url": "https://app.pennylane.com/api/external/v2/suppliers/112044504"
       },
       "categories": [
         {
@@ -7725,8 +7728,8 @@
       "fee": null,
       "id": 4811685584,
       "label": "NEWREST WAGONS-LITS",
-      "outstanding_balance": "3.0",
-      "updated_at": "2026-04-14T03:18:15.028344Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-04-29T15:58:47.268275Z",
       "interbank_code": "28D",
       "journal": {
         "id": 7207904,
@@ -7746,8 +7749,8 @@
       },
       "customer": null,
       "supplier": {
-        "id": 192014156,
-        "url": "https://app.pennylane.com/api/external/v2/suppliers/192014156"
+        "id": 112044504,
+        "url": "https://app.pennylane.com/api/external/v2/suppliers/112044504"
       },
       "categories": [
         {
@@ -8002,8 +8005,8 @@
       "fee": null,
       "id": 4816679265,
       "label": "BITWARDEN",
-      "outstanding_balance": "17.11",
-      "updated_at": "2026-04-16T06:58:27.222832Z",
+      "outstanding_balance": "0.02",
+      "updated_at": "2026-04-29T15:38:52.959394Z",
       "interbank_code": "28D",
       "journal": {
         "id": 7207904,
@@ -8442,8 +8445,8 @@
       "fee": "0.0",
       "id": 4811908585,
       "label": "PRLV SEPA/TOTALENERGIES MARKETI\n/INV/F6A96929/0087559000 //20260403-SAGR4\n- TOTALENERGIES MARKETING FRANCE\n(ref: FR46ZZZ002674 - I0000089129242-010032045643122026)",
-      "outstanding_balance": "175.32",
-      "updated_at": "2026-04-28T14:04:54.600137Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-04-29T16:16:40.515539Z",
       "interbank_code": "B1D",
       "journal": {
         "id": 3786218,
@@ -13986,8 +13989,8 @@
       "fee": "0.0",
       "id": 4692596111,
       "label": "DU 190326 NESPRESSO PARIS CARTE\n6\n(ref: 4974XXXXXXXX265)",
-      "outstanding_balance": "62.6",
-      "updated_at": "2026-04-28T13:54:49.834054Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-04-29T16:00:10.400067Z",
       "interbank_code": "28D",
       "journal": {
         "id": 3786218,
@@ -17767,7 +17770,7 @@
       }
     }
   ],
-  "updated_at": "2026-04-29T09:23:58Z",
+  "updated_at": "2026-04-29T16:16:53Z",
   "total": 400,
   "source": "Pennylane API via GitHub Actions"
 }
