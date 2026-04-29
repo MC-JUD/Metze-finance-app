@@ -499,6 +499,25 @@ function TransactionsPage(){
     setLoading(false)
   }
 
+  const [comptes,   setComptes] = useState([]) // multi-sélection
+
+  // Détecter le compte bancaire depuis le libellé
+  function detectCompte(tx) {
+    const l = tx.label.toLowerCase()
+    if(l.includes("ebury"))                                          return "EBURY"
+    if(l.includes("pennylane") || l.includes("recharge compte pro")) return "Pennylane"
+    if(l.includes("bnp") || l.includes("paribas"))                  return "BNP"
+    if(l.includes("cic"))                                           return "CIC"
+    return "Autre"
+  }
+
+  const COMPTES_LIST = ["EBURY","Pennylane","BNP","CIC"]
+
+  function toggleCompte(c) {
+    setComptes(prev => prev.includes(c) ? prev.filter(x=>x!==c) : [...prev, c])
+    setPage(0)
+  }
+
   const tabs    = ["toutes","débits","crédits","non classés"]
   const allCats = [...new Set(txData.map(t=>inferCategory(t).label))]
 
@@ -511,10 +530,11 @@ function TransactionsPage(){
   const filtered = useMemo(()=>txData
     .filter(t=>{
       const v=parseFloat(t.amount), c=inferCategory(t)
-      if(tab==="débits"      && v>=0)                   return false
-      if(tab==="crédits"     && v<0)                    return false
-      if(tab==="non classés" && c.label!=="Non classé") return false
-      if(cat!=="all"         && c.label!==cat)          return false
+      if(tab==="débits"      && v>=0)                    return false
+      if(tab==="crédits"     && v<0)                     return false
+      if(tab==="non classés" && c.label!=="Non classé")  return false
+      if(cat!=="all"         && c.label!==cat)           return false
+      if(comptes.length>0    && !comptes.includes(detectCompte(t))) return false
       if(search && !t.label.toLowerCase().includes(search.toLowerCase())) return false
       return true
     })
@@ -526,7 +546,12 @@ function TransactionsPage(){
       const r=av<bv?-1:av>bv?1:0
       return sortDir==="asc"?r:-r
     })
-  ,[txData,search,tab,cat,sortCol,sortDir])
+  ,[txData,search,tab,cat,comptes,sortCol,sortDir])
+
+  // KPIs dynamiques basés sur les transactions filtrées
+  const totalEncaiss = filtered.filter(t=>parseFloat(t.amount)>0).reduce((s,t)=>s+parseFloat(t.amount),0)
+  const totalDecaiss = filtered.filter(t=>parseFloat(t.amount)<0).reduce((s,t)=>s+Math.abs(parseFloat(t.amount)),0)
+  const soldeNet     = totalEncaiss - totalDecaiss
 
   const paged = filtered.slice(page*PER,(page+1)*PER)
 
@@ -546,7 +571,7 @@ function TransactionsPage(){
           <div style={{fontWeight:700,fontSize:16}}>Transactions Pennylane</div>
           <div style={{color:T.muted,fontSize:13,textAlign:"center",maxWidth:400}}>
             Chargez toutes les transactions en temps réel depuis Pennylane via Make.<br/>
-            <span style={{color:T.accentHi}}>Toutes les transactions — sans filtre de date.</span>
+            <span style={{color:T.accentHi}}>Toutes les transactions 2026 — mise à jour automatique.</span>
           </div>
           {error && <div style={{padding:"10px 16px",background:T.redDim,border:`1px solid ${T.red}30`,borderRadius:8,fontSize:12,color:T.red,maxWidth:400,textAlign:"center"}}>{error}</div>}
           <button onClick={loadTransactions} disabled={loading} style={{display:"inline-flex",alignItems:"center",gap:8,padding:"10px 24px",background:T.accent,color:"#fff",border:"none",borderRadius:8,fontSize:14,fontWeight:600,cursor:loading?"not-allowed":"pointer",opacity:loading?0.7:1}}>
@@ -575,26 +600,54 @@ function TransactionsPage(){
 
       {error && <div style={{padding:"10px 16px",background:T.redDim,border:`1px solid ${T.red}30`,fontSize:12,color:T.red,flexShrink:0}}>{error}</div>}
 
-      {/* Compteurs */}
+      {/* Filtre comptes bancaires */}
+      <div style={{display:"flex",alignItems:"center",gap:8,padding:"10px 16px",borderBottom:`1px solid ${T.border}`,background:T.elevated,flexShrink:0}}>
+        <Mono style={{color:T.muted,fontSize:10,letterSpacing:"1px"}}>COMPTE</Mono>
+        {COMPTES_LIST.map(c=>{
+          const active = comptes.includes(c)
+          const colors = {EBURY:"#8b5cf6",Pennylane:"#06b6d4",BNP:"#059669",CIC:"#dc2626"}
+          const col = colors[c] || T.accentHi
+          return (
+            <button key={c} onClick={()=>toggleCompte(c)} style={{
+              padding:"4px 12px",borderRadius:20,fontSize:11,fontWeight:600,cursor:"pointer",
+              background:active?col+"22":"transparent",
+              border:`1px solid ${active?col:T.border}`,
+              color:active?col:T.muted,
+              transition:"all .15s"
+            }}>{c}</button>
+          )
+        })}
+        {comptes.length>0 && (
+          <button onClick={()=>{setComptes([]);setPage(0)}} style={{padding:"4px 10px",borderRadius:20,fontSize:11,color:T.muted,background:"transparent",border:`1px solid ${T.border}`,cursor:"pointer"}}>
+            ✕ Tout
+          </button>
+        )}
+        <div style={{flex:1}}/>
+        <Mono style={{color:T.muted,fontSize:11}}>{filtered.length} / {txData.length} transactions</Mono>
+      </div>
+
+      {/* KPIs dynamiques */}
       <div style={{display:"flex",borderBottom:`1px solid ${T.border}`,background:T.surface,flexShrink:0}}>
         {[
-          {count:txData.length,                                                           label:"Total",       color:T.text},
-          {count:txData.filter(t=>parseFloat(t.amount)<0).length,                        label:"Débits",      color:T.red},
-          {count:txData.filter(t=>parseFloat(t.amount)>0).length,                        label:"Crédits",     color:T.green},
-          {count:txData.filter(t=>!t.categories||t.categories.length===0).length,        label:"Non classés", color:T.amber},
+          {label:"Total encaissements", value:"+"+totalEncaiss.toLocaleString("fr-FR",{maximumFractionDigits:0})+" €", color:T.green},
+          {label:"Total décaissements", value:"-"+totalDecaiss.toLocaleString("fr-FR",{maximumFractionDigits:0})+" €", color:T.red},
+          {label:"Solde net",           value:(soldeNet>=0?"+":"-")+Math.abs(soldeNet).toLocaleString("fr-FR",{maximumFractionDigits:0})+" €", color:soldeNet>=0?T.green:T.red},
+          {label:comptes.length>0?"Compte(s) sélectionné(s)":"Tous comptes", value:comptes.length>0?comptes.join(" + "):"EBURY · Pennylane · BNP · CIC", color:T.muted},
         ].map((c,i)=>(
-          <div key={i} style={{flex:1,textAlign:"center",padding:"12px 0",borderRight:i<3?`1px solid ${T.border}`:"none"}}>
-            <div style={{fontSize:22,fontWeight:700,color:c.color,fontFamily:"'JetBrains Mono',monospace",lineHeight:1}}>{c.count}</div>
-            <div style={{fontSize:10,color:T.muted,letterSpacing:"1.2px",marginTop:3,textTransform:"uppercase"}}>{c.label}</div>
+          <div key={i} style={{flex:1,textAlign:"center",padding:"10px 0",borderRight:i<3?`1px solid ${T.border}`:"none"}}>
+            <div style={{fontSize:i===3?11:17,fontWeight:700,color:c.color,fontFamily:"'JetBrains Mono',monospace",lineHeight:1}}>{c.value}</div>
+            <div style={{fontSize:10,color:T.muted,letterSpacing:"1.2px",marginTop:4,textTransform:"uppercase"}}>{c.label}</div>
           </div>
         ))}
       </div>
 
       {/* Onglets + filtres */}
       <div style={{borderBottom:`1px solid ${T.border}`,background:T.surface,display:"flex",alignItems:"center",padding:"0 12px 0 0",flexShrink:0}}>
-        {tabs.map(t=>(
-          <button key={t} onClick={()=>{setTab(t);setPage(0)}} style={{padding:"10px 12px",fontSize:12,fontWeight:tab===t?600:400,color:tab===t?T.accentHi:T.muted,borderBottom:tab===t?`2px solid ${T.accentHi}`:"2px solid transparent",background:"transparent",border:"none",cursor:"pointer",textTransform:"capitalize",marginBottom:-1,transition:"color .12s"}}>{t}</button>
-        ))}
+        <div style={{display:"flex"}}>
+          {tabs.map(t=>(
+            <button key={t} onClick={()=>{setTab(t);setPage(0)}} style={{padding:"10px 12px",fontSize:12,fontWeight:tab===t?600:400,color:tab===t?T.accentHi:T.muted,borderBottom:tab===t?`2px solid ${T.accentHi}`:"2px solid transparent",background:"transparent",border:"none",cursor:"pointer",textTransform:"capitalize",marginBottom:-1,transition:"color .12s"}}>{t}</button>
+          ))}
+        </div>
         <div style={{flex:1}}/>
         <div style={{display:"flex",alignItems:"center",gap:8,padding:"8px 0"}}>
           <div style={{display:"flex",alignItems:"center",gap:6,background:T.elevated,border:`1px solid ${T.border}`,borderRadius:7,padding:"5px 10px"}}>
@@ -602,11 +655,10 @@ function TransactionsPage(){
             <input value={search} onChange={e=>{setSearch(e.target.value);setPage(0)}} placeholder="Libellé, fournisseur…"
               style={{background:"none",border:"none",outline:"none",color:T.text,fontSize:12,width:200}}/>
           </div>
-          <select value={cat} onChange={e=>{setCat(e.target.value);setPage(0)}} style={{background:T.elevated,border:`1px solid ${T.border}`,borderRadius:7,padding:"5px 9px",color:T.text,fontSize:11,cursor:"pointer",outline:"none"}}>
-            <option value="all">Catégorie</option>
+          <select value={cat} onChange={e=>{setCat(e.target.value);setPage(0)}} style={{background:T.elevated,border:`1px solid ${cat!=="all"?T.accentHi:T.border}`,borderRadius:7,padding:"5px 9px",color:cat!=="all"?T.accentHi:T.text,fontSize:11,cursor:"pointer",outline:"none",fontWeight:cat!=="all"?700:400}}>
+            <option value="all">📁 Catégorie</option>
             {allCats.map(c=><option key={c} value={c}>{c}</option>)}
           </select>
-          <Mono style={{color:T.muted}}>{filtered.length} résultats</Mono>
         </div>
       </div>
 
