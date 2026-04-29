@@ -91,8 +91,11 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add public/transactions.json
-          git diff --staged --quiet || git commit -m "Auto-update transactions Pennylane 2026 - $(date -u +%Y-%m-%d)"
+          git stash
           git pull --rebase origin main
+          git stash pop || true
+          git add public/transactions.json
+          git diff --staged --quiet || git commit -m "Auto-update transactions Pennylane 2026 - $(date -u +%Y-%m-%d)"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
