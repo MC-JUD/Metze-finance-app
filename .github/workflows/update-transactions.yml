@@ -5,6 +5,10 @@ on:
     - cron: '0 * * * *'
   workflow_dispatch:
 
+concurrency:
+  group: update-transactions
+  cancel-in-progress: false
+
 jobs:
   update-transactions:
     runs-on: ubuntu-latest
@@ -14,6 +18,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Fetch transactions from Pennylane
         run: |
@@ -90,10 +96,12 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+          cp public/transactions.json /tmp/transactions_new.json
           git fetch origin main
-          git checkout main
+          git reset --hard origin/main
+          cp /tmp/transactions_new.json public/transactions.json
           git add public/transactions.json
           git diff --staged --quiet || git commit -m "Auto-update transactions Pennylane 2026 - $(date -u +%Y-%m-%d)"
-          git push origin main --force-with-lease
+          git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
