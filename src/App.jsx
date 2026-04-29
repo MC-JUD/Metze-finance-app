@@ -500,6 +500,9 @@ function TransactionsPage(){
   }
 
   const [comptes,   setComptes] = useState([]) // multi-sélection
+  const [mois,      setMois]    = useState("all") // filtre par mois
+
+  const MOIS_FR = ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"]
 
   // Détecter le compte bancaire depuis le libellé
   function detectCompte(tx) {
@@ -513,9 +516,20 @@ function TransactionsPage(){
 
   const COMPTES_LIST = ["EBURY","Pennylane","BNP","CIC"]
 
+  // Mois disponibles dans les données
+  const allMois = [...new Set(txData.map(t => {
+    const d = new Date(t.date)
+    return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`
+  }))].sort().reverse()
+
   function toggleCompte(c) {
     setComptes(prev => prev.includes(c) ? prev.filter(x=>x!==c) : [...prev, c])
     setPage(0)
+  }
+
+  function moisLabel(key) {
+    const [y, m] = key.split('-')
+    return `${MOIS_FR[parseInt(m)-1]} ${y}`
   }
 
   const tabs    = ["toutes","débits","crédits","non classés"]
@@ -535,6 +549,11 @@ function TransactionsPage(){
       if(tab==="non classés" && c.label!=="Non classé")  return false
       if(cat!=="all"         && c.label!==cat)           return false
       if(comptes.length>0    && !comptes.includes(detectCompte(t))) return false
+      if(mois!=="all") {
+        const d = new Date(t.date)
+        const txMois = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`
+        if(txMois !== mois) return false
+      }
       if(search && !t.label.toLowerCase().includes(search.toLowerCase())) return false
       return true
     })
@@ -546,7 +565,7 @@ function TransactionsPage(){
       const r=av<bv?-1:av>bv?1:0
       return sortDir==="asc"?r:-r
     })
-  ,[txData,search,tab,cat,comptes,sortCol,sortDir])
+  ,[txData,search,tab,cat,comptes,mois,sortCol,sortDir])
 
   // KPIs dynamiques basés sur les transactions filtrées
   const totalEncaiss = filtered.filter(t=>parseFloat(t.amount)>0).reduce((s,t)=>s+parseFloat(t.amount),0)
@@ -655,6 +674,10 @@ function TransactionsPage(){
             <input value={search} onChange={e=>{setSearch(e.target.value);setPage(0)}} placeholder="Libellé, fournisseur…"
               style={{background:"none",border:"none",outline:"none",color:T.text,fontSize:12,width:200}}/>
           </div>
+          <select value={mois} onChange={e=>{setMois(e.target.value);setPage(0)}} style={{background:T.elevated,border:`1px solid ${mois!=="all"?T.accentHi:T.border}`,borderRadius:7,padding:"5px 9px",color:mois!=="all"?T.accentHi:T.text,fontSize:11,cursor:"pointer",outline:"none",fontWeight:mois!=="all"?700:400}}>
+            <option value="all">📅 Tous les mois</option>
+            {allMois.map(m=><option key={m} value={m}>{moisLabel(m)}</option>)}
+          </select>
           <select value={cat} onChange={e=>{setCat(e.target.value);setPage(0)}} style={{background:T.elevated,border:`1px solid ${cat!=="all"?T.accentHi:T.border}`,borderRadius:7,padding:"5px 9px",color:cat!=="all"?T.accentHi:T.text,fontSize:11,cursor:"pointer",outline:"none",fontWeight:cat!=="all"?700:400}}>
             <option value="all">📁 Catégorie</option>
             {allCats.map(c=><option key={c} value={c}>{c}</option>)}
