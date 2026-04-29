@@ -66,6 +66,10 @@ jobs:
 
           print(f"Total: {len(all_items)} transactions fetched")
 
+          # Trier par date décroissante (plus récent en premier)
+          all_items.sort(key=lambda x: x.get('date', ''), reverse=True)
+          print(f"Sorted by date descending.")
+
           output = {
               'items': all_items,
               'updated_at': datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ'),
