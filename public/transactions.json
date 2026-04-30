@@ -13672,7 +13672,7 @@
       "id": 4692598076,
       "label": "LE CLOS DU NID DE L OISE\n- LE CLOS DU NID DE L OISE\n(ref: 9DB-167)02-01-20 - 9DB-167)02-01-2026 METZE CARE)",
       "outstanding_balance": "0.0",
-      "updated_at": "2026-04-07T08:25:23.707287Z",
+      "updated_at": "2026-04-30T13:34:38.342733Z",
       "interbank_code": "18C",
       "journal": {
         "id": 3786218,
@@ -13684,8 +13684,8 @@
       },
       "pro_account_expense": null,
       "customer": {
-        "id": 257674595,
-        "url": "https://app.pennylane.com/api/external/v2/customers/257674595"
+        "id": 230165183,
+        "url": "https://app.pennylane.com/api/external/v2/customers/230165183"
       },
       "supplier": null,
       "categories": [
@@ -17586,7 +17586,7 @@
       }
     }
   ],
-  "updated_at": "2026-04-30T09:24:17Z",
+  "updated_at": "2026-04-30T15:57:55Z",
   "total": 400,
   "source": "Pennylane API via GitHub Actions"
 }
