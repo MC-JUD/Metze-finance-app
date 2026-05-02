@@ -1,6 +1,47 @@
 {
   "items": [
     {
+      "amount": "-23.22",
+      "archived_at": null,
+      "attachment_required": true,
+      "created_at": "2026-05-01T13:39:12.266795Z",
+      "currency_amount": "-23.22",
+      "currency_fee": null,
+      "currency": "EUR",
+      "date": "2026-05-02",
+      "fee": null,
+      "id": 5091074449,
+      "label": "SumUp  *L ESCALE DU MO",
+      "outstanding_balance": "23.22",
+      "updated_at": "2026-05-02T03:11:55.652440Z",
+      "interbank_code": "28D",
+      "journal": {
+        "id": 7207904,
+        "url": "https://app.pennylane.com/api/external/v2/journals/7207904"
+      },
+      "bank_account": {
+        "id": 1415898,
+        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/1415898"
+      },
+      "pro_account_expense": {
+        "employee": {
+          "id": 244999,
+          "first_name": "Alexandre",
+          "last_name": "Prou"
+        },
+        "card_masked_number": "543946XXXXXX3755"
+      },
+      "customer": null,
+      "supplier": {
+        "id": 125836885,
+        "url": "https://app.pennylane.com/api/external/v2/suppliers/125836885"
+      },
+      "categories": [],
+      "matched_invoices": {
+        "url": "https://app.pennylane.com/api/external/v2/transactions/5091074449/matched_invoices"
+      }
+    },
+    {
       "amount": "-29629.35",
       "archived_at": null,
       "attachment_required": true,
@@ -13059,52 +13100,6 @@
       }
     },
     {
-      "amount": "26.4",
-      "archived_at": null,
-      "attachment_required": true,
-      "created_at": "2026-04-08T06:41:41.215326Z",
-      "currency_amount": "26.4",
-      "currency_fee": "0.0",
-      "currency": "EUR",
-      "date": "2026-04-07",
-      "fee": "0.0",
-      "id": 4767007014,
-      "label": "ASSISTANCE PUBLIQUE-HOPITAUX DE\n0000000000000186MD 5100118380 HOTEL-DIEU DE PARIS041NSI\n- DIRECTION SPECIALISEE DES FINANCES PUBLIQUES POUR APHP\n(ref: 2C07530005100118 - 2C075300051001183802026001)",
-      "outstanding_balance": "0.0",
-      "updated_at": "2026-04-08T07:25:09.413365Z",
-      "interbank_code": "18C",
-      "journal": {
-        "id": 3786218,
-        "url": "https://app.pennylane.com/api/external/v2/journals/3786218"
-      },
-      "bank_account": {
-        "id": 917870,
-        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
-      },
-      "pro_account_expense": null,
-      "customer": {
-        "id": 244896279,
-        "url": "https://app.pennylane.com/api/external/v2/customers/244896279"
-      },
-      "supplier": null,
-      "categories": [
-        {
-          "weight": "1.0",
-          "id": 10565795,
-          "label": "7 - VENTES",
-          "analytical_code": null,
-          "created_at": "2024-07-04T10:42:16.198767Z",
-          "updated_at": "2025-07-28T14:48:21.226881Z",
-          "category_group": {
-            "id": 806933
-          }
-        }
-      ],
-      "matched_invoices": {
-        "url": "https://app.pennylane.com/api/external/v2/transactions/4767007014/matched_invoices"
-      }
-    },
-    {
       "amount": "2204.6",
       "archived_at": null,
       "attachment_required": false,
@@ -16364,7 +16359,7 @@
       }
     }
   ],
-  "updated_at": "2026-05-01T22:36:26Z",
+  "updated_at": "2026-05-02T06:23:39Z",
   "total": 400,
   "source": "Pennylane API via GitHub Actions"
 }
