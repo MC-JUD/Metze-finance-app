@@ -1,6 +1,44 @@
 {
   "items": [
     {
+      "amount": "-68.97",
+      "archived_at": null,
+      "attachment_required": true,
+      "created_at": "2026-05-02T14:55:20.303043Z",
+      "currency_amount": "-68.97",
+      "currency_fee": null,
+      "currency": "EUR",
+      "date": "2026-05-03",
+      "fee": null,
+      "id": 5094066894,
+      "label": "SNC COUDYS",
+      "outstanding_balance": "68.97",
+      "updated_at": "2026-05-03T02:57:09.228755Z",
+      "interbank_code": "28D",
+      "journal": {
+        "id": 7207904,
+        "url": "https://app.pennylane.com/api/external/v2/journals/7207904"
+      },
+      "bank_account": {
+        "id": 1415898,
+        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/1415898"
+      },
+      "pro_account_expense": {
+        "employee": {
+          "id": 244999,
+          "first_name": "Alexandre",
+          "last_name": "Prou"
+        },
+        "card_masked_number": "543946XXXXXX3755"
+      },
+      "customer": null,
+      "supplier": null,
+      "categories": [],
+      "matched_invoices": {
+        "url": "https://app.pennylane.com/api/external/v2/transactions/5094066894/matched_invoices"
+      }
+    },
+    {
       "amount": "-23.22",
       "archived_at": null,
       "attachment_required": true,
@@ -13057,49 +13095,6 @@
       }
     },
     {
-      "amount": "-36.85",
-      "archived_at": null,
-      "attachment_required": false,
-      "created_at": "2026-04-08T06:41:41.215326Z",
-      "currency_amount": "-36.85",
-      "currency_fee": "0.0",
-      "currency": "EUR",
-      "date": "2026-04-07",
-      "fee": "0.0",
-      "id": 4767007015,
-      "label": "PRLV SEPA/KEREIS FRANCE\n.\n- KEREIS FRANCE\n(ref: FR57ZZZ850159 - XXXXXXXXX0000010100400020172850)",
-      "outstanding_balance": "0.0",
-      "updated_at": "2026-04-09T10:02:30.099717Z",
-      "interbank_code": "B1D",
-      "journal": {
-        "id": 3786218,
-        "url": "https://app.pennylane.com/api/external/v2/journals/3786218"
-      },
-      "bank_account": {
-        "id": 917870,
-        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
-      },
-      "pro_account_expense": null,
-      "customer": null,
-      "supplier": null,
-      "categories": [
-        {
-          "weight": "1.0",
-          "id": 10520389,
-          "label": "3 - ASSURANCES",
-          "analytical_code": null,
-          "created_at": "2024-07-01T11:27:09.556606Z",
-          "updated_at": "2025-11-18T14:50:37.158265Z",
-          "category_group": {
-            "id": 806933
-          }
-        }
-      ],
-      "matched_invoices": {
-        "url": "https://app.pennylane.com/api/external/v2/transactions/4767007015/matched_invoices"
-      }
-    },
-    {
       "amount": "2204.6",
       "archived_at": null,
       "attachment_required": false,
@@ -16359,7 +16354,7 @@
       }
     }
   ],
-  "updated_at": "2026-05-02T23:28:12Z",
+  "updated_at": "2026-05-03T07:30:22Z",
   "total": 400,
   "source": "Pennylane API via GitHub Actions"
 }
