@@ -19,6 +19,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
+          token: ${{ secrets.GH_TOKEN }}
           fetch-depth: 0
 
       - name: Fetch transactions from Pennylane
@@ -36,7 +37,7 @@ jobs:
               print(f"Fetching page {page}...")
 
               params = {
-                  'sort': '-id',
+                  'sort': '-date',
                   'page_size': '100',
                   'min_date': '2026-01-01',
                   'max_date': '2026-12-31'
@@ -102,6 +103,5 @@ jobs:
           cp /tmp/transactions_new.json public/transactions.json
           git add public/transactions.json
           git diff --staged --quiet || git commit -m "Auto-update transactions Pennylane 2026 - $(date -u +%Y-%m-%d)"
+          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/MC-JUD/Metze-finance-app.git
           git push origin main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
