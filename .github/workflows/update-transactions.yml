@@ -33,7 +33,7 @@ jobs:
           cursor = None
           page = 1
 
-          while page <= 20:
+          while page <= 75:
               print(f"Fetching page {page}...")
 
               params = {
