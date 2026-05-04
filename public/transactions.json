@@ -1,6 +1,37 @@
 {
   "items": [
     {
+      "amount": "2000.0",
+      "archived_at": null,
+      "attachment_required": false,
+      "created_at": "2026-05-04T02:55:30.940374Z",
+      "currency_amount": "2000.0",
+      "currency_fee": "0.0",
+      "currency": "EUR",
+      "date": "2026-05-04",
+      "fee": "0.0",
+      "id": 5096351119,
+      "label": "VIR CIC FACTORING SOLUTIONS 004953.PAROL.4497.30042026.00001",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-05-04T02:55:31.246899Z",
+      "interbank_code": "05C",
+      "journal": {
+        "id": 13081735,
+        "url": "https://app.pennylane.com/api/external/v2/journals/13081735"
+      },
+      "bank_account": {
+        "id": 2244461,
+        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/2244461"
+      },
+      "pro_account_expense": null,
+      "customer": null,
+      "supplier": null,
+      "categories": [],
+      "matched_invoices": {
+        "url": "https://app.pennylane.com/api/external/v2/transactions/5096351119/matched_invoices"
+      }
+    },
+    {
       "amount": "-68.97",
       "archived_at": null,
       "attachment_required": true,
@@ -13,7 +44,7 @@
       "id": 5094066894,
       "label": "SNC COUDYS",
       "outstanding_balance": "68.97",
-      "updated_at": "2026-05-03T02:57:09.228755Z",
+      "updated_at": "2026-05-04T07:53:11.695137Z",
       "interbank_code": "28D",
       "journal": {
         "id": 7207904,
@@ -32,7 +63,10 @@
         "card_masked_number": "543946XXXXXX3755"
       },
       "customer": null,
-      "supplier": null,
+      "supplier": {
+        "id": 125836885,
+        "url": "https://app.pennylane.com/api/external/v2/suppliers/125836885"
+      },
       "categories": [],
       "matched_invoices": {
         "url": "https://app.pennylane.com/api/external/v2/transactions/5094066894/matched_invoices"
@@ -153,8 +187,8 @@
       "fee": "0.0",
       "id": 5089306887,
       "label": "PRLV SEPA/MHP\n21175 PP42553122\n- MHP\n(ref: FR71ZZZ8A6EF2 - PP42553122)",
-      "outstanding_balance": "7495.2",
-      "updated_at": "2026-05-01T05:36:38.379552Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-05-04T07:37:00.651265Z",
       "interbank_code": "B1D",
       "journal": {
         "id": 3786218,
@@ -166,8 +200,34 @@
       },
       "pro_account_expense": null,
       "customer": null,
-      "supplier": null,
-      "categories": [],
+      "supplier": {
+        "id": 125836835,
+        "url": "https://app.pennylane.com/api/external/v2/suppliers/125836835"
+      },
+      "categories": [
+        {
+          "weight": "1.0",
+          "id": 9874608,
+          "label": "2 - LOGISTIQUE STOCKAGE",
+          "analytical_code": null,
+          "created_at": "2024-05-28T09:08:47.640200Z",
+          "updated_at": "2025-11-18T09:56:17.083234Z",
+          "category_group": {
+            "id": 806933
+          }
+        },
+        {
+          "weight": "1.0",
+          "id": 16635717,
+          "label": "Alexandre PROU",
+          "analytical_code": null,
+          "created_at": "2025-06-02T08:06:13.571071Z",
+          "updated_at": "2025-06-11T19:16:11.321981Z",
+          "category_group": {
+            "id": 1287557
+          }
+        }
+      ],
       "matched_invoices": {
         "url": "https://app.pennylane.com/api/external/v2/transactions/5089306887/matched_invoices"
       }
@@ -184,8 +244,8 @@
       "fee": "0.0",
       "id": 5089306886,
       "label": "GCS HOPITAL EUROPEEN\nFAC 202603-811/14892 FAC 202602-635/14811 FAC 202602-657/14863 FAC 202\n603-866/14927 FAC 202603-714/14673\n- GCS HOPITAL EUROPEEN\n(ref: TRG-CS26040191 - TRG-CS26040191)",
-      "outstanding_balance": "-3959.28",
-      "updated_at": "2026-05-01T05:36:38.379549Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-05-04T07:28:05.721893Z",
       "interbank_code": "18C",
       "journal": {
         "id": 3786218,
@@ -196,7 +256,10 @@
         "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
       },
       "pro_account_expense": null,
-      "customer": null,
+      "customer": {
+        "id": 237349277,
+        "url": "https://app.pennylane.com/api/external/v2/customers/237349277"
+      },
       "supplier": null,
       "categories": [],
       "matched_invoices": {
@@ -258,8 +321,8 @@
       "fee": "0.0",
       "id": 5089306884,
       "label": "POLYCLINIQUE LYON NORD\n202602-571 202602-594 202603-895 202603-1010\n- POLYCLINIQUE LYON NORD\n(ref: TRG-PLN26040176 - TRG-PLN26040176)",
-      "outstanding_balance": "-3402.16",
-      "updated_at": "2026-05-01T05:36:38.379544Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-05-04T07:35:11.212743Z",
       "interbank_code": "18C",
       "journal": {
         "id": 3786218,
@@ -270,7 +333,10 @@
         "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
       },
       "pro_account_expense": null,
-      "customer": null,
+      "customer": {
+        "id": 243618185,
+        "url": "https://app.pennylane.com/api/external/v2/customers/243618185"
+      },
       "supplier": null,
       "categories": [],
       "matched_invoices": {
@@ -320,8 +386,8 @@
       "fee": "0.0",
       "id": 5089306882,
       "label": "GHICL\n202602-543 202602-670\n- GHICL\n(ref: TRG-TRANS2604119 - TRG-TRANS26041195)",
-      "outstanding_balance": "-1880.45",
-      "updated_at": "2026-05-01T05:36:38.379538Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-05-04T07:35:39.247126Z",
       "interbank_code": "18C",
       "journal": {
         "id": 3786218,
@@ -413,8 +479,8 @@
       "fee": "0.0",
       "id": 5089306879,
       "label": "GHICL\n202602-610\n- GHICL\n(ref: TRG-TRANS2604077 - TRG-TRANS26040776)",
-      "outstanding_balance": "-698.48",
-      "updated_at": "2026-05-01T05:36:38.379529Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-05-04T07:34:51.744751Z",
       "interbank_code": "18C",
       "journal": {
         "id": 3786218,
@@ -425,7 +491,10 @@
         "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
       },
       "pro_account_expense": null,
-      "customer": null,
+      "customer": {
+        "id": 253941997,
+        "url": "https://app.pennylane.com/api/external/v2/customers/253941997"
+      },
       "supplier": null,
       "categories": [],
       "matched_invoices": {
@@ -444,8 +513,8 @@
       "fee": "0.0",
       "id": 5089306878,
       "label": "ASSOCIATION BONNEVEINE SAINT JO\nA.N. AU 010126 ET METZE CARE ET 2025006414\n- ASSOCIATION BONNEVEINE SAINT JOSEPH\n(ref: 2025006414 - 2025006414)",
-      "outstanding_balance": "-624.0",
-      "updated_at": "2026-05-01T05:36:38.379526Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-05-04T07:34:37.567615Z",
       "interbank_code": "18C",
       "journal": {
         "id": 3786218,
@@ -456,7 +525,10 @@
         "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
       },
       "pro_account_expense": null,
-      "customer": null,
+      "customer": {
+        "id": 199142942,
+        "url": "https://app.pennylane.com/api/external/v2/customers/199142942"
+      },
       "supplier": null,
       "categories": [],
       "matched_invoices": {
@@ -475,8 +547,8 @@
       "fee": "0.0",
       "id": 5089306877,
       "label": "ASSOCIATION HOSPITALIERE DE BRE\n- ASSOCIATION HOSPITALIERE DE BRETAGNE\n(ref: METZE FACT N 202 - METZE FACT N 202603-933 DU 19.03.20)",
-      "outstanding_balance": "-501.13",
-      "updated_at": "2026-05-01T05:36:38.379523Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-05-04T07:19:18.589679Z",
       "interbank_code": "18C",
       "journal": {
         "id": 3786218,
@@ -487,7 +559,10 @@
         "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
       },
       "pro_account_expense": null,
-      "customer": null,
+      "customer": {
+        "id": 245121276,
+        "url": "https://app.pennylane.com/api/external/v2/customers/245121276"
+      },
       "supplier": null,
       "categories": [],
       "matched_invoices": {
@@ -506,8 +581,8 @@
       "fee": "0.0",
       "id": 5089306876,
       "label": "L EAUVIVE SA\nMETZE\n- L EAUVIVE SA\n(ref: 202602448 - 202602448)",
-      "outstanding_balance": "-464.2",
-      "updated_at": "2026-05-01T05:36:38.379520Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-05-04T07:34:16.148924Z",
       "interbank_code": "18C",
       "journal": {
         "id": 3786218,
@@ -518,7 +593,10 @@
         "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
       },
       "pro_account_expense": null,
-      "customer": null,
+      "customer": {
+        "id": 249600523,
+        "url": "https://app.pennylane.com/api/external/v2/customers/249600523"
+      },
       "supplier": null,
       "categories": [],
       "matched_invoices": {
@@ -537,8 +615,8 @@
       "fee": "0.0",
       "id": 5089306875,
       "label": "BPGO HPCA SEJOURS\n202602-656\n- BPGO HPCA SEJOURS\n(ref: TRG-CHP26040192 - TRG-CHP26040192)",
-      "outstanding_balance": "-438.88",
-      "updated_at": "2026-05-01T05:36:38.379517Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-05-04T07:33:57.543718Z",
       "interbank_code": "18C",
       "journal": {
         "id": 3786218,
@@ -549,7 +627,10 @@
         "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
       },
       "pro_account_expense": null,
-      "customer": null,
+      "customer": {
+        "id": 256027424,
+        "url": "https://app.pennylane.com/api/external/v2/customers/256027424"
+      },
       "supplier": null,
       "categories": [],
       "matched_invoices": {
@@ -611,8 +692,8 @@
       "fee": "0.0",
       "id": 5089306873,
       "label": "CENTRALE RAMSAY SANTE\n202603742\n- CENTRALE RAMSAY SANTE\n(ref: 124-FSCT HPMC - 124-FSCT HPMC)",
-      "outstanding_balance": "-384.0",
-      "updated_at": "2026-05-01T05:36:38.379511Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-05-04T07:33:26.972845Z",
       "interbank_code": "18C",
       "journal": {
         "id": 3786218,
@@ -623,7 +704,10 @@
         "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
       },
       "pro_account_expense": null,
-      "customer": null,
+      "customer": {
+        "id": 239910244,
+        "url": "https://app.pennylane.com/api/external/v2/customers/239910244"
+      },
       "supplier": null,
       "categories": [],
       "matched_invoices": {
@@ -642,8 +726,8 @@
       "fee": "0.0",
       "id": 5089306872,
       "label": "POLE SANTE LEONARD DE VINCI\n- POLE SANTE LEONARD DE VINCI\n(ref: 45D-341)02566-18 - 45D-341)02566-18 02 01-04-2026)",
-      "outstanding_balance": "-374.4",
-      "updated_at": "2026-05-01T05:36:38.379508Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-05-04T07:32:56.908692Z",
       "interbank_code": "18C",
       "journal": {
         "id": 3786218,
@@ -654,7 +738,10 @@
         "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
       },
       "pro_account_expense": null,
-      "customer": null,
+      "customer": {
+        "id": 245117770,
+        "url": "https://app.pennylane.com/api/external/v2/customers/245117770"
+      },
       "supplier": null,
       "categories": [],
       "matched_invoices": {
@@ -673,8 +760,8 @@
       "fee": "0.0",
       "id": 5089306871,
       "label": "CLINIQUE DES 2 CAPS\n202603-734\n- CLINIQUE DES 2 CAPS\n(ref: TRG-CAP26040252 - TRG-CAP26040252)",
-      "outstanding_balance": "-331.8",
-      "updated_at": "2026-05-01T05:36:38.379505Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-05-04T07:32:32.555131Z",
       "interbank_code": "18C",
       "journal": {
         "id": 3786218,
@@ -685,7 +772,10 @@
         "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
       },
       "pro_account_expense": null,
-      "customer": null,
+      "customer": {
+        "id": 237657769,
+        "url": "https://app.pennylane.com/api/external/v2/customers/237657769"
+      },
       "supplier": null,
       "categories": [],
       "matched_invoices": {
@@ -704,8 +794,8 @@
       "fee": "0.0",
       "id": 5089306870,
       "label": "CLINIQUE TOUTES AURES\nMETZE SAS\n- CLINIQUE TOUTES AURES\n(ref: 2025007410 - 2025007410)",
-      "outstanding_balance": "-301.41",
-      "updated_at": "2026-05-01T05:36:38.379502Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-05-04T07:32:07.573260Z",
       "interbank_code": "18C",
       "journal": {
         "id": 3786218,
@@ -716,7 +806,10 @@
         "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
       },
       "pro_account_expense": null,
-      "customer": null,
+      "customer": {
+        "id": 129322911,
+        "url": "https://app.pennylane.com/api/external/v2/customers/129322911"
+      },
       "supplier": null,
       "categories": [],
       "matched_invoices": {
@@ -890,8 +983,8 @@
       "fee": "0.0",
       "id": 5089306864,
       "label": "CENTRALE RAMSAY SANTE\n202603838\n- CENTRALE RAMSAY SANTE\n(ref: 177-FSCT HPAB - 177-FSCT HPAB)",
-      "outstanding_balance": "-166.94",
-      "updated_at": "2026-05-01T05:36:38.379482Z",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-05-04T07:49:25.164573Z",
       "interbank_code": "18C",
       "journal": {
         "id": 3786218,
@@ -902,7 +995,10 @@
         "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
       },
       "pro_account_expense": null,
-      "customer": null,
+      "customer": {
+        "id": 240817870,
+        "url": "https://app.pennylane.com/api/external/v2/customers/240817870"
+      },
       "supplier": null,
       "categories": [],
       "matched_invoices": {
@@ -3061,6 +3157,328 @@
       }
     },
     {
+      "amount": "3041.63",
+      "archived_at": null,
+      "attachment_required": false,
+      "created_at": "2026-05-04T08:31:38.130822Z",
+      "currency_amount": "3564.0",
+      "currency_fee": null,
+      "currency": "USD",
+      "date": "2026-04-28",
+      "fee": null,
+      "id": 5099375729,
+      "label": "Acheté USD EBPOTR4938275 EURUSD 1.130000 - Paiement de biens identifiables",
+      "outstanding_balance": "-3041.63",
+      "updated_at": "2026-05-04T08:31:38.517413Z",
+      "interbank_code": null,
+      "journal": {
+        "id": 13790485,
+        "url": "https://app.pennylane.com/api/external/v2/journals/13790485"
+      },
+      "bank_account": {
+        "id": 2364672,
+        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/2364672"
+      },
+      "pro_account_expense": null,
+      "customer": null,
+      "supplier": null,
+      "categories": [],
+      "matched_invoices": {
+        "url": "https://app.pennylane.com/api/external/v2/transactions/5099375729/matched_invoices"
+      }
+    },
+    {
+      "amount": "-3041.63",
+      "archived_at": null,
+      "attachment_required": true,
+      "created_at": "2026-05-04T08:31:38.130822Z",
+      "currency_amount": "-3564.0",
+      "currency_fee": null,
+      "currency": "USD",
+      "date": "2026-04-28",
+      "fee": null,
+      "id": 5099375728,
+      "label": "Paiement PI6490584EBPOTR4938275 ECAN MEDICAL CO., LIMITED  BIC : BKCHHKHHXXX METZE SAS EBPOTR4938275 ECAN230426/001/FL",
+      "outstanding_balance": "3041.63",
+      "updated_at": "2026-05-04T08:31:38.517410Z",
+      "interbank_code": null,
+      "journal": {
+        "id": 13790485,
+        "url": "https://app.pennylane.com/api/external/v2/journals/13790485"
+      },
+      "bank_account": {
+        "id": 2364672,
+        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/2364672"
+      },
+      "pro_account_expense": null,
+      "customer": null,
+      "supplier": null,
+      "categories": [],
+      "matched_invoices": {
+        "url": "https://app.pennylane.com/api/external/v2/transactions/5099375728/matched_invoices"
+      }
+    },
+    {
+      "amount": "13933.1",
+      "archived_at": null,
+      "attachment_required": false,
+      "created_at": "2026-05-04T08:31:38.130822Z",
+      "currency_amount": "16326.0",
+      "currency_fee": null,
+      "currency": "USD",
+      "date": "2026-04-28",
+      "fee": null,
+      "id": 5099375727,
+      "label": "Acheté USD EBPOTR4938294 EURUSD 1.130000 - Paiement de biens identifiables",
+      "outstanding_balance": "-13933.1",
+      "updated_at": "2026-05-04T08:31:38.517407Z",
+      "interbank_code": null,
+      "journal": {
+        "id": 13790485,
+        "url": "https://app.pennylane.com/api/external/v2/journals/13790485"
+      },
+      "bank_account": {
+        "id": 2364672,
+        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/2364672"
+      },
+      "pro_account_expense": null,
+      "customer": null,
+      "supplier": null,
+      "categories": [],
+      "matched_invoices": {
+        "url": "https://app.pennylane.com/api/external/v2/transactions/5099375727/matched_invoices"
+      }
+    },
+    {
+      "amount": "-13933.1",
+      "archived_at": null,
+      "attachment_required": true,
+      "created_at": "2026-05-04T08:31:38.130822Z",
+      "currency_amount": "-16326.0",
+      "currency_fee": null,
+      "currency": "USD",
+      "date": "2026-04-28",
+      "fee": null,
+      "id": 5099375726,
+      "label": "Paiement PI6490615EBPOTR4938294 Zhejiang Curaway Medical Technology Co., LTD.  BIC : BKCHCNBJ910 METZE SAS EBPOTR4938294 CW086Z260311",
+      "outstanding_balance": "13933.1",
+      "updated_at": "2026-05-04T08:31:38.517403Z",
+      "interbank_code": null,
+      "journal": {
+        "id": 13790485,
+        "url": "https://app.pennylane.com/api/external/v2/journals/13790485"
+      },
+      "bank_account": {
+        "id": 2364672,
+        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/2364672"
+      },
+      "pro_account_expense": null,
+      "customer": null,
+      "supplier": null,
+      "categories": [],
+      "matched_invoices": {
+        "url": "https://app.pennylane.com/api/external/v2/transactions/5099375726/matched_invoices"
+      }
+    },
+    {
+      "amount": "7375.34",
+      "archived_at": null,
+      "attachment_required": false,
+      "created_at": "2026-05-04T08:31:38.130822Z",
+      "currency_amount": "8642.0",
+      "currency_fee": null,
+      "currency": "USD",
+      "date": "2026-04-28",
+      "fee": null,
+      "id": 5099375725,
+      "label": "Acheté USD EBPOTR4938303 EURUSD 1.130000 - Paiement de biens identifiables",
+      "outstanding_balance": "-7375.34",
+      "updated_at": "2026-05-04T08:31:38.517400Z",
+      "interbank_code": null,
+      "journal": {
+        "id": 13790485,
+        "url": "https://app.pennylane.com/api/external/v2/journals/13790485"
+      },
+      "bank_account": {
+        "id": 2364672,
+        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/2364672"
+      },
+      "pro_account_expense": null,
+      "customer": null,
+      "supplier": null,
+      "categories": [],
+      "matched_invoices": {
+        "url": "https://app.pennylane.com/api/external/v2/transactions/5099375725/matched_invoices"
+      }
+    },
+    {
+      "amount": "-7375.34",
+      "archived_at": null,
+      "attachment_required": true,
+      "created_at": "2026-05-04T08:31:38.130822Z",
+      "currency_amount": "-8642.0",
+      "currency_fee": null,
+      "currency": "USD",
+      "date": "2026-04-28",
+      "fee": null,
+      "id": 5099375724,
+      "label": "Paiement PI6490633EBPOTR4938303 Zhejiang Kindly Medical Devices Co., Ltd  BIC : BKCHCNBJ92B METZE SAS EBPOTR4938303 GK057926",
+      "outstanding_balance": "7375.34",
+      "updated_at": "2026-05-04T08:31:38.517388Z",
+      "interbank_code": null,
+      "journal": {
+        "id": 13790485,
+        "url": "https://app.pennylane.com/api/external/v2/journals/13790485"
+      },
+      "bank_account": {
+        "id": 2364672,
+        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/2364672"
+      },
+      "pro_account_expense": null,
+      "customer": null,
+      "supplier": null,
+      "categories": [
+        {
+          "weight": "1.0",
+          "id": 10172406,
+          "label": "1 - ACHAT MARCHANDISES - UE",
+          "analytical_code": null,
+          "created_at": "2024-06-12T06:41:57.553636Z",
+          "updated_at": "2025-07-28T14:36:53.283408Z",
+          "category_group": {
+            "id": 806933
+          }
+        }
+      ],
+      "matched_invoices": {
+        "url": "https://app.pennylane.com/api/external/v2/transactions/5099375724/matched_invoices"
+      }
+    },
+    {
+      "amount": "25249.56",
+      "archived_at": null,
+      "attachment_required": false,
+      "created_at": "2026-05-04T08:30:04.274998Z",
+      "currency_amount": "25249.56",
+      "currency_fee": null,
+      "currency": "EUR",
+      "date": "2026-04-28",
+      "fee": null,
+      "id": 5099336443,
+      "label": "Fonds METZE SAS FR7630004008230001084884403 -  - FR7620733000015790366654306 - 795044",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-05-04T08:30:05.198771Z",
+      "interbank_code": null,
+      "journal": {
+        "id": 7208113,
+        "url": "https://app.pennylane.com/api/external/v2/journals/7208113"
+      },
+      "bank_account": {
+        "id": 1415919,
+        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/1415919"
+      },
+      "pro_account_expense": null,
+      "customer": null,
+      "supplier": null,
+      "categories": [],
+      "matched_invoices": {
+        "url": "https://app.pennylane.com/api/external/v2/transactions/5099336443/matched_invoices"
+      }
+    },
+    {
+      "amount": "-3153.98",
+      "archived_at": null,
+      "attachment_required": false,
+      "created_at": "2026-05-04T08:30:04.274998Z",
+      "currency_amount": "-3153.98",
+      "currency_fee": null,
+      "currency": "EUR",
+      "date": "2026-04-28",
+      "fee": null,
+      "id": 5099336442,
+      "label": "Vendu EUR EBPOTR4938275 EURUSD 1.130000 - Paiement de biens identifiables",
+      "outstanding_balance": "3153.98",
+      "updated_at": "2026-05-04T08:30:05.198768Z",
+      "interbank_code": null,
+      "journal": {
+        "id": 7208113,
+        "url": "https://app.pennylane.com/api/external/v2/journals/7208113"
+      },
+      "bank_account": {
+        "id": 1415919,
+        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/1415919"
+      },
+      "pro_account_expense": null,
+      "customer": null,
+      "supplier": null,
+      "categories": [],
+      "matched_invoices": {
+        "url": "https://app.pennylane.com/api/external/v2/transactions/5099336442/matched_invoices"
+      }
+    },
+    {
+      "amount": "-14447.79",
+      "archived_at": null,
+      "attachment_required": false,
+      "created_at": "2026-05-04T08:30:04.274998Z",
+      "currency_amount": "-14447.79",
+      "currency_fee": null,
+      "currency": "EUR",
+      "date": "2026-04-28",
+      "fee": null,
+      "id": 5099336441,
+      "label": "Vendu EUR EBPOTR4938294 EURUSD 1.130000 - Paiement de biens identifiables",
+      "outstanding_balance": "14447.79",
+      "updated_at": "2026-05-04T08:30:05.198763Z",
+      "interbank_code": null,
+      "journal": {
+        "id": 7208113,
+        "url": "https://app.pennylane.com/api/external/v2/journals/7208113"
+      },
+      "bank_account": {
+        "id": 1415919,
+        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/1415919"
+      },
+      "pro_account_expense": null,
+      "customer": null,
+      "supplier": null,
+      "categories": [],
+      "matched_invoices": {
+        "url": "https://app.pennylane.com/api/external/v2/transactions/5099336441/matched_invoices"
+      }
+    },
+    {
+      "amount": "-7647.79",
+      "archived_at": null,
+      "attachment_required": false,
+      "created_at": "2026-05-04T08:30:04.274998Z",
+      "currency_amount": "-7647.79",
+      "currency_fee": null,
+      "currency": "EUR",
+      "date": "2026-04-28",
+      "fee": null,
+      "id": 5099336439,
+      "label": "Vendu EUR EBPOTR4938303 EURUSD 1.130000 - Paiement de biens identifiables",
+      "outstanding_balance": "7647.79",
+      "updated_at": "2026-05-04T08:30:05.198744Z",
+      "interbank_code": null,
+      "journal": {
+        "id": 7208113,
+        "url": "https://app.pennylane.com/api/external/v2/journals/7208113"
+      },
+      "bank_account": {
+        "id": 1415919,
+        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/1415919"
+      },
+      "pro_account_expense": null,
+      "customer": null,
+      "supplier": null,
+      "categories": [],
+      "matched_invoices": {
+        "url": "https://app.pennylane.com/api/external/v2/transactions/5099336439/matched_invoices"
+      }
+    },
+    {
       "amount": "-985.57",
       "archived_at": null,
       "attachment_required": true,
@@ -3073,7 +3491,7 @@
       "id": 5063233974,
       "label": "ZZ1KD97FSVEP9M199\n- ZARYS INTERNATIONAL SPOLKA Z OGRANICZONA ODPOWIEDZIALNOSCIA\n- 4610210\n(ref: ZZ1KD97FSVEP9M19 - ZZ1KD97FSVEP9M199 - 90022854 260428124610210)",
       "outstanding_balance": "985.57",
-      "updated_at": "2026-04-29T09:09:52.114080Z",
+      "updated_at": "2026-05-04T09:05:03.285588Z",
       "interbank_code": "C1D",
       "journal": {
         "id": 3786218,
@@ -4398,7 +4816,7 @@
       "id": 5032376342,
       "label": "LARDU LAVAGE",
       "outstanding_balance": "5.0",
-      "updated_at": "2026-04-27T01:05:32.291440Z",
+      "updated_at": "2026-05-04T08:10:57.653876Z",
       "interbank_code": "28D",
       "journal": {
         "id": 7207904,
@@ -4483,6 +4901,142 @@
       ],
       "matched_invoices": {
         "url": "https://app.pennylane.com/api/external/v2/transactions/5026250411/matched_invoices"
+      }
+    },
+    {
+      "amount": "537.42",
+      "archived_at": null,
+      "attachment_required": false,
+      "created_at": "2026-05-04T08:31:38.130822Z",
+      "currency_amount": "630.0",
+      "currency_fee": null,
+      "currency": "USD",
+      "date": "2026-04-24",
+      "fee": null,
+      "id": 5099375731,
+      "label": "Acheté USD EBPOTR4931681 EURUSD 1.130000 - Paiement de biens identifiables",
+      "outstanding_balance": "-537.42",
+      "updated_at": "2026-05-04T08:31:38.517418Z",
+      "interbank_code": null,
+      "journal": {
+        "id": 13790485,
+        "url": "https://app.pennylane.com/api/external/v2/journals/13790485"
+      },
+      "bank_account": {
+        "id": 2364672,
+        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/2364672"
+      },
+      "pro_account_expense": null,
+      "customer": null,
+      "supplier": null,
+      "categories": [],
+      "matched_invoices": {
+        "url": "https://app.pennylane.com/api/external/v2/transactions/5099375731/matched_invoices"
+      }
+    },
+    {
+      "amount": "-537.42",
+      "archived_at": null,
+      "attachment_required": true,
+      "created_at": "2026-05-04T08:31:38.130822Z",
+      "currency_amount": "-630.0",
+      "currency_fee": null,
+      "currency": "USD",
+      "date": "2026-04-24",
+      "fee": null,
+      "id": 5099375730,
+      "label": "Paiement PI6479106EBPOTR4931681 HANGZHOU ALLTEST BIOTECH CO .,LTD  BIC : CIBKCNBJ310 METZE SAS EBPOTR4931681",
+      "outstanding_balance": "537.42",
+      "updated_at": "2026-05-04T08:31:38.517416Z",
+      "interbank_code": null,
+      "journal": {
+        "id": 13790485,
+        "url": "https://app.pennylane.com/api/external/v2/journals/13790485"
+      },
+      "bank_account": {
+        "id": 2364672,
+        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/2364672"
+      },
+      "pro_account_expense": null,
+      "customer": null,
+      "supplier": null,
+      "categories": [
+        {
+          "weight": "1.0",
+          "id": 10172406,
+          "label": "1 - ACHAT MARCHANDISES - UE",
+          "analytical_code": null,
+          "created_at": "2024-06-12T06:41:57.553636Z",
+          "updated_at": "2025-07-28T14:36:53.283408Z",
+          "category_group": {
+            "id": 806933
+          }
+        }
+      ],
+      "matched_invoices": {
+        "url": "https://app.pennylane.com/api/external/v2/transactions/5099375730/matched_invoices"
+      }
+    },
+    {
+      "amount": "557.52",
+      "archived_at": null,
+      "attachment_required": false,
+      "created_at": "2026-05-04T08:30:04.274998Z",
+      "currency_amount": "557.52",
+      "currency_fee": null,
+      "currency": "EUR",
+      "date": "2026-04-24",
+      "fee": null,
+      "id": 5099336446,
+      "label": "Fonds METZE SAS FR7630004008230001084884403 -  - FR7620733000015790366654306 - 795044",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-05-04T08:30:05.198778Z",
+      "interbank_code": null,
+      "journal": {
+        "id": 7208113,
+        "url": "https://app.pennylane.com/api/external/v2/journals/7208113"
+      },
+      "bank_account": {
+        "id": 1415919,
+        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/1415919"
+      },
+      "pro_account_expense": null,
+      "customer": null,
+      "supplier": null,
+      "categories": [],
+      "matched_invoices": {
+        "url": "https://app.pennylane.com/api/external/v2/transactions/5099336446/matched_invoices"
+      }
+    },
+    {
+      "amount": "-557.52",
+      "archived_at": null,
+      "attachment_required": false,
+      "created_at": "2026-05-04T08:30:04.274998Z",
+      "currency_amount": "-557.52",
+      "currency_fee": null,
+      "currency": "EUR",
+      "date": "2026-04-24",
+      "fee": null,
+      "id": 5099336444,
+      "label": "Vendu EUR EBPOTR4931681 EURUSD 1.130000 - Paiement de biens identifiables",
+      "outstanding_balance": "557.52",
+      "updated_at": "2026-05-04T08:30:05.198775Z",
+      "interbank_code": null,
+      "journal": {
+        "id": 7208113,
+        "url": "https://app.pennylane.com/api/external/v2/journals/7208113"
+      },
+      "bank_account": {
+        "id": 1415919,
+        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/1415919"
+      },
+      "pro_account_expense": null,
+      "customer": null,
+      "supplier": null,
+      "categories": [],
+      "matched_invoices": {
+        "url": "https://app.pennylane.com/api/external/v2/transactions/5099336444/matched_invoices"
       }
     },
     {
@@ -9730,7 +10284,7 @@
       "id": 4854649480,
       "label": "THE CONNEMARA",
       "outstanding_balance": "21.9",
-      "updated_at": "2026-04-16T09:43:01.234956Z",
+      "updated_at": "2026-05-04T08:11:02.013435Z",
       "interbank_code": "28D",
       "journal": {
         "id": 7207904,
@@ -9912,6 +10466,130 @@
       "categories": [],
       "matched_invoices": {
         "url": "https://app.pennylane.com/api/external/v2/transactions/4851961305/matched_invoices"
+      }
+    },
+    {
+      "amount": "5843.26",
+      "archived_at": null,
+      "attachment_required": false,
+      "created_at": "2026-05-04T08:31:38.130822Z",
+      "currency_amount": "6900.0",
+      "currency_fee": null,
+      "currency": "USD",
+      "date": "2026-04-15",
+      "fee": null,
+      "id": 5099375733,
+      "label": "Acheté USD EBPOTR4904116 EURUSD 1.130000 - Paiement de biens identifiables",
+      "outstanding_balance": "-5843.26",
+      "updated_at": "2026-05-04T08:31:38.517424Z",
+      "interbank_code": null,
+      "journal": {
+        "id": 13790485,
+        "url": "https://app.pennylane.com/api/external/v2/journals/13790485"
+      },
+      "bank_account": {
+        "id": 2364672,
+        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/2364672"
+      },
+      "pro_account_expense": null,
+      "customer": null,
+      "supplier": null,
+      "categories": [],
+      "matched_invoices": {
+        "url": "https://app.pennylane.com/api/external/v2/transactions/5099375733/matched_invoices"
+      }
+    },
+    {
+      "amount": "-5843.26",
+      "archived_at": null,
+      "attachment_required": true,
+      "created_at": "2026-05-04T08:31:38.130822Z",
+      "currency_amount": "-6900.0",
+      "currency_fee": null,
+      "currency": "USD",
+      "date": "2026-04-15",
+      "fee": null,
+      "id": 5099375732,
+      "label": "Paiement PI6437070EBPOTR4904116 STAR MEDIK SDN. BHD.  BIC : MBBEMYKL METZE SAS EBPOTR4904116 SM/EX/1130/TSW",
+      "outstanding_balance": "5843.26",
+      "updated_at": "2026-05-04T08:31:38.517421Z",
+      "interbank_code": null,
+      "journal": {
+        "id": 13790485,
+        "url": "https://app.pennylane.com/api/external/v2/journals/13790485"
+      },
+      "bank_account": {
+        "id": 2364672,
+        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/2364672"
+      },
+      "pro_account_expense": null,
+      "customer": null,
+      "supplier": null,
+      "categories": [],
+      "matched_invoices": {
+        "url": "https://app.pennylane.com/api/external/v2/transactions/5099375732/matched_invoices"
+      }
+    },
+    {
+      "amount": "5018.48",
+      "archived_at": null,
+      "attachment_required": false,
+      "created_at": "2026-05-04T08:30:04.274998Z",
+      "currency_amount": "5018.48",
+      "currency_fee": null,
+      "currency": "EUR",
+      "date": "2026-04-15",
+      "fee": null,
+      "id": 5099336449,
+      "label": "Fonds METZE SAS FR7630004008230001084884403 -  - FR7620733000017613753322109 - 795044",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-05-04T08:30:05.198786Z",
+      "interbank_code": null,
+      "journal": {
+        "id": 7208113,
+        "url": "https://app.pennylane.com/api/external/v2/journals/7208113"
+      },
+      "bank_account": {
+        "id": 1415919,
+        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/1415919"
+      },
+      "pro_account_expense": null,
+      "customer": null,
+      "supplier": null,
+      "categories": [],
+      "matched_invoices": {
+        "url": "https://app.pennylane.com/api/external/v2/transactions/5099336449/matched_invoices"
+      }
+    },
+    {
+      "amount": "-6106.19",
+      "archived_at": null,
+      "attachment_required": false,
+      "created_at": "2026-05-04T08:30:04.274998Z",
+      "currency_amount": "-6106.19",
+      "currency_fee": null,
+      "currency": "EUR",
+      "date": "2026-04-15",
+      "fee": null,
+      "id": 5099336448,
+      "label": "Vendu EUR EBPOTR4904116 EURUSD 1.130000 - Paiement de biens identifiables",
+      "outstanding_balance": "6106.19",
+      "updated_at": "2026-05-04T08:30:05.198783Z",
+      "interbank_code": null,
+      "journal": {
+        "id": 7208113,
+        "url": "https://app.pennylane.com/api/external/v2/journals/7208113"
+      },
+      "bank_account": {
+        "id": 1415919,
+        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/1415919"
+      },
+      "pro_account_expense": null,
+      "customer": null,
+      "supplier": null,
+      "categories": [],
+      "matched_invoices": {
+        "url": "https://app.pennylane.com/api/external/v2/transactions/5099336448/matched_invoices"
       }
     },
     {
@@ -10795,6 +11473,130 @@
       }
     },
     {
+      "amount": "2204.97",
+      "archived_at": null,
+      "attachment_required": false,
+      "created_at": "2026-05-04T08:31:38.130822Z",
+      "currency_amount": "2594.24",
+      "currency_fee": null,
+      "currency": "USD",
+      "date": "2026-04-13",
+      "fee": null,
+      "id": 5099375735,
+      "label": "Acheté USD EBPOTR4895807 EURUSD 1.130000 - Paiement de biens identifiables",
+      "outstanding_balance": "-2204.97",
+      "updated_at": "2026-05-04T08:31:38.517429Z",
+      "interbank_code": null,
+      "journal": {
+        "id": 13790485,
+        "url": "https://app.pennylane.com/api/external/v2/journals/13790485"
+      },
+      "bank_account": {
+        "id": 2364672,
+        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/2364672"
+      },
+      "pro_account_expense": null,
+      "customer": null,
+      "supplier": null,
+      "categories": [],
+      "matched_invoices": {
+        "url": "https://app.pennylane.com/api/external/v2/transactions/5099375735/matched_invoices"
+      }
+    },
+    {
+      "amount": "-2204.97",
+      "archived_at": null,
+      "attachment_required": true,
+      "created_at": "2026-05-04T08:31:38.130822Z",
+      "currency_amount": "-2594.24",
+      "currency_fee": null,
+      "currency": "USD",
+      "date": "2026-04-13",
+      "fee": null,
+      "id": 5099375734,
+      "label": "Paiement PI6424790EBPOTR4895807 BRO GROUP LOGISTICS CO..LIMITED  BIC : HSBCHKHHHKH METZE SAS EBPOTR4895807 BRO2602-0016",
+      "outstanding_balance": "2204.97",
+      "updated_at": "2026-05-04T08:31:38.517426Z",
+      "interbank_code": null,
+      "journal": {
+        "id": 13790485,
+        "url": "https://app.pennylane.com/api/external/v2/journals/13790485"
+      },
+      "bank_account": {
+        "id": 2364672,
+        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/2364672"
+      },
+      "pro_account_expense": null,
+      "customer": null,
+      "supplier": null,
+      "categories": [],
+      "matched_invoices": {
+        "url": "https://app.pennylane.com/api/external/v2/transactions/5099375734/matched_invoices"
+      }
+    },
+    {
+      "amount": "2000.0",
+      "archived_at": null,
+      "attachment_required": false,
+      "created_at": "2026-05-04T08:30:04.274998Z",
+      "currency_amount": "2000.0",
+      "currency_fee": null,
+      "currency": "EUR",
+      "date": "2026-04-13",
+      "fee": null,
+      "id": 5099336453,
+      "label": "Fonds METZE SAS FR7630004008230001084884403 -  - FR7620733000017613753322109 - 795044",
+      "outstanding_balance": "0.0",
+      "updated_at": "2026-05-04T08:30:05.198793Z",
+      "interbank_code": null,
+      "journal": {
+        "id": 7208113,
+        "url": "https://app.pennylane.com/api/external/v2/journals/7208113"
+      },
+      "bank_account": {
+        "id": 1415919,
+        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/1415919"
+      },
+      "pro_account_expense": null,
+      "customer": null,
+      "supplier": null,
+      "categories": [],
+      "matched_invoices": {
+        "url": "https://app.pennylane.com/api/external/v2/transactions/5099336453/matched_invoices"
+      }
+    },
+    {
+      "amount": "-2295.79",
+      "archived_at": null,
+      "attachment_required": false,
+      "created_at": "2026-05-04T08:30:04.274998Z",
+      "currency_amount": "-2295.79",
+      "currency_fee": null,
+      "currency": "EUR",
+      "date": "2026-04-13",
+      "fee": null,
+      "id": 5099336452,
+      "label": "Vendu EUR EBPOTR4895807 EURUSD 1.130000 - Paiement de biens identifiables",
+      "outstanding_balance": "2295.79",
+      "updated_at": "2026-05-04T08:30:05.198789Z",
+      "interbank_code": null,
+      "journal": {
+        "id": 7208113,
+        "url": "https://app.pennylane.com/api/external/v2/journals/7208113"
+      },
+      "bank_account": {
+        "id": 1415919,
+        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/1415919"
+      },
+      "pro_account_expense": null,
+      "customer": null,
+      "supplier": null,
+      "categories": [],
+      "matched_invoices": {
+        "url": "https://app.pennylane.com/api/external/v2/transactions/5099336452/matched_invoices"
+      }
+    },
+    {
       "amount": "1920.0",
       "archived_at": null,
       "attachment_required": true,
@@ -11069,6 +11871,111 @@
       ],
       "matched_invoices": {
         "url": "https://app.pennylane.com/api/external/v2/transactions/4816679265/matched_invoices"
+      }
+    },
+    {
+      "amount": "170.54",
+      "archived_at": null,
+      "attachment_required": false,
+      "created_at": "2026-05-04T08:31:38.130822Z",
+      "currency_amount": "200.0",
+      "currency_fee": null,
+      "currency": "USD",
+      "date": "2026-04-10",
+      "fee": null,
+      "id": 5099375737,
+      "label": "Acheté USD EBPOTR4896446 EURUSD 1.161360 - Paiement de biens identifiables",
+      "outstanding_balance": "-170.54",
+      "updated_at": "2026-05-04T08:31:38.517433Z",
+      "interbank_code": null,
+      "journal": {
+        "id": 13790485,
+        "url": "https://app.pennylane.com/api/external/v2/journals/13790485"
+      },
+      "bank_account": {
+        "id": 2364672,
+        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/2364672"
+      },
+      "pro_account_expense": null,
+      "customer": null,
+      "supplier": null,
+      "categories": [],
+      "matched_invoices": {
+        "url": "https://app.pennylane.com/api/external/v2/transactions/5099375737/matched_invoices"
+      }
+    },
+    {
+      "amount": "-170.54",
+      "archived_at": null,
+      "attachment_required": true,
+      "created_at": "2026-05-04T08:31:38.130822Z",
+      "currency_amount": "-200.0",
+      "currency_fee": null,
+      "currency": "USD",
+      "date": "2026-04-10",
+      "fee": null,
+      "id": 5099375736,
+      "label": "Paiement PI6425840EBPOTR4896446 HANGZHOU ALLTEST BIOTECH CO .,LTD  BIC : CIBKCNBJ310 METZE SAS EBPOTR4896446 A2083017",
+      "outstanding_balance": "170.54",
+      "updated_at": "2026-05-04T08:31:38.517431Z",
+      "interbank_code": null,
+      "journal": {
+        "id": 13790485,
+        "url": "https://app.pennylane.com/api/external/v2/journals/13790485"
+      },
+      "bank_account": {
+        "id": 2364672,
+        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/2364672"
+      },
+      "pro_account_expense": null,
+      "customer": null,
+      "supplier": null,
+      "categories": [
+        {
+          "weight": "1.0",
+          "id": 10172406,
+          "label": "1 - ACHAT MARCHANDISES - UE",
+          "analytical_code": null,
+          "created_at": "2024-06-12T06:41:57.553636Z",
+          "updated_at": "2025-07-28T14:36:53.283408Z",
+          "category_group": {
+            "id": 806933
+          }
+        }
+      ],
+      "matched_invoices": {
+        "url": "https://app.pennylane.com/api/external/v2/transactions/5099375736/matched_invoices"
+      }
+    },
+    {
+      "amount": "-172.21",
+      "archived_at": null,
+      "attachment_required": false,
+      "created_at": "2026-05-04T08:30:04.274998Z",
+      "currency_amount": "-172.21",
+      "currency_fee": null,
+      "currency": "EUR",
+      "date": "2026-04-10",
+      "fee": null,
+      "id": 5099336456,
+      "label": "Vendu EUR EBPOTR4896446 EURUSD 1.161360 - Payment for identifiable goods",
+      "outstanding_balance": "172.21",
+      "updated_at": "2026-05-04T08:30:05.198796Z",
+      "interbank_code": null,
+      "journal": {
+        "id": 7208113,
+        "url": "https://app.pennylane.com/api/external/v2/journals/7208113"
+      },
+      "bank_account": {
+        "id": 1415919,
+        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/1415919"
+      },
+      "pro_account_expense": null,
+      "customer": null,
+      "supplier": null,
+      "categories": [],
+      "matched_invoices": {
+        "url": "https://app.pennylane.com/api/external/v2/transactions/5099336456/matched_invoices"
       }
     },
     {
@@ -11920,1178 +12827,6 @@
       ],
       "matched_invoices": {
         "url": "https://app.pennylane.com/api/external/v2/transactions/4781804211/matched_invoices"
-      }
-    },
-    {
-      "amount": "696.0",
-      "archived_at": null,
-      "attachment_required": true,
-      "created_at": "2026-04-09T08:02:35.528219Z",
-      "currency_amount": "696.0",
-      "currency_fee": "0.0",
-      "currency": "EUR",
-      "date": "2026-04-08",
-      "fee": "0.0",
-      "id": 4781804210,
-      "label": "MEDFIRST\n202601-74\n- MEDFIRST\n(ref: 202601-74 - 202601-74)",
-      "outstanding_balance": "0.0",
-      "updated_at": "2026-04-09T09:06:16.283095Z",
-      "interbank_code": "18C",
-      "journal": {
-        "id": 3786218,
-        "url": "https://app.pennylane.com/api/external/v2/journals/3786218"
-      },
-      "bank_account": {
-        "id": 917870,
-        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
-      },
-      "pro_account_expense": null,
-      "customer": {
-        "id": 237296606,
-        "url": "https://app.pennylane.com/api/external/v2/customers/237296606"
-      },
-      "supplier": null,
-      "categories": [
-        {
-          "weight": "1.0",
-          "id": 10565795,
-          "label": "7 - VENTES",
-          "analytical_code": null,
-          "created_at": "2024-07-04T10:42:16.198767Z",
-          "updated_at": "2025-07-28T14:48:21.226881Z",
-          "category_group": {
-            "id": 806933
-          }
-        }
-      ],
-      "matched_invoices": {
-        "url": "https://app.pennylane.com/api/external/v2/transactions/4781804210/matched_invoices"
-      }
-    },
-    {
-      "amount": "624.0",
-      "archived_at": null,
-      "attachment_required": true,
-      "created_at": "2026-04-09T08:02:35.528219Z",
-      "currency_amount": "624.0",
-      "currency_fee": "0.0",
-      "currency": "EUR",
-      "date": "2026-04-08",
-      "fee": "0.0",
-      "id": 4781804209,
-      "label": "CH BEGARD BON SAUVEUR\n2025007523 METZE SAS\n- CH BEGARD BON SAUVEUR\n(ref: EBE1-0)202500752 - EBE1-0)2025007523 METZE SAS)",
-      "outstanding_balance": "0.0",
-      "updated_at": "2026-04-09T08:23:47.864391Z",
-      "interbank_code": "18C",
-      "journal": {
-        "id": 3786218,
-        "url": "https://app.pennylane.com/api/external/v2/journals/3786218"
-      },
-      "bank_account": {
-        "id": 917870,
-        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
-      },
-      "pro_account_expense": null,
-      "customer": {
-        "id": 228399756,
-        "url": "https://app.pennylane.com/api/external/v2/customers/228399756"
-      },
-      "supplier": null,
-      "categories": [
-        {
-          "weight": "1.0",
-          "id": 10565795,
-          "label": "7 - VENTES",
-          "analytical_code": null,
-          "created_at": "2024-07-04T10:42:16.198767Z",
-          "updated_at": "2025-07-28T14:48:21.226881Z",
-          "category_group": {
-            "id": 806933
-          }
-        }
-      ],
-      "matched_invoices": {
-        "url": "https://app.pennylane.com/api/external/v2/transactions/4781804209/matched_invoices"
-      }
-    },
-    {
-      "amount": "546.0",
-      "archived_at": null,
-      "attachment_required": true,
-      "created_at": "2026-04-09T08:02:35.528219Z",
-      "currency_amount": "546.0",
-      "currency_fee": "0.0",
-      "currency": "EUR",
-      "date": "2026-04-08",
-      "fee": "0.0",
-      "id": 4781804208,
-      "label": "OHS ETABLISSEMENTS DE FLAVIGNY\n- OHS ETABLISSEMENTS DE FLAVIGNY\n(ref: 1F69-74)202602-3 - 1F69-74)202602-396 02-02-2026)",
-      "outstanding_balance": "0.0",
-      "updated_at": "2026-04-09T09:08:12.197594Z",
-      "interbank_code": "18C",
-      "journal": {
-        "id": 3786218,
-        "url": "https://app.pennylane.com/api/external/v2/journals/3786218"
-      },
-      "bank_account": {
-        "id": 917870,
-        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
-      },
-      "pro_account_expense": null,
-      "customer": {
-        "id": 245843413,
-        "url": "https://app.pennylane.com/api/external/v2/customers/245843413"
-      },
-      "supplier": null,
-      "categories": [
-        {
-          "weight": "1.0",
-          "id": 10565795,
-          "label": "7 - VENTES",
-          "analytical_code": null,
-          "created_at": "2024-07-04T10:42:16.198767Z",
-          "updated_at": "2025-07-28T14:48:21.226881Z",
-          "category_group": {
-            "id": 806933
-          }
-        }
-      ],
-      "matched_invoices": {
-        "url": "https://app.pennylane.com/api/external/v2/transactions/4781804208/matched_invoices"
-      }
-    },
-    {
-      "amount": "522.23",
-      "archived_at": null,
-      "attachment_required": true,
-      "created_at": "2026-04-09T08:02:35.528219Z",
-      "currency_amount": "522.23",
-      "currency_fee": "0.0",
-      "currency": "EUR",
-      "date": "2026-04-08",
-      "fee": "0.0",
-      "id": 4781804207,
-      "label": "FONDATION LENVAL NICE\n26200389\n- FONDATION LENVAL NICE\n(ref: 665E-60)202602-3 - 665E-60)202602-391)",
-      "outstanding_balance": "0.0",
-      "updated_at": "2026-04-09T09:07:29.986990Z",
-      "interbank_code": "18C",
-      "journal": {
-        "id": 3786218,
-        "url": "https://app.pennylane.com/api/external/v2/journals/3786218"
-      },
-      "bank_account": {
-        "id": 917870,
-        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
-      },
-      "pro_account_expense": null,
-      "customer": {
-        "id": 238786770,
-        "url": "https://app.pennylane.com/api/external/v2/customers/238786770"
-      },
-      "supplier": null,
-      "categories": [
-        {
-          "weight": "1.0",
-          "id": 10565795,
-          "label": "7 - VENTES",
-          "analytical_code": null,
-          "created_at": "2024-07-04T10:42:16.198767Z",
-          "updated_at": "2025-07-28T14:48:21.226881Z",
-          "category_group": {
-            "id": 806933
-          }
-        }
-      ],
-      "matched_invoices": {
-        "url": "https://app.pennylane.com/api/external/v2/transactions/4781804207/matched_invoices"
-      }
-    },
-    {
-      "amount": "146.05",
-      "archived_at": null,
-      "attachment_required": true,
-      "created_at": "2026-04-09T08:02:35.528219Z",
-      "currency_amount": "146.05",
-      "currency_fee": "0.0",
-      "currency": "EUR",
-      "date": "2026-04-08",
-      "fee": "0.0",
-      "id": 4781804206,
-      "label": "M JEAN-LOUIS LARNAUDIE OU MME P\n- M JEAN-LOUIS LARNAUDIE OU MME PATRICE LARNAUDIE\n(ref: NOTPROVIDED - NOTPROVIDED)",
-      "outstanding_balance": "0.0",
-      "updated_at": "2026-04-10T07:28:45.364815Z",
-      "interbank_code": "C2C",
-      "journal": {
-        "id": 3786218,
-        "url": "https://app.pennylane.com/api/external/v2/journals/3786218"
-      },
-      "bank_account": {
-        "id": 917870,
-        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
-      },
-      "pro_account_expense": null,
-      "customer": {
-        "id": 275124181,
-        "url": "https://app.pennylane.com/api/external/v2/customers/275124181"
-      },
-      "supplier": null,
-      "categories": [
-        {
-          "weight": "1.0",
-          "id": 10565795,
-          "label": "7 - VENTES",
-          "analytical_code": null,
-          "created_at": "2024-07-04T10:42:16.198767Z",
-          "updated_at": "2025-07-28T14:48:21.226881Z",
-          "category_group": {
-            "id": 806933
-          }
-        }
-      ],
-      "matched_invoices": {
-        "url": "https://app.pennylane.com/api/external/v2/transactions/4781804206/matched_invoices"
-      }
-    },
-    {
-      "amount": "9858.75",
-      "archived_at": null,
-      "attachment_required": true,
-      "created_at": "2026-04-08T06:41:41.215326Z",
-      "currency_amount": "9858.75",
-      "currency_fee": "0.0",
-      "currency": "EUR",
-      "date": "2026-04-07",
-      "fee": "0.0",
-      "id": 4767007036,
-      "label": "GLSMED TRADE  S.A\nGLSMED TRADE  S.A\n- GLSMED TRADE  S.A\n(ref: 2603020227SC0033 - 2603020227SC00330001 000010)",
-      "outstanding_balance": "-9858.75",
-      "updated_at": "2026-04-08T09:42:25.141069Z",
-      "interbank_code": "18C",
-      "journal": {
-        "id": 3786218,
-        "url": "https://app.pennylane.com/api/external/v2/journals/3786218"
-      },
-      "bank_account": {
-        "id": 917870,
-        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
-      },
-      "pro_account_expense": null,
-      "customer": null,
-      "supplier": null,
-      "categories": [
-        {
-          "weight": "1.0",
-          "id": 10565795,
-          "label": "7 - VENTES",
-          "analytical_code": null,
-          "created_at": "2024-07-04T10:42:16.198767Z",
-          "updated_at": "2025-07-28T14:48:21.226881Z",
-          "category_group": {
-            "id": 806933
-          }
-        }
-      ],
-      "matched_invoices": {
-        "url": "https://app.pennylane.com/api/external/v2/transactions/4767007036/matched_invoices"
-      }
-    },
-    {
-      "amount": "-5000.0",
-      "archived_at": null,
-      "attachment_required": false,
-      "created_at": "2026-04-08T06:41:41.215326Z",
-      "currency_amount": "-5000.0",
-      "currency_fee": "0.0",
-      "currency": "EUR",
-      "date": "2026-04-07",
-      "fee": "0.0",
-      "id": 4767007035,
-      "label": "PENNYLANE - RECHARGE COMPTE PRO\nPENNYLANE - RECHARGE COMPTE PRO . 231876\n- METZE SAS\n- 2247470\n(ref: 0AAA71BB56814731 - 0AAA71BB56814731BA52779903F70343 - 65EB66D6AE9C413 260407152247470)",
-      "outstanding_balance": "0.0",
-      "updated_at": "2026-04-08T06:41:41.917450Z",
-      "interbank_code": "C1D",
-      "journal": {
-        "id": 3786218,
-        "url": "https://app.pennylane.com/api/external/v2/journals/3786218"
-      },
-      "bank_account": {
-        "id": 917870,
-        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
-      },
-      "pro_account_expense": null,
-      "customer": null,
-      "supplier": null,
-      "categories": [
-        {
-          "weight": "1.0",
-          "id": 9874616,
-          "label": "6 - VIREMENT DE TRESORERIE",
-          "analytical_code": null,
-          "created_at": "2024-05-28T09:08:47.640200Z",
-          "updated_at": "2025-10-28T15:01:36.323146Z",
-          "category_group": {
-            "id": 806933
-          }
-        }
-      ],
-      "matched_invoices": {
-        "url": "https://app.pennylane.com/api/external/v2/transactions/4767007035/matched_invoices"
-      }
-    },
-    {
-      "amount": "4576.6",
-      "archived_at": null,
-      "attachment_required": true,
-      "created_at": "2026-04-08T06:41:41.215326Z",
-      "currency_amount": "4576.6",
-      "currency_fee": "0.0",
-      "currency": "EUR",
-      "date": "2026-04-07",
-      "fee": "0.0",
-      "id": 4767007034,
-      "label": "HOPITAL PRIVE DE PROVENCE\n202602-393 202602-380 202601-268 202602-484 202601-249\n- HOPITAL PRIVE DE PROVENCE\n(ref: TRG-PPR26040238 - TRG-PPR26040238)",
-      "outstanding_balance": "0.0",
-      "updated_at": "2026-04-08T07:14:06.667037Z",
-      "interbank_code": "18C",
-      "journal": {
-        "id": 3786218,
-        "url": "https://app.pennylane.com/api/external/v2/journals/3786218"
-      },
-      "bank_account": {
-        "id": 917870,
-        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
-      },
-      "pro_account_expense": null,
-      "customer": {
-        "id": 238788950,
-        "url": "https://app.pennylane.com/api/external/v2/customers/238788950"
-      },
-      "supplier": null,
-      "categories": [
-        {
-          "weight": "1.0",
-          "id": 10565795,
-          "label": "7 - VENTES",
-          "analytical_code": null,
-          "created_at": "2024-07-04T10:42:16.198767Z",
-          "updated_at": "2025-07-28T14:48:21.226881Z",
-          "category_group": {
-            "id": 806933
-          }
-        }
-      ],
-      "matched_invoices": {
-        "url": "https://app.pennylane.com/api/external/v2/transactions/4767007034/matched_invoices"
-      }
-    },
-    {
-      "amount": "-3000.0",
-      "archived_at": null,
-      "attachment_required": true,
-      "created_at": "2026-04-08T06:41:41.215326Z",
-      "currency_amount": "-3000.0",
-      "currency_fee": "0.0",
-      "currency": "EUR",
-      "date": "2026-04-07",
-      "fee": "0.0",
-      "id": 4767007033,
-      "label": "/MOTIF /BEN EBURY EUR /REFDO -\n- METZE SAS\n- EBURY EUR\n(ref: 795044 - -                                  -)",
-      "outstanding_balance": "0.0",
-      "updated_at": "2026-04-08T09:42:22.833259Z",
-      "interbank_code": "21D",
-      "journal": {
-        "id": 3786218,
-        "url": "https://app.pennylane.com/api/external/v2/journals/3786218"
-      },
-      "bank_account": {
-        "id": 917870,
-        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
-      },
-      "pro_account_expense": null,
-      "customer": null,
-      "supplier": null,
-      "categories": [
-        {
-          "weight": "1.0",
-          "id": 18229548,
-          "label": "1 - ACHAT MARCHANDISES - HORS UE  ",
-          "analytical_code": null,
-          "created_at": "2025-07-01T09:10:57.489845Z",
-          "updated_at": "2025-11-18T09:54:19.484052Z",
-          "category_group": {
-            "id": 806933
-          }
-        }
-      ],
-      "matched_invoices": {
-        "url": "https://app.pennylane.com/api/external/v2/transactions/4767007033/matched_invoices"
-      }
-    },
-    {
-      "amount": "2694.0",
-      "archived_at": null,
-      "attachment_required": true,
-      "created_at": "2026-04-08T06:41:41.215326Z",
-      "currency_amount": "2694.0",
-      "currency_fee": "0.0",
-      "currency": "EUR",
-      "date": "2026-04-07",
-      "fee": "0.0",
-      "id": 4767007032,
-      "label": "INSTITUT DU CANCER MONTPELLIER\n202602-675 202602-509\n- INSTITUT DU CANCER MONTPELLIER\n(ref: 202602-675 - 202602-675)",
-      "outstanding_balance": "0.0",
-      "updated_at": "2026-04-08T07:15:04.070503Z",
-      "interbank_code": "18C",
-      "journal": {
-        "id": 3786218,
-        "url": "https://app.pennylane.com/api/external/v2/journals/3786218"
-      },
-      "bank_account": {
-        "id": 917870,
-        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
-      },
-      "pro_account_expense": null,
-      "customer": {
-        "id": 240817507,
-        "url": "https://app.pennylane.com/api/external/v2/customers/240817507"
-      },
-      "supplier": null,
-      "categories": [
-        {
-          "weight": "1.0",
-          "id": 10565795,
-          "label": "7 - VENTES",
-          "analytical_code": null,
-          "created_at": "2024-07-04T10:42:16.198767Z",
-          "updated_at": "2025-07-28T14:48:21.226881Z",
-          "category_group": {
-            "id": 806933
-          }
-        }
-      ],
-      "matched_invoices": {
-        "url": "https://app.pennylane.com/api/external/v2/transactions/4767007032/matched_invoices"
-      }
-    },
-    {
-      "amount": "833.32",
-      "archived_at": null,
-      "attachment_required": false,
-      "created_at": "2026-04-08T06:41:41.215326Z",
-      "currency_amount": "833.32",
-      "currency_fee": "0.0",
-      "currency": "EUR",
-      "date": "2026-04-07",
-      "fee": "0.0",
-      "id": 4767007031,
-      "label": "ASP AGENCE COMPTABLE\n159496682 AUEA AUEA04102388980 MINISTERE DU TRAVAIL AIDE UNIQUE APPREN\nTI METZE SAS\n- ASP AGENCE COMPTABLE\n(ref: 1D07500001594966 - 1D0750000159496682-TEL---0240697836)",
-      "outstanding_balance": "0.0",
-      "updated_at": "2026-04-09T10:02:30.099717Z",
-      "interbank_code": "18C",
-      "journal": {
-        "id": 3786218,
-        "url": "https://app.pennylane.com/api/external/v2/journals/3786218"
-      },
-      "bank_account": {
-        "id": 917870,
-        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
-      },
-      "pro_account_expense": null,
-      "customer": null,
-      "supplier": null,
-      "categories": [
-        {
-          "weight": "1.0",
-          "id": 18233185,
-          "label": "7 - SUBVENTIONS",
-          "analytical_code": null,
-          "created_at": "2025-07-01T09:56:03.789556Z",
-          "updated_at": "2025-07-28T14:48:16.939714Z",
-          "category_group": {
-            "id": 806933
-          }
-        }
-      ],
-      "matched_invoices": {
-        "url": "https://app.pennylane.com/api/external/v2/transactions/4767007031/matched_invoices"
-      }
-    },
-    {
-      "amount": "756.0",
-      "archived_at": null,
-      "attachment_required": true,
-      "created_at": "2026-04-08T06:41:41.215326Z",
-      "currency_amount": "756.0",
-      "currency_fee": "0.0",
-      "currency": "EUR",
-      "date": "2026-04-07",
-      "fee": "0.0",
-      "id": 4767007030,
-      "label": "AHNAC\n202601-242\n- ASSOC HOSPITALIERE NORD ARTOIS CLINIQUE\n(ref: 202601-242 - 202601-242)",
-      "outstanding_balance": "0.0",
-      "updated_at": "2026-04-08T07:15:44.549060Z",
-      "interbank_code": "18C",
-      "journal": {
-        "id": 3786218,
-        "url": "https://app.pennylane.com/api/external/v2/journals/3786218"
-      },
-      "bank_account": {
-        "id": 917870,
-        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
-      },
-      "pro_account_expense": null,
-      "customer": {
-        "id": 238788845,
-        "url": "https://app.pennylane.com/api/external/v2/customers/238788845"
-      },
-      "supplier": null,
-      "categories": [
-        {
-          "weight": "1.0",
-          "id": 10565795,
-          "label": "7 - VENTES",
-          "analytical_code": null,
-          "created_at": "2024-07-04T10:42:16.198767Z",
-          "updated_at": "2025-07-28T14:48:21.226881Z",
-          "category_group": {
-            "id": 806933
-          }
-        }
-      ],
-      "matched_invoices": {
-        "url": "https://app.pennylane.com/api/external/v2/transactions/4767007030/matched_invoices"
-      }
-    },
-    {
-      "amount": "648.0",
-      "archived_at": null,
-      "attachment_required": true,
-      "created_at": "2026-04-08T06:41:41.215326Z",
-      "currency_amount": "648.0",
-      "currency_fee": "0.0",
-      "currency": "EUR",
-      "date": "2026-04-07",
-      "fee": "0.0",
-      "id": 4767007029,
-      "label": "FONDATION MAISON DE SANTE PROTE\n202601-132\n- MAISON DE SANTE PROTESTANTE BAGA\n(ref: 202601-132 - 202601-132)",
-      "outstanding_balance": "0.0",
-      "updated_at": "2026-04-08T07:16:03.644306Z",
-      "interbank_code": "18C",
-      "journal": {
-        "id": 3786218,
-        "url": "https://app.pennylane.com/api/external/v2/journals/3786218"
-      },
-      "bank_account": {
-        "id": 917870,
-        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
-      },
-      "pro_account_expense": null,
-      "customer": {
-        "id": 238787958,
-        "url": "https://app.pennylane.com/api/external/v2/customers/238787958"
-      },
-      "supplier": null,
-      "categories": [
-        {
-          "weight": "1.0",
-          "id": 10565795,
-          "label": "7 - VENTES",
-          "analytical_code": null,
-          "created_at": "2024-07-04T10:42:16.198767Z",
-          "updated_at": "2025-07-28T14:48:21.226881Z",
-          "category_group": {
-            "id": 806933
-          }
-        }
-      ],
-      "matched_invoices": {
-        "url": "https://app.pennylane.com/api/external/v2/transactions/4767007029/matched_invoices"
-      }
-    },
-    {
-      "amount": "-564.87",
-      "archived_at": null,
-      "attachment_required": true,
-      "created_at": "2026-04-08T06:41:41.215326Z",
-      "currency_amount": "-564.87",
-      "currency_fee": "0.0",
-      "currency": "EUR",
-      "date": "2026-04-07",
-      "fee": "0.0",
-      "id": 4767007028,
-      "label": "PRLV SEPA/APRIL INTERNATIONAL C\n- APRIL INTERNATIONAL CARE FRANCE\n(ref: FR54ZZZ004082 - 13532238)",
-      "outstanding_balance": "0.0",
-      "updated_at": "2026-04-09T10:02:30.099717Z",
-      "interbank_code": "B1D",
-      "journal": {
-        "id": 3786218,
-        "url": "https://app.pennylane.com/api/external/v2/journals/3786218"
-      },
-      "bank_account": {
-        "id": 917870,
-        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
-      },
-      "pro_account_expense": null,
-      "customer": null,
-      "supplier": null,
-      "categories": [
-        {
-          "weight": "1.0",
-          "id": 10520389,
-          "label": "3 - ASSURANCES",
-          "analytical_code": null,
-          "created_at": "2024-07-01T11:27:09.556606Z",
-          "updated_at": "2025-11-18T14:50:37.158265Z",
-          "category_group": {
-            "id": 806933
-          }
-        }
-      ],
-      "matched_invoices": {
-        "url": "https://app.pennylane.com/api/external/v2/transactions/4767007028/matched_invoices"
-      }
-    },
-    {
-      "amount": "550.0",
-      "archived_at": null,
-      "attachment_required": true,
-      "created_at": "2026-04-08T06:41:41.215326Z",
-      "currency_amount": "550.0",
-      "currency_fee": "0.0",
-      "currency": "EUR",
-      "date": "2026-04-07",
-      "fee": "0.0",
-      "id": 4767007027,
-      "label": "HRS - HOPITAUX ROBERT SCHUMAN S\n/INV/202603-841 12.3.2026\n- HRS - HOPITAUX ROBERT SCHUMAN S.A.\n(ref: 2500153432 - 2500153432)",
-      "outstanding_balance": "0.0",
-      "updated_at": "2026-04-08T07:16:29.278170Z",
-      "interbank_code": "18C",
-      "journal": {
-        "id": 3786218,
-        "url": "https://app.pennylane.com/api/external/v2/journals/3786218"
-      },
-      "bank_account": {
-        "id": 917870,
-        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
-      },
-      "pro_account_expense": null,
-      "customer": {
-        "id": 253901003,
-        "url": "https://app.pennylane.com/api/external/v2/customers/253901003"
-      },
-      "supplier": null,
-      "categories": [
-        {
-          "weight": "1.0",
-          "id": 10565795,
-          "label": "7 - VENTES",
-          "analytical_code": null,
-          "created_at": "2024-07-04T10:42:16.198767Z",
-          "updated_at": "2025-07-28T14:48:21.226881Z",
-          "category_group": {
-            "id": 806933
-          }
-        }
-      ],
-      "matched_invoices": {
-        "url": "https://app.pennylane.com/api/external/v2/transactions/4767007027/matched_invoices"
-      }
-    },
-    {
-      "amount": "540.0",
-      "archived_at": null,
-      "attachment_required": true,
-      "created_at": "2026-04-08T06:41:41.215326Z",
-      "currency_amount": "540.0",
-      "currency_fee": "0.0",
-      "currency": "EUR",
-      "date": "2026-04-07",
-      "fee": "0.0",
-      "id": 4767007026,
-      "label": "HOPITAL PRIVE SEVIGNE\n2020601-357\n- HOPITAL PRIVE SEVIGNE\n(ref: TRG-HPS26040126 - TRG-HPS26040126)",
-      "outstanding_balance": "0.0",
-      "updated_at": "2026-04-08T07:17:31.875555Z",
-      "interbank_code": "18C",
-      "journal": {
-        "id": 3786218,
-        "url": "https://app.pennylane.com/api/external/v2/journals/3786218"
-      },
-      "bank_account": {
-        "id": 917870,
-        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
-      },
-      "pro_account_expense": null,
-      "customer": {
-        "id": 245118178,
-        "url": "https://app.pennylane.com/api/external/v2/customers/245118178"
-      },
-      "supplier": null,
-      "categories": [
-        {
-          "weight": "1.0",
-          "id": 10565795,
-          "label": "7 - VENTES",
-          "analytical_code": null,
-          "created_at": "2024-07-04T10:42:16.198767Z",
-          "updated_at": "2025-07-28T14:48:21.226881Z",
-          "category_group": {
-            "id": 806933
-          }
-        }
-      ],
-      "matched_invoices": {
-        "url": "https://app.pennylane.com/api/external/v2/transactions/4767007026/matched_invoices"
-      }
-    },
-    {
-      "amount": "381.0",
-      "archived_at": null,
-      "attachment_required": true,
-      "created_at": "2026-04-08T06:41:41.215326Z",
-      "currency_amount": "381.0",
-      "currency_fee": "0.0",
-      "currency": "EUR",
-      "date": "2026-04-07",
-      "fee": "0.0",
-      "id": 4767007025,
-      "label": "OPTION D OSTREVENT\nRESIDENCE VALERIE CPTE 2680 CDE CAHPP 3352497 FA202602 542\n- OPTION D OSTREVENT\n(ref: 176 - 176)",
-      "outstanding_balance": "0.0",
-      "updated_at": "2026-04-08T07:18:01.376545Z",
-      "interbank_code": "18C",
-      "journal": {
-        "id": 3786218,
-        "url": "https://app.pennylane.com/api/external/v2/journals/3786218"
-      },
-      "bank_account": {
-        "id": 917870,
-        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
-      },
-      "pro_account_expense": null,
-      "customer": {
-        "id": 247181787,
-        "url": "https://app.pennylane.com/api/external/v2/customers/247181787"
-      },
-      "supplier": null,
-      "categories": [
-        {
-          "weight": "1.0",
-          "id": 10565795,
-          "label": "7 - VENTES",
-          "analytical_code": null,
-          "created_at": "2024-07-04T10:42:16.198767Z",
-          "updated_at": "2025-07-28T14:48:21.226881Z",
-          "category_group": {
-            "id": 806933
-          }
-        }
-      ],
-      "matched_invoices": {
-        "url": "https://app.pennylane.com/api/external/v2/transactions/4767007025/matched_invoices"
-      }
-    },
-    {
-      "amount": "375.62",
-      "archived_at": null,
-      "attachment_required": true,
-      "created_at": "2026-04-08T06:41:41.215326Z",
-      "currency_amount": "375.62",
-      "currency_fee": "0.0",
-      "currency": "EUR",
-      "date": "2026-04-07",
-      "fee": "0.0",
-      "id": 4767007024,
-      "label": "HOPITAL AMERICAIN DE PARIS\n- HOPITAL AMERICAIN DE PARIS\n(ref: AHP01-BQ26007138 - AHP01-BQ26007138-1)",
-      "outstanding_balance": "0.0",
-      "updated_at": "2026-04-08T07:18:52.020050Z",
-      "interbank_code": "18C",
-      "journal": {
-        "id": 3786218,
-        "url": "https://app.pennylane.com/api/external/v2/journals/3786218"
-      },
-      "bank_account": {
-        "id": 917870,
-        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
-      },
-      "pro_account_expense": null,
-      "customer": {
-        "id": 175229148,
-        "url": "https://app.pennylane.com/api/external/v2/customers/175229148"
-      },
-      "supplier": null,
-      "categories": [
-        {
-          "weight": "1.0",
-          "id": 10565795,
-          "label": "7 - VENTES",
-          "analytical_code": null,
-          "created_at": "2024-07-04T10:42:16.198767Z",
-          "updated_at": "2025-07-28T14:48:21.226881Z",
-          "category_group": {
-            "id": 806933
-          }
-        }
-      ],
-      "matched_invoices": {
-        "url": "https://app.pennylane.com/api/external/v2/transactions/4767007024/matched_invoices"
-      }
-    },
-    {
-      "amount": "360.0",
-      "archived_at": null,
-      "attachment_required": true,
-      "created_at": "2026-04-08T06:41:41.215326Z",
-      "currency_amount": "360.0",
-      "currency_fee": "0.0",
-      "currency": "EUR",
-      "date": "2026-04-07",
-      "fee": "0.0",
-      "id": 4767007023,
-      "label": "CLINIQUE SAINT-JEAN ASBL\n2025005798\n- CLINIQUE SAINT-JEAN ASBL\n(ref: 1 11219 F 5960 3 - 1 11219 F 5960 3)",
-      "outstanding_balance": "0.0",
-      "updated_at": "2026-04-08T07:51:34.951978Z",
-      "interbank_code": "18C",
-      "journal": {
-        "id": 3786218,
-        "url": "https://app.pennylane.com/api/external/v2/journals/3786218"
-      },
-      "bank_account": {
-        "id": 917870,
-        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
-      },
-      "pro_account_expense": null,
-      "customer": {
-        "id": 129662769,
-        "url": "https://app.pennylane.com/api/external/v2/customers/129662769"
-      },
-      "supplier": null,
-      "categories": [
-        {
-          "weight": "1.0",
-          "id": 10565795,
-          "label": "7 - VENTES",
-          "analytical_code": null,
-          "created_at": "2024-07-04T10:42:16.198767Z",
-          "updated_at": "2025-07-28T14:48:21.226881Z",
-          "category_group": {
-            "id": 806933
-          }
-        }
-      ],
-      "matched_invoices": {
-        "url": "https://app.pennylane.com/api/external/v2/transactions/4767007023/matched_invoices"
-      }
-    },
-    {
-      "amount": "342.0",
-      "archived_at": null,
-      "attachment_required": true,
-      "created_at": "2026-04-08T06:41:41.215326Z",
-      "currency_amount": "342.0",
-      "currency_fee": "0.0",
-      "currency": "EUR",
-      "date": "2026-04-07",
-      "fee": "0.0",
-      "id": 4767007022,
-      "label": "EHPAD DOCTEUR ROBERT GUER - PA\n202603-1022 METZE CARE202603-1022 EHPAD GUER - TEST ANTIGENIQUE COVID/\nGREHPAD DOCTEUR ROBERT GUER - PA\n- TRESO HOSPITALIERE EST MORBIHAN\n(ref: 1605601005060001 - 1605601005060001042026-423)",
-      "outstanding_balance": "0.0",
-      "updated_at": "2026-04-08T07:20:44.261037Z",
-      "interbank_code": "18C",
-      "journal": {
-        "id": 3786218,
-        "url": "https://app.pennylane.com/api/external/v2/journals/3786218"
-      },
-      "bank_account": {
-        "id": 917870,
-        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
-      },
-      "pro_account_expense": null,
-      "customer": {
-        "id": 268591573,
-        "url": "https://app.pennylane.com/api/external/v2/customers/268591573"
-      },
-      "supplier": null,
-      "categories": [
-        {
-          "weight": "1.0",
-          "id": 10565795,
-          "label": "7 - VENTES",
-          "analytical_code": null,
-          "created_at": "2024-07-04T10:42:16.198767Z",
-          "updated_at": "2025-07-28T14:48:21.226881Z",
-          "category_group": {
-            "id": 806933
-          }
-        }
-      ],
-      "matched_invoices": {
-        "url": "https://app.pennylane.com/api/external/v2/transactions/4767007022/matched_invoices"
-      }
-    },
-    {
-      "amount": "256.72",
-      "archived_at": null,
-      "attachment_required": true,
-      "created_at": "2026-04-08T06:41:41.215326Z",
-      "currency_amount": "256.72",
-      "currency_fee": "0.0",
-      "currency": "EUR",
-      "date": "2026-04-07",
-      "fee": "0.0",
-      "id": 4767007021,
-      "label": "CLINIQUE GENERALE ANNECY\n25006339 25006926 2602-663\n- CLINIQUE GENERALE\n(ref: TRG-CGA26030448 - TRG-CGA26030448)",
-      "outstanding_balance": "0.0",
-      "updated_at": "2026-04-08T07:22:51.921412Z",
-      "interbank_code": "18C",
-      "journal": {
-        "id": 3786218,
-        "url": "https://app.pennylane.com/api/external/v2/journals/3786218"
-      },
-      "bank_account": {
-        "id": 917870,
-        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
-      },
-      "pro_account_expense": null,
-      "customer": null,
-      "supplier": null,
-      "categories": [
-        {
-          "weight": "1.0",
-          "id": 10565795,
-          "label": "7 - VENTES",
-          "analytical_code": null,
-          "created_at": "2024-07-04T10:42:16.198767Z",
-          "updated_at": "2025-07-28T14:48:21.226881Z",
-          "category_group": {
-            "id": 806933
-          }
-        }
-      ],
-      "matched_invoices": {
-        "url": "https://app.pennylane.com/api/external/v2/transactions/4767007021/matched_invoices"
-      }
-    },
-    {
-      "amount": "187.2",
-      "archived_at": null,
-      "attachment_required": true,
-      "created_at": "2026-04-08T06:41:41.215326Z",
-      "currency_amount": "187.2",
-      "currency_fee": "0.0",
-      "currency": "EUR",
-      "date": "2026-04-07",
-      "fee": "0.0",
-      "id": 4767007020,
-      "label": "SAS POLYCLINIQUE VAUBAN\n202601-354 POLYCLINIQUE VAUBAN\n- SAS POLYCLINIQUE VAUBAN\n(ref: NOTPROVIDED)",
-      "outstanding_balance": "0.0",
-      "updated_at": "2026-04-08T07:23:17.303739Z",
-      "interbank_code": "18C",
-      "journal": {
-        "id": 3786218,
-        "url": "https://app.pennylane.com/api/external/v2/journals/3786218"
-      },
-      "bank_account": {
-        "id": 917870,
-        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
-      },
-      "pro_account_expense": null,
-      "customer": {
-        "id": 237326460,
-        "url": "https://app.pennylane.com/api/external/v2/customers/237326460"
-      },
-      "supplier": null,
-      "categories": [
-        {
-          "weight": "1.0",
-          "id": 10565795,
-          "label": "7 - VENTES",
-          "analytical_code": null,
-          "created_at": "2024-07-04T10:42:16.198767Z",
-          "updated_at": "2025-07-28T14:48:21.226881Z",
-          "category_group": {
-            "id": 806933
-          }
-        }
-      ],
-      "matched_invoices": {
-        "url": "https://app.pennylane.com/api/external/v2/transactions/4767007020/matched_invoices"
-      }
-    },
-    {
-      "amount": "155.0",
-      "archived_at": null,
-      "attachment_required": true,
-      "created_at": "2026-04-08T06:41:41.215326Z",
-      "currency_amount": "155.0",
-      "currency_fee": "0.0",
-      "currency": "EUR",
-      "date": "2026-04-07",
-      "fee": "0.0",
-      "id": 4767007019,
-      "label": "HOSPITAL LOGISTICS NV\n202602-706/\n- HOSPITAL LOGISTICS NV\n(ref: 2000006033 - 2000006033)",
-      "outstanding_balance": "0.0",
-      "updated_at": "2026-04-08T07:23:34.400304Z",
-      "interbank_code": "18C",
-      "journal": {
-        "id": 3786218,
-        "url": "https://app.pennylane.com/api/external/v2/journals/3786218"
-      },
-      "bank_account": {
-        "id": 917870,
-        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
-      },
-      "pro_account_expense": null,
-      "customer": {
-        "id": 239910253,
-        "url": "https://app.pennylane.com/api/external/v2/customers/239910253"
-      },
-      "supplier": null,
-      "categories": [
-        {
-          "weight": "1.0",
-          "id": 10565795,
-          "label": "7 - VENTES",
-          "analytical_code": null,
-          "created_at": "2024-07-04T10:42:16.198767Z",
-          "updated_at": "2025-07-28T14:48:21.226881Z",
-          "category_group": {
-            "id": 806933
-          }
-        }
-      ],
-      "matched_invoices": {
-        "url": "https://app.pennylane.com/api/external/v2/transactions/4767007019/matched_invoices"
-      }
-    },
-    {
-      "amount": "-144.0",
-      "archived_at": null,
-      "attachment_required": true,
-      "created_at": "2026-04-08T06:41:41.215326Z",
-      "currency_amount": "-144.0",
-      "currency_fee": "0.0",
-      "currency": "EUR",
-      "date": "2026-04-07",
-      "fee": "0.0",
-      "id": 4767007018,
-      "label": "PRLV SEPA/PLURIALS\nMAINTENANCE RG CONSULTING\n- PLURIALS\n(ref: FR46ZZZ89EA18 - SDD7A0LAKRIT A2KIOY L1LZA)",
-      "outstanding_balance": "0.0",
-      "updated_at": "2026-04-09T09:46:33.493364Z",
-      "interbank_code": "B1D",
-      "journal": {
-        "id": 3786218,
-        "url": "https://app.pennylane.com/api/external/v2/journals/3786218"
-      },
-      "bank_account": {
-        "id": 917870,
-        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
-      },
-      "pro_account_expense": null,
-      "customer": null,
-      "supplier": {
-        "id": 215091895,
-        "url": "https://app.pennylane.com/api/external/v2/suppliers/215091895"
-      },
-      "categories": [
-        {
-          "weight": "1.0",
-          "id": 9874614,
-          "label": "4 - SOUS-TRAITANCE & PRESTATIONS",
-          "analytical_code": null,
-          "created_at": "2024-05-28T09:08:47.640200Z",
-          "updated_at": "2025-11-18T14:50:17.495291Z",
-          "category_group": {
-            "id": 806933
-          }
-        }
-      ],
-      "matched_invoices": {
-        "url": "https://app.pennylane.com/api/external/v2/transactions/4767007018/matched_invoices"
-      }
-    },
-    {
-      "amount": "-122.59",
-      "archived_at": null,
-      "attachment_required": false,
-      "created_at": "2026-04-08T06:41:41.215326Z",
-      "currency_amount": "-122.59",
-      "currency_fee": "0.0",
-      "currency": "EUR",
-      "date": "2026-04-07",
-      "fee": "0.0",
-      "id": 4767007017,
-      "label": "PRLV SEPA/CARDIF IARD\n2026040700005920020113501\n- CARDIF IARD\n(ref: FR88ZZZ8388CD - C 30K196000826713M 9293138M 00)",
-      "outstanding_balance": "0.0",
-      "updated_at": "2026-04-09T10:02:30.099717Z",
-      "interbank_code": "B1D",
-      "journal": {
-        "id": 3786218,
-        "url": "https://app.pennylane.com/api/external/v2/journals/3786218"
-      },
-      "bank_account": {
-        "id": 917870,
-        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
-      },
-      "pro_account_expense": null,
-      "customer": null,
-      "supplier": null,
-      "categories": [
-        {
-          "weight": "1.0",
-          "id": 18240708,
-          "label": "3 - AUTRES ACHATS & CHARGES",
-          "analytical_code": null,
-          "created_at": "2025-07-01T12:42:00.619050Z",
-          "updated_at": "2025-11-18T14:50:17.495291Z",
-          "category_group": {
-            "id": 806933
-          }
-        }
-      ],
-      "matched_invoices": {
-        "url": "https://app.pennylane.com/api/external/v2/transactions/4767007017/matched_invoices"
-      }
-    },
-    {
-      "amount": "-51.13",
-      "archived_at": null,
-      "attachment_required": true,
-      "created_at": "2026-04-08T06:41:41.215326Z",
-      "currency_amount": "-51.13",
-      "currency_fee": "0.0",
-      "currency": "EUR",
-      "date": "2026-04-07",
-      "fee": "0.0",
-      "id": 4767007016,
-      "label": "PRLV SEPA/AXA\nI0000949267635-CONTRAT0000022450116804\n- AXA\n(ref: FR14ZZZ391832 - I0000949267635)",
-      "outstanding_balance": "0.0",
-      "updated_at": "2026-04-08T09:42:13.319996Z",
-      "interbank_code": "B1D",
-      "journal": {
-        "id": 3786218,
-        "url": "https://app.pennylane.com/api/external/v2/journals/3786218"
-      },
-      "bank_account": {
-        "id": 917870,
-        "url": "https://app.pennylane.com/api/external/v2/bank_accounts/917870"
-      },
-      "pro_account_expense": null,
-      "customer": null,
-      "supplier": null,
-      "categories": [
-        {
-          "weight": "1.0",
-          "id": 10520389,
-          "label": "3 - ASSURANCES",
-          "analytical_code": null,
-          "created_at": "2024-07-01T11:27:09.556606Z",
-          "updated_at": "2025-11-18T14:50:37.158265Z",
-          "category_group": {
-            "id": 806933
-          }
-        }
-      ],
-      "matched_invoices": {
-        "url": "https://app.pennylane.com/api/external/v2/transactions/4767007016/matched_invoices"
       }
     },
     {
@@ -16354,7 +16089,7 @@
       }
     }
   ],
-  "updated_at": "2026-05-03T23:29:37Z",
+  "updated_at": "2026-05-04T09:06:45Z",
   "total": 400,
   "source": "Pennylane API via GitHub Actions"
 }
