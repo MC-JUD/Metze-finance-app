@@ -504,9 +504,15 @@ function TransactionsPage(){
 
   const MOIS_FR = ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"]
 
-  // Détecter le compte bancaire depuis le libellé
+  // Détecter le compte bancaire depuis bank_account.id (fiable)
   function detectCompte(tx) {
-    const l = tx.label.toLowerCase()
+    const bid = tx.bank_account?.id
+    if(bid === 917870)  return "BNP"
+    if(bid === 2244461) return "CIC"
+    if(bid === 2364672 || bid === 1415919) return "EBURY"
+    if(bid === 1415898) return "Pennylane"
+    // Fallback sur le libellé si bank_account manquant
+    const l = (tx.label || "").toLowerCase()
     if(l.includes("ebury"))                                          return "EBURY"
     if(l.includes("pennylane") || l.includes("recharge compte pro")) return "Pennylane"
     if(l.includes("bnp") || l.includes("paribas"))                  return "BNP"
