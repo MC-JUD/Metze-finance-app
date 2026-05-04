@@ -504,14 +504,19 @@ function TransactionsPage(){
 
   const MOIS_FR = ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"]
 
-  // Détecter le compte bancaire depuis bank_account.id (fiable)
+  // Détecter le compte bancaire depuis journal.id ET bank_account.id
   function detectCompte(tx) {
     const bid = tx.bank_account?.id
-    if(bid === 917870)  return "BNP"
-    if(bid === 2244461) return "CIC"
-    if(bid === 2364672 || bid === 1415919) return "EBURY"
-    if(bid === 1415898) return "Pennylane"
-    // Fallback sur le libellé si bank_account manquant
+    const jid = tx.journal?.id
+    // BNP — journal 3786218 ou bank_account 917870
+    if(jid === 3786218 || bid === 917870)  return "BNP"
+    // CIC — journal 13081735 ou bank_account 2244461
+    if(jid === 13081735 || bid === 2244461) return "CIC"
+    // EBURY — journal 13790485 (USD) ou 7208113 (EUR) ou bank_account 2364672/1415919
+    if(jid === 13790485 || jid === 7208113 || bid === 2364672 || bid === 1415919) return "EBURY"
+    // Pennylane Pro — journal 7207904 ou bank_account 1415898
+    if(jid === 7207904 || bid === 1415898) return "Pennylane"
+    // Fallback libellé
     const l = (tx.label || "").toLowerCase()
     if(l.includes("ebury"))                                          return "EBURY"
     if(l.includes("pennylane") || l.includes("recharge compte pro")) return "Pennylane"
