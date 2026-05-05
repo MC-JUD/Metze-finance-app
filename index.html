@@ -17,21 +17,15 @@ header{display:flex;align-items:center;justify-content:space-between;padding:14p
 .sbtn:hover{border-color:var(--accent);color:var(--accent2)}
 .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-
-/* TOP NAV */
 .tnav{display:flex;align-items:center;gap:4px;padding:10px 28px;border-bottom:1px solid var(--border);background:var(--bg)}
-.ttab{padding:7px 18px;border-radius:7px;font-size:13px;font-weight:500;cursor:pointer;color:var(--text2);border:none;background:transparent;font-family:var(--sans);transition:all .15s;display:flex;align-items:center;gap:6px}
+.ttab{padding:7px 18px;border-radius:7px;font-size:13px;font-weight:500;cursor:pointer;color:var(--text2);border:none;background:transparent;font-family:var(--sans);transition:all .15s}
 .ttab:hover{background:var(--bg3);color:var(--text)}
 .ttab.active{background:var(--bg3);color:var(--accent2);border:1px solid var(--border2)}
-
-/* SUB NAV */
 .snav{display:flex;align-items:center;padding:0 28px;background:var(--bg2);border-bottom:1px solid var(--border)}
 .stab{padding:11px 18px;font-size:12px;font-weight:500;cursor:pointer;color:var(--text2);border:none;background:transparent;font-family:var(--sans);border-bottom:2px solid transparent;transition:all .15s}
 .stab:hover{color:var(--text)}.stab.active{color:var(--text);border-bottom-color:var(--accent)}
 .cnt{font-family:var(--mono);font-size:10px;margin-left:4px;opacity:.6}
-
-/* KPI */
-.krow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:16px 28px;background:var(--bg2);border-bottom:1px solid var(--border)}
+.krow4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:16px 28px;background:var(--bg2);border-bottom:1px solid var(--border)}
 .kcard{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:14px 16px;position:relative;overflow:hidden;cursor:pointer;transition:border-color .2s}
 .kcard:hover{border-color:var(--border2)}.kcard.active{border-color:var(--accent)!important}
 .kcard::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;border-radius:10px 10px 0 0}
@@ -44,9 +38,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:14p
 .kvr{color:var(--red)}.kva{color:var(--amber)}.kvg{color:var(--green)}.kvt{color:var(--teal)}.kvo{color:var(--orange)}
 .ksub{font-family:var(--mono);font-size:10px;color:var(--text2);margin-top:3px}
 .kbad{font-family:var(--mono);font-size:10px;margin-top:6px;padding:4px 7px;border-radius:5px;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--text2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-
-/* TABLE */
-.main{padding:20px 28px;max-width:1600px;margin:0 auto}
+.main{padding:20px 28px}
 .twrap{background:var(--bg2);border:1px solid var(--border);border-radius:10px;overflow:hidden}
 .tbar{display:flex;align-items:center;gap:8px;padding:12px 14px;border-bottom:1px solid var(--border);flex-wrap:wrap}
 .si{flex:1;min-width:180px;max-width:260px;background:var(--bg3);border:1px solid var(--border);border-radius:7px;padding:7px 11px;color:var(--text);font-family:var(--mono);font-size:12px;outline:none}
@@ -66,11 +58,9 @@ td{padding:9px 12px;vertical-align:middle}
 .ap{color:var(--green);font-family:var(--mono);font-weight:500;text-align:right}
 .an{color:var(--red);font-family:var(--mono);font-weight:500;text-align:right}
 .az{color:var(--text2);font-family:var(--mono);text-align:right}
-.b{display:inline-flex;align-items:center;padding:3px 8px;border-radius:5px;font-family:var(--mono);font-size:10px;font-weight:500;white-space:nowrap}
-.bbnp{background:rgba(34,217,138,.1);color:var(--green);border:1px solid rgba(34,217,138,.2)}
-.bcic{background:rgba(0,212,170,.1);color:var(--teal);border:1px solid rgba(0,212,170,.2)}
 .bretard{background:rgba(255,94,94,.1);color:var(--red);border:1px solid rgba(255,94,94,.2)}
 .battente{background:rgba(245,166,35,.1);color:var(--amber);border:1px solid rgba(245,166,35,.2)}
+.b{display:inline-flex;align-items:center;padding:3px 8px;border-radius:5px;font-family:var(--mono);font-size:10px;font-weight:500;white-space:nowrap}
 .rp{color:var(--red);font-family:var(--mono);font-size:11px;font-weight:500}
 .rz{color:var(--text2);font-family:var(--mono);font-size:11px}
 .pagination{display:flex;align-items:center;justify-content:flex-end;gap:5px;padding:10px 14px;border-top:1px solid var(--border)}
@@ -78,12 +68,15 @@ td{padding:9px 12px;vertical-align:middle}
 .pg:hover{border-color:var(--accent);color:var(--accent2)}.pg.active{background:var(--accent);border-color:var(--accent);color:white}.pg:disabled{opacity:.3;cursor:not-allowed}
 .empty{text-align:center;padding:40px;color:var(--text2);font-family:var(--mono);font-size:12px}
 .tab-content{display:none}.tab-content.active{display:block}
-.section-title{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--text2);margin-bottom:12px;display:flex;align-items:center;gap:8px}
-.section-title::before{content:"";width:3px;height:13px;background:var(--accent);border-radius:2px;display:block}
+.stitle{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--text2);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.stitle::before{content:"";width:3px;height:13px;background:var(--accent);border-radius:2px;display:block}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.grid3a{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+a.flink{text-decoration:none}
 </style>
 </head>
 <body>
-
 <header>
   <div class="logo">
     <div class="lmark">MC</div>
@@ -94,27 +87,20 @@ td{padding:9px 12px;vertical-align:middle}
     <button class="sbtn" onclick="syncAll()"><span class="dot"></span>SYNC</button>
   </div>
 </header>
-
-<!-- TOP NAV -->
 <nav class="tnav">
-  <button class="ttab active" id="ttab-airtable" onclick="switchTop('airtable',this)">📊 Sales Dashboard</button>
-  <button class="ttab" id="ttab-sharepoint" onclick="switchTop('sharepoint',this)">📁 SharePoint</button>
+  <button class="ttab active" onclick="switchTop('at',this)">📊 Sales Dashboard</button>
+  <button class="ttab" onclick="switchTop('ca',this)">📈 CA &amp; Encaissements</button>
+  <button class="ttab" onclick="switchTop('treso',this)">💰 Trésorerie</button>
 </nav>
 
-<!-- ===================== AIRTABLE ===================== -->
-<div id="tab-airtable" class="tab-content active">
-
-  <!-- KPIs -->
-  <div class="krow" id="krow"></div>
-
-  <!-- Sub nav -->
+<div id="tab-at" class="tab-content active">
+  <div class="krow4" id="krow"></div>
   <nav class="snav">
     <button class="stab active" id="stab-bnp-echus" onclick="switchSub('bnp-echus',this)">BNP ÉCHUS <span class="cnt" id="cnt-bnp-echus"></span></button>
     <button class="stab" id="stab-cic-echus" onclick="switchSub('cic-echus',this)">CIC ÉCHUS <span class="cnt" id="cnt-cic-echus"></span></button>
     <button class="stab" id="stab-bnp-non-echus" onclick="switchSub('bnp-non-echus',this)">BNP NON ÉCHUS <span class="cnt" id="cnt-bnp-non-echus"></span></button>
     <button class="stab" id="stab-cic-non-echus" onclick="switchSub('cic-non-echus',this)">CIC NON ÉCHUS <span class="cnt" id="cnt-cic-non-echus"></span></button>
   </nav>
-
   <div class="main">
     <div class="twrap">
       <div class="tbar">
@@ -128,136 +114,198 @@ td{padding:9px 12px;vertical-align:middle}
       <div class="pagination" id="atPag"></div>
     </div>
   </div>
-
 </div>
 
-<!-- ===================== SHAREPOINT ===================== -->
-<div id="tab-sharepoint" class="tab-content">
+
+<div id="tab-ca" class="tab-content">
 <div class="main">
 
-  <!-- KPIs Budget réels -->
-  <div class="section-title">Budget 2026 — Données réelles</div>
-  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px">
-    <div class="kcard kg"><div class="klbl">CA YTD 2026</div><div class="kval kvg">564 469 €</div><div class="ksub">Budget mensuel : 170 000 €</div></div>
-    <div class="kcard ka"><div class="klbl">Marge brute YTD</div><div class="kval kva">161 194 €</div><div class="ksub">Taux de marge : 29%</div></div>
-    <div class="kcard kr"><div class="klbl">EBITDA YTD</div><div class="kval kvr">-144 096 €</div><div class="ksub">Charges fixes : 305 291 €</div></div>
-    <div class="kcard kt"><div class="klbl">Trésorerie</div><div class="kval kvt">75 453 €</div><div class="ksub">Fin de période (mars)</div></div>
+  <div class="stitle" style="margin-bottom:12px">État des comptes BNP et CIC — Encaissements 2026</div>
+  <div class="twrap" style="margin-bottom:20px">
+    <table>
+      <thead><tr>
+        <th>Trimestre</th><th>Mois</th>
+        <th style="text-align:right">BNP</th>
+        <th style="text-align:right">CIC</th>
+        <th style="text-align:right">TOTAL</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td rowspan="3" class="mn" style="color:var(--accent2);font-size:11px;border-right:1px solid var(--border);vertical-align:middle;text-align:center">1er trim.</td>
+          <td class="mn" style="font-size:11px">Janvier</td><td class="ap">103 676,63 €</td><td class="ap">98 832,55 €</td><td style="text-align:right;font-family:var(--mono);font-weight:700;color:var(--teal)">202 509,18 €</td>
+        </tr>
+        <tr><td class="mn" style="font-size:11px">Février</td><td class="ap">89 097,78 €</td><td class="ap">92 975,48 €</td><td style="text-align:right;font-family:var(--mono);font-weight:700;color:var(--teal)">182 073,26 €</td></tr>
+        <tr><td class="mn" style="font-size:11px">Mars</td><td class="ap">85 965,49 €</td><td class="ap">97 065,00 €</td><td style="text-align:right;font-family:var(--mono);font-weight:700;color:var(--teal)">183 030,49 €</td></tr>
+        <tr style="background:rgba(107,107,255,.06);border-top:1px solid var(--border2)">
+          <td colspan="2" class="mn" style="font-size:11px;font-weight:600;color:var(--accent2)">Sous-total T1</td>
+          <td style="text-align:right;font-family:var(--mono);font-weight:600;color:var(--green)">278 739,90 €</td>
+          <td style="text-align:right;font-family:var(--mono);font-weight:600;color:var(--green)">288 873,03 €</td>
+          <td style="text-align:right;font-family:var(--mono);font-weight:700;color:var(--accent2)">567 612,93 €</td>
+        </tr>
+        <tr style="border-top:1px solid var(--border)">
+          <td rowspan="3" class="mn" style="color:var(--accent2);font-size:11px;border-right:1px solid var(--border);vertical-align:middle;text-align:center">2ème trim.</td>
+          <td class="mn" style="font-size:11px">Avril</td><td class="ap">104 729,59 €</td><td class="ap">95 949,74 €</td><td style="text-align:right;font-family:var(--mono);font-weight:700;color:var(--teal)">200 679,33 €</td>
+        </tr>
+        <tr><td class="mn" style="font-size:11px;color:var(--text2)">Mai</td><td class="az">—</td><td class="az">—</td><td class="az">—</td></tr>
+        <tr><td class="mn" style="font-size:11px;color:var(--text2)">Juin</td><td class="az">—</td><td class="az">—</td><td class="az">—</td></tr>
+        <tr style="border-top:1px solid var(--border)">
+          <td rowspan="3" class="mn" style="color:var(--text2);font-size:11px;border-right:1px solid var(--border);vertical-align:middle;text-align:center">3ème trim.</td>
+          <td class="mn" style="font-size:11px;color:var(--text2)">Juillet</td><td class="az">—</td><td class="az">—</td><td class="az">—</td>
+        </tr>
+        <tr><td class="mn" style="font-size:11px;color:var(--text2)">Août</td><td class="az">—</td><td class="az">—</td><td class="az">—</td></tr>
+        <tr><td class="mn" style="font-size:11px;color:var(--text2)">Septembre</td><td class="az">—</td><td class="az">—</td><td class="az">—</td></tr>
+        <tr style="border-top:1px solid var(--border)">
+          <td rowspan="3" class="mn" style="color:var(--text2);font-size:11px;border-right:1px solid var(--border);vertical-align:middle;text-align:center">4ème trim.</td>
+          <td class="mn" style="font-size:11px;color:var(--text2)">Octobre</td><td class="az">—</td><td class="az">—</td><td class="az">—</td>
+        </tr>
+        <tr><td class="mn" style="font-size:11px;color:var(--text2)">Novembre</td><td class="az">—</td><td class="az">—</td><td class="az">—</td></tr>
+        <tr><td class="mn" style="font-size:11px;color:var(--text2)">Décembre</td><td class="az">—</td><td class="az">—</td><td class="az">—</td></tr>
+        <tr style="border-top:2px solid var(--border2);background:var(--bg3)">
+          <td colspan="2" class="mn" style="font-size:11px;font-weight:600">TOTAL YTD</td>
+          <td style="text-align:right;font-family:var(--mono);font-weight:600;color:var(--green)">383 469,49 €</td>
+          <td style="text-align:right;font-family:var(--mono);font-weight:600;color:var(--green)">384 822,77 €</td>
+          <td style="text-align:right;font-family:var(--mono);font-weight:700;color:var(--teal);font-size:13px">768 292,26 €</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
-  <!-- Encours réels du Budget -->
-  <div class="section-title" style="margin-top:4px">Encours clients — Budget 2026</div>
-  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px">
-    <div class="kcard kr"><div class="klbl">Encours échus BNP</div><div class="kval kvr">63 470 €</div><div class="ksub">Factures en retard</div></div>
-    <div class="kcard kr"><div class="klbl">Encours échus CIC</div><div class="kval kvr">94 997 €</div><div class="ksub">Factures en retard</div></div>
-    <div class="kcard ka"><div class="klbl">Non échus BNP</div><div class="kval kva">59 222 €</div><div class="ksub">En attente</div></div>
-    <div class="kcard ka"><div class="klbl">Non échus CIC</div><div class="kval kva">48 846 €</div><div class="ksub">En attente</div></div>
+  <div class="grid2" style="margin-bottom:20px">
+    <div>
+      <div class="stitle" style="margin-bottom:10px">CA BNP — Jan/Fév/Mar 2026</div>
+      <div class="twrap"><table>
+        <thead><tr><th>Mois</th><th style="text-align:right">Docs</th><th style="text-align:right">CA HT</th><th style="text-align:right">Avoirs</th><th style="text-align:right">Taux litige</th></tr></thead>
+        <tbody>
+          <tr><td class="mn" style="font-size:11px">Janvier</td><td class="mn" style="text-align:right;font-size:11px">215</td><td class="ap">122 249 €</td><td class="an" style="font-size:11px">1 709 €</td><td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--green)">1%</td></tr>
+          <tr><td class="mn" style="font-size:11px">Février</td><td class="mn" style="text-align:right;font-size:11px">184</td><td class="ap">107 645 €</td><td class="an" style="font-size:11px">2 536 €</td><td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--green)">2%</td></tr>
+          <tr><td class="mn" style="font-size:11px">Mars</td><td class="mn" style="text-align:right;font-size:11px">185</td><td class="ap">90 132 €</td><td class="an" style="font-size:11px">6 752 €</td><td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--amber)">7%</td></tr>
+          <tr style="border-top:1px solid var(--border2);background:var(--bg3)"><td class="mn" style="font-size:11px;font-weight:600">Total</td><td class="mn" style="text-align:right;font-size:11px;font-weight:600">584</td><td class="ap" style="font-weight:600">320 026 €</td><td class="an" style="font-size:11px;font-weight:600">10 997 €</td><td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--amber);font-weight:600">4%</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div>
+      <div class="stitle" style="margin-bottom:10px">CA CIC — Jan/Fév/Mar 2026</div>
+      <div class="twrap"><table>
+        <thead><tr><th>Mois</th><th style="text-align:right">Docs</th><th style="text-align:right">CA HT</th><th style="text-align:right">Avoirs</th><th style="text-align:right">Taux litige</th></tr></thead>
+        <tbody>
+          <tr><td class="mn" style="font-size:11px">Janvier</td><td class="mn" style="text-align:right;font-size:11px">223</td><td class="ap">118 365 €</td><td class="an" style="font-size:11px">1 492 €</td><td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--green)">1%</td></tr>
+          <tr><td class="mn" style="font-size:11px">Février</td><td class="mn" style="text-align:right;font-size:11px">156</td><td class="ap">115 766 €</td><td class="an" style="font-size:11px">1 324 €</td><td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--green)">1%</td></tr>
+          <tr><td class="mn" style="font-size:11px">Mars</td><td class="mn" style="text-align:right;font-size:11px">166</td><td class="ap">114 435 €</td><td class="an" style="font-size:11px">5 216 €</td><td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--amber)">5%</td></tr>
+          <tr style="border-top:1px solid var(--border2);background:var(--bg3)"><td class="mn" style="font-size:11px;font-weight:600">Total</td><td class="mn" style="text-align:right;font-size:11px;font-weight:600">545</td><td class="ap" style="font-weight:600">348 566 €</td><td class="an" style="font-size:11px;font-weight:600">8 032 €</td><td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--green);font-weight:600">2%</td></tr>
+        </tbody>
+      </table></div>
+    </div>
   </div>
 
-  <!-- Tableaux recouvrement -->
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
-
-    <div>
-      <div class="section-title">Recouvrement BNP — Jan/Fév/Mar 2026</div>
-      <div class="twrap">
-        <table>
-          <thead><tr>
-            <th>Mois</th><th style="text-align:right">Nb</th><th style="text-align:right">Total réglé</th><th style="text-align:right">En retard</th><th style="text-align:right">En attente</th><th style="text-align:right">Délai moy.</th>
-          </tr></thead>
-          <tbody>
-            <tr><td class="mn" style="font-size:11px">Janvier</td><td class="mn" style="text-align:right;font-size:11px">182</td><td class="ap">92 010 €</td><td class="an">66 967 €</td><td class="az">25 043 €</td><td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--red)">-31j</td></tr>
-            <tr><td class="mn" style="font-size:11px">Février</td><td class="mn" style="text-align:right;font-size:11px">81</td><td class="ap">88 391 €</td><td class="an">65 302 €</td><td class="az">23 089 €</td><td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--red)">-37j</td></tr>
-            <tr><td class="mn" style="font-size:11px">Mars</td><td class="mn" style="text-align:right;font-size:11px">194</td><td class="ap">108 291 €</td><td class="an">72 897 €</td><td class="az">35 394 €</td><td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--red)">-114j</td></tr>
-            <tr style="border-top:1px solid var(--border2)">
-              <td class="mn" style="font-size:11px;font-weight:600">Total</td>
-              <td class="mn" style="text-align:right;font-size:11px;font-weight:600">457</td>
-              <td class="ap" style="font-weight:600">288 692 €</td>
-              <td class="an" style="font-weight:600">205 166 €</td>
-              <td class="az" style="font-weight:600">83 526 €</td>
-              <td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--amber)">-61j moy.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div>
-      <div class="section-title">Recouvrement CIC — Jan/Fév/Mar 2026</div>
-      <div class="twrap">
-        <table>
-          <thead><tr>
-            <th>Mois</th><th style="text-align:right">Nb</th><th style="text-align:right">Total réglé</th><th style="text-align:right">En retard</th><th style="text-align:right">En attente</th><th style="text-align:right">Délai moy.</th>
-          </tr></thead>
-          <tbody>
-            <tr><td class="mn" style="font-size:11px">Janvier</td><td class="mn" style="text-align:right;font-size:11px">208</td><td class="ap">99 993 €</td><td class="an">81 616 €</td><td class="az">18 377 €</td><td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--red)">-60j</td></tr>
-            <tr><td class="mn" style="font-size:11px">Février</td><td class="mn" style="text-align:right;font-size:11px">229</td><td class="ap">139 472 €</td><td class="an">77 064 €</td><td class="az">62 408 €</td><td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--red)">-217j</td></tr>
-            <tr><td class="mn" style="font-size:11px">Mars</td><td class="mn" style="text-align:right;font-size:11px">168</td><td class="ap">97 494 €</td><td class="an">11 561 €</td><td class="az">85 933 €</td><td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--red)">-155j</td></tr>
-            <tr style="border-top:1px solid var(--border2)">
-              <td class="mn" style="font-size:11px;font-weight:600">Total</td>
-              <td class="mn" style="text-align:right;font-size:11px;font-weight:600">605</td>
-              <td class="ap" style="font-weight:600">336 959 €</td>
-              <td class="an" style="font-weight:600">170 241 €</td>
-              <td class="az" style="font-weight:600">166 718 €</td>
-              <td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--amber)">-144j moy.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
+  <div class="stitle" style="margin-bottom:10px">Fichiers source</div>
+  <div class="grid3a">
+    <a class="flink" href="https://metzecarecom.sharepoint.com/sites/METZECARE/Shared%20Documents/General/COMPTABILITE/Rapports%20comptables%20et%20financiers/2026/ANALYSE%20COMPTA%202026.xlsx" target="_blank">
+      <div class="kcard kg"><div class="klbl">📊 ANALYSE COMPTA 2026</div><div class="ksub" style="margin-top:4px">Modifié le 28/04/2026 · Ouvrir →</div></div>
+    </a>
+    <a class="flink" href="https://metzecarecom.sharepoint.com/sites/METZECARE/Shared%20Documents/General/COMPTABILITE" target="_blank">
+      <div class="kcard" style="border-color:var(--border2)"><div class="klbl">📁 Dossier COMPTABILITÉ</div><div class="ksub" style="margin-top:4px">SharePoint METZE CARE · Ouvrir →</div></div>
+    </a>
   </div>
 
-  <!-- CA BNP + CIC -->
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
+</div>
+</div>
 
-    <div>
-      <div class="section-title">CA BNP — Jan/Fév/Mar 2026</div>
-      <div class="twrap">
-        <table>
-          <thead><tr><th>Mois</th><th style="text-align:right">CA HT</th><th style="text-align:right">Avoirs</th><th style="text-align:right">Taux litige</th></tr></thead>
-          <tbody>
-            <tr><td class="mn" style="font-size:11px">Janvier</td><td class="ap">122 249 €</td><td class="an" style="font-size:11px">1 709 €</td><td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--green)">1%</td></tr>
-            <tr><td class="mn" style="font-size:11px">Février</td><td class="ap">107 645 €</td><td class="an" style="font-size:11px">2 536 €</td><td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--green)">2%</td></tr>
-            <tr><td class="mn" style="font-size:11px">Mars</td><td class="ap">90 132 €</td><td class="an" style="font-size:11px">6 752 €</td><td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--amber)">7%</td></tr>
-            <tr style="border-top:1px solid var(--border2)"><td class="mn" style="font-size:11px;font-weight:600">Total</td><td class="ap" style="font-weight:600">320 026 €</td><td class="an" style="font-size:11px;font-weight:600">10 997 €</td><td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--amber)">4%</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
 
-    <div>
-      <div class="section-title">CA CIC — Jan/Fév/Mar 2026</div>
-      <div class="twrap">
-        <table>
-          <thead><tr><th>Mois</th><th style="text-align:right">CA HT</th><th style="text-align:right">Avoirs</th><th style="text-align:right">Taux litige</th></tr></thead>
-          <tbody>
-            <tr><td class="mn" style="font-size:11px">Janvier</td><td class="ap">118 365 €</td><td class="an" style="font-size:11px">1 492 €</td><td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--green)">1%</td></tr>
-            <tr><td class="mn" style="font-size:11px">Février</td><td class="ap">115 766 €</td><td class="an" style="font-size:11px">1 324 €</td><td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--green)">1%</td></tr>
-            <tr><td class="mn" style="font-size:11px">Mars</td><td class="ap">114 435 €</td><td class="an" style="font-size:11px">5 216 €</td><td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--amber)">5%</td></tr>
-            <tr style="border-top:1px solid var(--border2)"><td class="mn" style="font-size:11px;font-weight:600">Total</td><td class="ap" style="font-weight:600">348 566 €</td><td class="an" style="font-size:11px;font-weight:600">8 032 €</td><td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--green)">2%</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+<div id="tab-treso" class="tab-content">
+<div class="main">
 
+  <div class="grid4" style="margin-bottom:20px">
+    <div class="kcard kt"><div class="klbl">Trésorerie déc. 2025</div><div class="kval kvt">253 751 €</div><div class="ksub">Solde de départ 2026</div></div>
+    <div class="kcard kr"><div class="klbl">Trésorerie mars 2026</div><div class="kval kvr">75 453 €</div><div class="ksub">−178 298 € depuis déc.</div></div>
+    <div class="kcard kg"><div class="klbl">Total encaissements</div><div class="kval kvg">613 035 €</div><div class="ksub">Jan + Fév + Mar 2026</div></div>
+    <div class="kcard ka"><div class="klbl">Total décaissements</div><div class="kval kva">791 187 €</div><div class="ksub">Jan + Fév + Mar 2026</div></div>
   </div>
 
-  <!-- Accès fichiers -->
-  <div class="section-title">Accès direct aux fichiers</div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px">
-    <a href="https://metzecarecom.sharepoint.com/sites/METZECARE/Shared%20Documents/General/COMPTABILITE/Rapports%20comptables%20et%20financiers/2026/ANALYSE%20COMPTA%202026.xlsx" target="_blank" style="text-decoration:none">
-      <div class="kcard kg" style="cursor:pointer"><div class="klbl">📊 ANALYSE COMPTA 2026</div><div style="font-size:12px;color:var(--text);margin-top:4px;margin-bottom:6px">KPI recouvrement · CA mensuel · Encaissements BNP/CIC</div><div class="ksub">Modifié le 28/04/2026 · Cliquer pour ouvrir →</div></div>
+  <div class="stitle" style="margin-bottom:10px">Trésorerie mensuelle — Déc 2025 → Mars 2026</div>
+  <div class="twrap" style="margin-bottom:20px">
+    <table>
+      <thead><tr>
+        <th>Poste</th>
+        <th style="text-align:right">Déc 2025</th>
+        <th style="text-align:right">Janv 2026</th>
+        <th style="text-align:right">Févr 2026</th>
+        <th style="text-align:right">Mars 2026</th>
+      </tr></thead>
+      <tbody>
+        <tr style="background:var(--bg3)">
+          <td class="mn" style="font-size:11px;font-weight:600;color:var(--teal)">🏦 Trésorerie début de mois</td>
+          <td style="text-align:right;font-family:var(--mono);font-weight:700;color:var(--teal)">262 639 €</td>
+          <td style="text-align:right;font-family:var(--mono);font-weight:700;color:var(--teal)">253 751 €</td>
+          <td style="text-align:right;font-family:var(--mono);font-weight:700;color:var(--teal)">190 690 €</td>
+          <td style="text-align:right;font-family:var(--mono);font-weight:700;color:var(--teal)">128 540 €</td>
+        </tr>
+        <tr style="border-top:1px solid var(--border2)">
+          <td colspan="5" style="padding:7px 12px 3px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--green)">▸ Encaissements</td>
+        </tr>
+        <tr><td class="mn" style="font-size:11px;padding-left:22px">Ventes clients</td><td class="ap">116 253 €</td><td class="ap">94 901 €</td><td class="ap">95 188 €</td><td class="ap">93 350 €</td></tr>
+        <tr><td class="mn" style="font-size:11px;padding-left:22px">Achats facture CIC Factor</td><td class="ap">128 342 €</td><td class="az">—</td><td class="ap">136 200 €</td><td class="az">—</td></tr>
+        <tr><td class="mn" style="font-size:11px;padding-left:22px">Subventions / CCA</td><td class="az">—</td><td class="ap">833 €</td><td class="az">—</td><td class="az">—</td></tr>
+        <tr style="background:rgba(34,217,138,.05)">
+          <td class="mn" style="font-size:11px;font-weight:600">Total encaissements</td>
+          <td style="text-align:right;font-family:var(--mono);font-weight:600;color:var(--green)">244 595 €</td>
+          <td style="text-align:right;font-family:var(--mono);font-weight:600;color:var(--green)">206 893 €</td>
+          <td style="text-align:right;font-family:var(--mono);font-weight:600;color:var(--green)">176 447 €</td>
+          <td style="text-align:right;font-family:var(--mono);font-weight:600;color:var(--green)">229 550 €</td>
+        </tr>
+        <tr style="border-top:1px solid var(--border2)">
+          <td colspan="5" style="padding:7px 12px 3px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--red)">▸ Décaissements</td>
+        </tr>
+        <tr><td class="mn" style="font-size:11px;padding-left:22px">Achats marchandises</td><td class="an">53 046 €</td><td class="an">123 039 €</td><td class="an">85 177 €</td><td class="an">125 334 €</td></tr>
+        <tr><td class="mn" style="font-size:11px;padding-left:22px">Import DAP</td><td class="an">58 €</td><td class="an">1 958 €</td><td class="an">1 814 €</td><td class="az">—</td></tr>
+        <tr><td class="mn" style="font-size:11px;padding-left:22px">Logistique stockage</td><td class="an">20 236 €</td><td class="an">13 246 €</td><td class="an">11 667 €</td><td class="an">15 689 €</td></tr>
+        <tr><td class="mn" style="font-size:11px;padding-left:22px">Livraisons clients</td><td class="an">14 398 €</td><td class="an">25 476 €</td><td class="an">6 471 €</td><td class="an">11 963 €</td></tr>
+        <tr><td class="mn" style="font-size:11px;padding-left:22px">Charges de personnel</td><td class="an">48 678 €</td><td class="an">53 041 €</td><td class="an">70 606 €</td><td class="an">57 439 €</td></tr>
+        <tr><td class="mn" style="font-size:11px;padding-left:22px">Rémunérations dirigeants</td><td class="an">20 160 €</td><td class="az">—</td><td class="an">20 160 €</td><td class="an">28 800 €</td></tr>
+        <tr><td class="mn" style="font-size:11px;padding-left:22px">Sous-traitance &amp; prestations</td><td class="an">2 950 €</td><td class="an">6 580 €</td><td class="an">2 768 €</td><td class="az">—</td></tr>
+        <tr><td class="mn" style="font-size:11px;padding-left:22px">Frais bancaires &amp; affacturage</td><td class="an">1 756 €</td><td class="an">1 517 €</td><td class="an">1 569 €</td><td class="az">—</td></tr>
+        <tr><td class="mn" style="font-size:11px;padding-left:22px">Fiscalité</td><td class="an">27 719 €</td><td class="an">15 828 €</td><td class="an">21 298 €</td><td class="an">27 583 €</td></tr>
+        <tr><td class="mn" style="font-size:11px;padding-left:22px">Remboursement prêt bancaire</td><td class="an">35 309 €</td><td class="az">—</td><td class="az">—</td><td class="az">—</td></tr>
+        <tr><td class="mn" style="font-size:11px;padding-left:22px">Notes de frais</td><td class="an">11 830 €</td><td class="an">6 956 €</td><td class="an">5 316 €</td><td class="an">4 100 €</td></tr>
+        <tr><td class="mn" style="font-size:11px;padding-left:22px">Autres charges</td><td class="an">18 168 €</td><td class="an">26 272 €</td><td class="an">27 750 €</td><td class="an">11 729 €</td></tr>
+        <tr style="background:rgba(255,94,94,.05)">
+          <td class="mn" style="font-size:11px;font-weight:600">Total décaissements</td>
+          <td style="text-align:right;font-family:var(--mono);font-weight:600;color:var(--red)">254 307 €</td>
+          <td style="text-align:right;font-family:var(--mono);font-weight:600;color:var(--red)">269 954 €</td>
+          <td style="text-align:right;font-family:var(--mono);font-weight:600;color:var(--red)">238 597 €</td>
+          <td style="text-align:right;font-family:var(--mono);font-weight:600;color:var(--red)">282 637 €</td>
+        </tr>
+        <tr>
+          <td class="mn" style="font-size:11px;color:var(--text2)">Non catégorisé</td>
+          <td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--text2)">824 €</td>
+          <td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--text2)">139 €</td>
+          <td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--text2)">6 608 €</td>
+          <td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--text2)">—</td>
+        </tr>
+        <tr style="border-top:2px solid var(--border2);background:var(--bg3)">
+          <td class="mn" style="font-size:12px;font-weight:700;color:var(--teal)">🏦 Trésorerie fin de mois</td>
+          <td style="text-align:right;font-family:var(--mono);font-weight:700;font-size:13px;color:var(--teal)">253 751 €</td>
+          <td style="text-align:right;font-family:var(--mono);font-weight:700;font-size:13px;color:var(--amber)">190 690 €</td>
+          <td style="text-align:right;font-family:var(--mono);font-weight:700;font-size:13px;color:var(--amber)">128 540 €</td>
+          <td style="text-align:right;font-family:var(--mono);font-weight:700;font-size:13px;color:var(--red)">75 453 €</td>
+        </tr>
+        <tr>
+          <td class="mn" style="font-size:11px;color:var(--text2)">Flux net du mois</td>
+          <td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--red)">−9 888 €</td>
+          <td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--red)">−63 061 €</td>
+          <td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--red)">−62 150 €</td>
+          <td style="text-align:right;font-family:var(--mono);font-size:11px;color:var(--red)">−53 087 €</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="stitle" style="margin-bottom:10px">Fichier source</div>
+  <div class="grid3a">
+    <a class="flink" href="https://metzecarecom.sharepoint.com/sites/METZECARE/Shared%20Documents/General/COMPTABILITE/Rapports%20comptables%20et%20financiers/2026/BUDGET%202026.xlsx" target="_blank">
+      <div class="kcard ka"><div class="klbl">💰 BUDGET 2026</div><div class="ksub" style="margin-top:4px">Modifié le 23/04/2026 · Ouvrir →</div></div>
     </a>
-    <a href="https://metzecarecom.sharepoint.com/sites/METZECARE/Shared%20Documents/General/COMPTABILITE/Rapports%20comptables%20et%20financiers/2026/BUDGET%202026.xlsx" target="_blank" style="text-decoration:none">
-      <div class="kcard ka" style="cursor:pointer"><div class="klbl">💰 BUDGET 2026</div><div style="font-size:12px;color:var(--text);margin-top:4px;margin-bottom:6px">Compte de résultat · Trésorerie · BFR · Charges fixes</div><div class="ksub">Modifié le 23/04/2026 · Cliquer pour ouvrir →</div></div>
-    </a>
-    <a href="https://metzecarecom.sharepoint.com/sites/METZECARE/Shared%20Documents/General/COMPTABILITE/Rapprochements%20bancaires/Rapprochements%20bancaires%20CIC.xlsx" target="_blank" style="text-decoration:none">
-      <div class="kcard kt" style="cursor:pointer"><div class="klbl">🏦 RAPPROCHEMENTS CIC</div><div style="font-size:12px;color:var(--text);margin-top:4px;margin-bottom:6px">Pointage règlements · Code vendeur · Numéros</div><div class="ksub">Modifié le 05/05/2026 · Cliquer pour ouvrir →</div></div>
-    </a>
-    <a href="https://metzecarecom.sharepoint.com/sites/METZECARE/Shared%20Documents/General/COMPTABILITE/CLIENTS_CROISES.xlsx" target="_blank" style="text-decoration:none">
-      <div class="kcard ko" style="cursor:pointer"><div class="klbl">🔀 CLIENTS CROISÉS</div><div style="font-size:12px;color:var(--text);margin-top:4px;margin-bottom:6px">Clients communs BNP/CIC · Montants · Dates</div><div class="ksub">Modifié le 28/04/2026 · Cliquer pour ouvrir →</div></div>
-    </a>
-    <a href="https://metzecarecom.sharepoint.com/sites/METZECARE/Shared%20Documents/General/COMPTABILITE" target="_blank" style="text-decoration:none">
-      <div class="kcard" style="cursor:pointer;border-color:var(--border2)"><div class="klbl">📁 DOSSIER COMPTABILITÉ COMPLET</div><div style="font-size:12px;color:var(--text);margin-top:4px;margin-bottom:6px">Accès direct SharePoint METZE CARE</div><div class="ksub">Ouvrir le dossier →</div></div>
+    <a class="flink" href="https://metzecarecom.sharepoint.com/sites/METZECARE/Shared%20Documents/General/COMPTABILITE" target="_blank">
+      <div class="kcard" style="border-color:var(--border2)"><div class="klbl">📁 Dossier COMPTABILITÉ</div><div class="ksub" style="margin-top:4px">SharePoint METZE CARE · Ouvrir →</div></div>
     </a>
   </div>
 
@@ -269,135 +317,89 @@ const VIEWS={"bnp-echus": [{"fac": "2025007476", "cl": "CH PRIVE SAINT GREGOIRE"
 const STATS={"bnp_echus": {"count": 127, "total": 62586.08, "top_clients": [{"name": "INSTITUT PASTEUR", "amount": 4742.21, "count": 1}, {"name": "CHT - Gaston-Bourret", "amount": 3840.0, "count": 1}, {"name": "POLYCLINIQUE DE CLARENCE (AHNAC)", "amount": 2240.76, "count": 4}, {"name": "FONDATION BON SAUVEUR DE LA MANCHE", "amount": 2184.0, "count": 1}, {"name": "HOTEL DIEU DU CREUSOT", "amount": 2148.0, "count": 4}]}, "cic_echus": {"count": 150, "total": 89682.45, "top_clients": [{"name": "CHU DE LA MARTINIQUE - ENVOI AERIEN", "amount": 11569.45, "count": 10}, {"name": "CHU GUADELOUPE - POINTE A PITRE", "amount": 4680.0, "count": 2}, {"name": "HOPITAL ROBERT DEBRE AP-HP", "amount": 3517.38, "count": 4}, {"name": "CHU DE LA MARTINIQUE - ENVOI MARITIME", "amount": 3130.0, "count": 1}, {"name": "CH SAINTE MARIE - GRAND BOURG (MARIE GALANTE)", "amount": 2840.0, "count": 2}]}, "bnp_non_echus": {"count": 251, "total": 128749.27, "top_clients": [{"name": "CAHNOS PRODUCTOS HOSPITALARIOS", "amount": 6206.5, "count": 10}, {"name": "Clinique Saint Jean Sud de France", "amount": 5028.22, "count": 9}, {"name": "INSTITUT PASTEUR", "amount": 4742.21, "count": 1}, {"name": "HOPITAL PRIVE DE PROVENCE", "amount": 3959.12, "count": 4}, {"name": "Hôpital Privé Confluent", "amount": 3682.05, "count": 5}]}, "cic_non_echus": {"count": 232, "total": 154092.3, "top_clients": [{"name": "CHU GUADELOUPE - POINTE A PITRE", "amount": 28297.73, "count": 4}, {"name": "CHU DE TOULOUSE - CUGNAUX", "amount": 10789.54, "count": 23}, {"name": "CHU DE CLERMONT FERRAND - LABO", "amount": 9657.12, "count": 4}, {"name": "CHU ST ETIENNE-Pole DMS", "amount": 6480.0, "count": 1}, {"name": "CH TOULOUSE - IUC PHARMACIE MAGASIN DMS", "amount": 6014.76, "count": 8}]}};
 
 const S = {view:'bnp-echus', data:[], page:1, per:50, sc:'ret', sd:'desc'};
+function eur(n){if(!n&&n!==0)return '—';return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',minimumFractionDigits:2}).format(n);}
+function fmtDt(d){return d&&d!=='None'?d.split('-').reverse().join('/'):'—';}
+const VC={'bnp-echus':{lbl:'BNP — Retard paiement',sk:'bnp_echus',pill:'ÉCHUS',pillCls:'pill-r',cardCls:'kr',valCls:'kvr'},'cic-echus':{lbl:'CIC — Retard règlement',sk:'cic_echus',pill:'ÉCHUS',pillCls:'pill-r',cardCls:'kr',valCls:'kvr'},'bnp-non-echus':{lbl:'BNP — Attente paiement',sk:'bnp_non_echus',pill:'EN ATTENTE',pillCls:'pill-a',cardCls:'ka',valCls:'kva'},'cic-non-echus':{lbl:'CIC — Attente règlement',sk:'cic_non_echus',pill:'EN ATTENTE',pillCls:'pill-a',cardCls:'ka',valCls:'kva'}};
 
-function eur(n){
-  if(n===0||n===null||n===undefined) return '—';
-  return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',minimumFractionDigits:2}).format(n);
-}
-function fmtDt(d){return d&&d!=='None'?d.split('-').reverse().join('/'):'—'}
-
-const VIEW_CONFIG = {
-  'bnp-echus':     {lbl:'BNP — Retard paiement', sk:'bnp_echus',     pill:'ÉCHUS',     pillCls:'pill-r', cardCls:'kr', valCls:'kvr'},
-  'cic-echus':     {lbl:'CIC — Retard règlement', sk:'cic_echus',     pill:'ÉCHUS',     pillCls:'pill-r', cardCls:'kr', valCls:'kvr'},
-  'bnp-non-echus': {lbl:'BNP — Attente paiement', sk:'bnp_non_echus', pill:'EN ATTENTE', pillCls:'pill-a', cardCls:'ka', valCls:'kva'},
-  'cic-non-echus': {lbl:'CIC — Attente règlement', sk:'cic_non_echus', pill:'EN ATTENTE', pillCls:'pill-a', cardCls:'ka', valCls:'kva'},
-};
-
-function init() {
-  const krow = document.getElementById('krow');
-  krow.innerHTML = Object.entries(VIEW_CONFIG).map(([view, cfg])=>{
-    const st = STATS[cfg.sk];
-    const worst = st.top_clients[0];
-    return `<div class="kcard ${cfg.cardCls}" id="kcard-${view}" onclick="switchSubById('${view}')">
-      <div class="klbl"><span style="color:var(--text2)">${cfg.lbl}</span> <span class="pill ${cfg.pillCls}">${cfg.pill}</span></div>
-      <div class="kval ${cfg.valCls}">${eur(st.total)}</div>
-      <div class="ksub">${st.count} facture${st.count!==1?'s':''}</div>
-      ${worst ? `<div class="kbad" title="${worst.name}">⚠ ${worst.name.substring(0,32)}${worst.name.length>32?'…':''} : ${eur(worst.amount)}</div>` : ''}
+function init(){
+  document.getElementById('krow').innerHTML=Object.entries(VC).map(([v,c])=>{
+    const st=STATS[c.sk],w=st.top_clients[0];
+    return `<div class="kcard ${c.cardCls}" id="kcard-${v}" onclick="switchSubById('${v}')">
+      <div class="klbl"><span style="color:var(--text2)">${c.lbl}</span> <span class="pill ${c.pillCls}">${c.pill}</span></div>
+      <div class="kval ${c.valCls}">${eur(st.total)}</div>
+      <div class="ksub">${st.count} factures</div>
+      ${w?`<div class="kbad">⚠ ${w.name.substring(0,32)} : ${eur(w.amount)}</div>`:''}
     </div>`;
   }).join('');
-
-  Object.entries(VIEW_CONFIG).forEach(([view, cfg])=>{
-    const el = document.getElementById('cnt-'+view);
-    if(el) el.textContent = `(${STATS[cfg.sk].count})`;
-  });
-
+  Object.entries(VC).forEach(([v,c])=>{const el=document.getElementById('cnt-'+v);if(el)el.textContent=`(${STATS[c.sk].count})`;});
   document.getElementById('kcard-bnp-echus')?.classList.add('active');
-  buildFilters('bnp-echus');
-  loadView('bnp-echus');
-  document.getElementById('lastSync').textContent = new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
+  buildFilters('bnp-echus');loadView('bnp-echus');
+  document.getElementById('lastSync').textContent=new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
 }
 
-function buildFilters(view) {
-  const data = VIEWS[view] || [];
-  const years = [...new Set(data.map(r=>r.dt&&r.dt!=='None'?r.dt.substring(0,4):'').filter(Boolean))].sort().reverse();
-  const clients = [...new Set(data.map(r=>r.cl).filter(c=>c&&c!=='N/A'))].sort();
-  const yS = document.getElementById('yrFil');
-  yS.innerHTML = '<option value="">Toutes années</option>';
+function switchTop(name,el){
+  document.querySelectorAll('.ttab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('tab-'+name).classList.add('active');
+}
+
+function buildFilters(view){
+  const data=VIEWS[view]||[];
+  const years=[...new Set(data.map(r=>r.dt&&r.dt!=='None'?r.dt.substring(0,4):'').filter(Boolean))].sort().reverse();
+  const clients=[...new Set(data.map(r=>r.cl).filter(c=>c&&c!=='N/A'))].sort();
+  const yS=document.getElementById('yrFil');yS.innerHTML='<option value="">Toutes années</option>';
   years.forEach(y=>{const o=document.createElement('option');o.value=y;o.textContent=y;yS.appendChild(o);});
-  const cS = document.getElementById('clFil');
-  cS.innerHTML = '<option value="">Tous clients</option>';
+  const cS=document.getElementById('clFil');cS.innerHTML='<option value="">Tous clients</option>';
   clients.slice(0,300).forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;cS.appendChild(o);});
 }
 
-function loadView(v) {
-  S.view=v; S.page=1;
-  buildFilters(v);
-  filterAT();
+function loadView(v){S.view=v;S.page=1;buildFilters(v);filterAT();}
+
+function filterAT(){
+  const q=document.getElementById('srch').value.toLowerCase();
+  const yr=document.getElementById('yrFil').value;
+  const cl=document.getElementById('clFil').value;
+  S.data=(VIEWS[S.view]||[]).filter(r=>{
+    const mq=!q||r.fac.toLowerCase().includes(q)||r.cl.toLowerCase().includes(q);
+    const my=!yr||(r.dt||'').startsWith(yr);
+    const mc=!cl||r.cl===cl;
+    return mq&&my&&mc;
+  });
+  S.page=1;renderTable();
 }
 
-function filterAT() {
-  const q = document.getElementById('srch').value.toLowerCase();
-  const yr = document.getElementById('yrFil').value;
-  const cl = document.getElementById('clFil').value;
-  S.data = (VIEWS[S.view]||[]).filter(r=>{
-    const mq = !q || r.fac.toLowerCase().includes(q) || r.cl.toLowerCase().includes(q);
-    const my = !yr || (r.dt||'').startsWith(yr);
-    const mc = !cl || r.cl === cl;
-    return mq && my && mc;
-  });
-  S.page = 1;
+function resetAT(){document.getElementById('srch').value='';document.getElementById('yrFil').value='';document.getElementById('clFil').value='';filterAT();}
+
+function sortAT(col){
+  if(S.sc===col)S.sd=S.sd==='asc'?'desc':'asc';else{S.sc=col;S.sd='desc';}
+  S.data.sort((a,b)=>{let va=a[col]??'',vb=b[col]??'';if(typeof va==='string'){va=va.toLowerCase();vb=vb.toLowerCase();}return S.sd==='asc'?(va<vb?-1:va>vb?1:0):(va>vb?-1:va<vb?1:0);});
   renderTable();
 }
 
-function resetAT(){
-  document.getElementById('srch').value='';
-  document.getElementById('yrFil').value='';
-  document.getElementById('clFil').value='';
-  filterAT();
-}
-
-function sortAT(col) {
-  if(S.sc===col) S.sd=S.sd==='asc'?'desc':'asc';
-  else{S.sc=col;S.sd='desc';}
-  S.data.sort((a,b)=>{
-    let va=a[col]??'', vb=b[col]??'';
-    if(typeof va==='string'){va=va.toLowerCase();vb=vb.toLowerCase();}
-    return S.sd==='asc'?(va<vb?-1:va>vb?1:0):(va>vb?-1:va<vb?1:0);
-  });
-  renderTable();
-}
-
-function statusBadge(r) {
-  const bnp=r.bnp||'', cic=r.cic||'';
-  if(bnp==='RETARD PAIEMENT') return `<span class="b bretard">⏰ RETARD BNP</span>`;
-  if(bnp==='EN ATTENTE PAIEMENT') return `<span class="b battente">⏳ ATTENTE BNP</span>`;
-  if(cic==='FACTURE EN RETARD DE REGLEMENT') return `<span class="b bretard">⏰ RETARD CIC</span>`;
-  if(cic==='FACTURE EN ATTENTE DE REGLEMENT') return `<span class="b battente">⏳ ATTENTE CIC</span>`;
+function statusBadge(r){
+  const bnp=r.bnp||'',cic=r.cic||'';
+  if(bnp==='RETARD PAIEMENT')return `<span class="b bretard">⏰ RETARD BNP</span>`;
+  if(bnp==='EN ATTENTE PAIEMENT')return `<span class="b battente">⏳ ATTENTE BNP</span>`;
+  if(cic==='FACTURE EN RETARD DE REGLEMENT')return `<span class="b bretard">⏰ RETARD CIC</span>`;
+  if(cic==='FACTURE EN ATTENTE DE REGLEMENT')return `<span class="b battente">⏳ ATTENTE CIC</span>`;
   return `<span class="b" style="color:var(--text2)">—</span>`;
 }
 
-function renderTable() {
-  const {data,page,per,sc,sd} = S;
-  const rows = data.slice((page-1)*per, page*per);
-  const filteredTotal = data.reduce((s,r)=>s+r.m, 0);
-  document.getElementById('atInfo').textContent =
-    `${data.length} résultat${data.length!==1?'s':''} — Total : ${eur(filteredTotal)}`;
-
-  if(!rows.length){
-    document.getElementById('atTable').innerHTML='<div class="empty">Aucun enregistrement</div>';
-    document.getElementById('atPag').innerHTML='';return;
-  }
-
+function renderTable(){
+  const{data,page,per,sc,sd}=S;
+  const rows=data.slice((page-1)*per,page*per);
+  const tot=data.reduce((s,r)=>s+r.m,0);
+  document.getElementById('atInfo').textContent=`${data.length} résultat${data.length!==1?'s':''} — Total : ${eur(tot)}`;
+  if(!rows.length){document.getElementById('atTable').innerHTML='<div class="empty">Aucun enregistrement</div>';document.getElementById('atPag').innerHTML='';return;}
   const ar=d=>d==='asc'?'↑':'↓';
-  const th=(col,lbl,right)=>`<th onclick="sortAT('${col}')" class="${sc===col?'sorted':''}" style="text-align:${right?'right':'left'}">${lbl} <span style="opacity:.5">${sc===col?ar(sd):'↕'}</span></th>`;
-
-  let h=`<table><thead><tr>
-    ${th('fac','N° Facture')}${th('cl','Client')}${th('dt','Date fact.')}${th('ech','Échéance')}${th('m','Montant TTC',true)}${th('ret','Retard (j)',true)}<th>Statut</th>
-  </tr></thead><tbody>`;
-
+  const th=(col,lbl,r)=>`<th onclick="sortAT('${col}')" class="${sc===col?'sorted':''}" style="text-align:${r?'right':'left'}">${lbl} <span style="opacity:.5">${sc===col?ar(sd):'↕'}</span></th>`;
+  let h=`<table><thead><tr>${th('fac','N° Facture')}${th('cl','Client')}${th('dt','Date fact.')}${th('ech','Échéance')}${th('m','Montant TTC',true)}${th('ret','Retard (j)',true)}<th>Statut</th></tr></thead><tbody>`;
   rows.forEach(r=>{
     const ac=r.m>0?'ap':r.m<0?'an':'az';
     const as=(r.m>0?'+':'')+eur(r.m);
-    const rs=(r.ret!=null&&r.ret>0)?`<span class="rp">${r.ret}j</span>`:`<span class="rz">—</span>`;
-    h+=`<tr>
-      <td class="mn" style="color:var(--accent2);white-space:nowrap">${r.fac}</td>
-      <td style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${r.cl}">${r.cl}</td>
-      <td class="mn" style="color:var(--text2);font-size:11px;white-space:nowrap">${fmtDt(r.dt)}</td>
-      <td class="mn" style="color:var(--text2);font-size:11px;white-space:nowrap">${r.ech&&r.ech!=='None'?r.ech:'—'}</td>
-      <td class="${ac}" style="white-space:nowrap">${as}</td>
-      <td style="text-align:right">${rs}</td>
-      <td>${statusBadge(r)}</td>
-    </tr>`;
+    const rs=r.ret&&r.ret>0?`<span class="rp">${r.ret}j</span>`:`<span class="rz">—</span>`;
+    h+=`<tr><td class="mn" style="color:var(--accent2);white-space:nowrap">${r.fac}</td><td style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${r.cl}">${r.cl}</td><td class="mn" style="color:var(--text2);font-size:11px;white-space:nowrap">${fmtDt(r.dt)}</td><td class="mn" style="color:var(--text2);font-size:11px;white-space:nowrap">${r.ech&&r.ech!=='None'?r.ech:'—'}</td><td class="${ac}" style="white-space:nowrap">${as}</td><td style="text-align:right">${rs}</td><td>${statusBadge(r)}</td></tr>`;
   });
   h+='</tbody></table>';
   document.getElementById('atTable').innerHTML=h;
@@ -405,25 +407,16 @@ function renderTable() {
 }
 
 function renderPag(total,page,per){
-  const tot=Math.ceil(total/per);
-  if(tot<=1){document.getElementById('atPag').innerHTML='';return;}
+  const tot=Math.ceil(total/per);if(tot<=1){document.getElementById('atPag').innerHTML='';return;}
   let h=`<button class="pg" onclick="setPage(${page-1})" ${page===1?'disabled':''}>←</button>`;
   const pages=[];
   if(tot<=7){for(let i=1;i<=tot;i++)pages.push(i);}
   else{pages.push(1);if(page>3)pages.push('…');for(let i=Math.max(2,page-1);i<=Math.min(tot-1,page+1);i++)pages.push(i);if(page<tot-2)pages.push('…');pages.push(tot);}
-  pages.forEach(p=>{if(p==='…')h+=`<span style="color:var(--text2);padding:0 4px">…</span>`;
-    else h+=`<button class="pg ${p===page?'active':''}" onclick="setPage(${p})">${p}</button>`;});
+  pages.forEach(p=>{if(p==='…')h+=`<span style="color:var(--text2);padding:0 4px">…</span>`;else h+=`<button class="pg ${p===page?'active':''}" onclick="setPage(${p})">${p}</button>`;});
   h+=`<button class="pg" onclick="setPage(${page+1})" ${page===tot?'disabled':''}>→</button>`;
   document.getElementById('atPag').innerHTML=h;
 }
 function setPage(p){S.page=p;renderTable();}
-
-function switchTop(name, el) {
-  document.querySelectorAll('.ttab').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
-  el.classList.add('active');
-  document.getElementById('tab-'+name).classList.add('active');
-}
 
 function switchSub(view,el){
   document.querySelectorAll('.stab').forEach(t=>t.classList.remove('active'));
@@ -432,16 +425,10 @@ function switchSub(view,el){
   document.getElementById('kcard-'+view)?.classList.add('active');
   loadView(view);
 }
-function switchSubById(view){
-  const el=document.getElementById('stab-'+view);
-  if(el) switchSub(view,el);
-}
+function switchSubById(view){const el=document.getElementById('stab-'+view);if(el)switchSub(view,el);}
+function syncAll(){document.getElementById('lastSync').textContent=new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});}
+window.addEventListener('DOMContentLoaded',init);
 
-function syncAll(){
-  document.getElementById('lastSync').textContent=new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
-}
-
-window.addEventListener('DOMContentLoaded', init);
 </script>
 </body>
 </html>
