@@ -325,23 +325,104 @@ let STATS = {
 
 const GITHUB_DATA_URL = 'https://raw.githubusercontent.com/mc-jud/Metze-finance-app/main/public/airtable.json';
 
+function parseAirtableRaw(raw) {
+  // Handle both formats: clean {views,stats} or raw Airtable {bnp_echus,cic_echus,...}
+  if (!raw) return false;
+  
+  // Format 1: clean format from our Python script
+  if (raw.views && raw.stats) {
+    VIEWS = raw.views;
+    STATS = raw.stats;
+    return true;
+  }
+  
+  // Format 2: raw Airtable aggregator output from Make
+  // Make sends: {"bnp_echus": [...records...], "cic_echus": [...], ...}
+  function getSelect(v) {
+    if (Array.isArray(v) && v.length > 0) {
+      return typeof v[0] === 'object' ? (v[0].name || '') : String(v[0]);
+    }
+    return '';
+  }
+  function getClient(f) {
+    const v = f.fldIS9GM6dFAWppYP || f.fldxMHl9YiBqbkQFn;
+    if (v && typeof v === 'object' && v.valuesByLinkedRecordId) {
+      const vals = Object.values(v.valuesByLinkedRecordId);
+      if (vals.length > 0) {
+        const first = vals[0];
+        if (Array.isArray(first) && first.length > 0) {
+          const item = first[0];
+          return typeof item === 'object' ? (item.name || String(item)) : String(item);
+        }
+      }
+    }
+    return 'N/A';
+  }
+  function parseRecs(arr) {
+    if (!Array.isArray(arr)) return [];
+    return arr.map(r => {
+      const f = r.cellValuesByFieldId || r.fields || r;
+      const m = parseFloat(f.fldD9rErqiY84U1U1) || 0;
+      const retRaw = f.fldn85Iq6M3IlajWe;
+      const ret = (typeof retRaw === 'number' && !isNaN(retRaw)) ? Math.round(retRaw) : null;
+      return {
+        fac: String(f.fldCOfpQs8v5v7sfY || ''),
+        cl: getClient(f),
+        m: Math.round(m * 100) / 100,
+        ret: ret,
+        bnp: getSelect(f.fldvSNgjSp9ylTBQL),
+        cic: getSelect(f.fldwBp3cLuFe3QTHA),
+        ech: String(f.fldPUU8DPm7tT3wBh || ''),
+        dt: String(f.fldXFYsFpJ7VBFttF || '')
+      };
+    });
+  }
+  function makeStats(lst) {
+    const total = lst.reduce((s,r) => s + r.m, 0);
+    const byCl = {};
+    for (const r of lst) { byCl[r.cl] = (byCl[r.cl] || 0) + r.m; }
+    const top5 = Object.entries(byCl).sort((a,b) => b[1]-a[1]).slice(0,5)
+      .map(([name, amount]) => ({name, amount: Math.round(amount*100)/100}));
+    return {count: lst.length, total: Math.round(total*100)/100, top_clients: top5};
+  }
+
+  // Try raw format keys
+  const bnpE = parseRecs(raw['bnp-echus'] || raw.bnp_echus || []);
+  const cicE = parseRecs(raw['cic-echus'] || raw.cic_echus || []);
+  const bnpN = parseRecs(raw['bnp-non-echus'] || raw.bnp_non_echus || []);
+  const cicN = parseRecs(raw['cic-non-echus'] || raw.cic_non_echus || []);
+
+  if (bnpE.length + cicE.length + bnpN.length + cicN.length > 0) {
+    VIEWS = {'bnp-echus': bnpE, 'cic-echus': cicE, 'bnp-non-echus': bnpN, 'cic-non-echus': cicN};
+    STATS = {
+      bnp_echus: makeStats(bnpE), cic_echus: makeStats(cicE),
+      bnp_non_echus: makeStats(bnpN), cic_non_echus: makeStats(cicN)
+    };
+    return true;
+  }
+  return false;
+}
+
 async function loadData() {
   const banner = document.getElementById('syncBanner');
   if (banner) banner.style.display = 'flex';
   try {
     const res = await fetch(GITHUB_DATA_URL + '?t=' + Date.now());
     if (!res.ok) throw new Error('HTTP ' + res.status);
-    const data = await res.json();
-    VIEWS = data.views;
-    STATS = data.stats;
-    const updated = data.updated ? new Date(data.updated).toLocaleString('fr-FR') : '';
+    const raw = await res.json();
+    const ok = parseAirtableRaw(raw);
+    if (!ok) throw new Error('Format non reconnu');
+    const updated = raw.updated ? new Date(raw.updated).toLocaleString('fr-FR') : '';
     document.getElementById('lastSync').textContent = updated ? 'Mis à jour : ' + updated : new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
     if (banner) banner.style.display = 'none';
     init();
   } catch(e) {
-    console.warn('GitHub data not found, using fallback:', e.message);
-    if (banner) { banner.textContent = '⚠ Données statiques — Make non configuré'; banner.style.background = 'rgba(245,166,35,.1)'; banner.style.color = 'var(--amber)'; }
-    // fallback: use empty data, show message
+    console.warn('Erreur chargement:', e.message);
+    if (banner) { 
+      banner.textContent = '⚠ Données statiques — Make non configuré'; 
+      banner.style.background = 'rgba(245,166,35,.1)'; 
+      banner.style.color = 'var(--amber)'; 
+    }
     document.getElementById('lastSync').textContent = 'Données hors ligne';
     init();
   }
