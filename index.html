@@ -89,7 +89,7 @@ a.flink{text-decoration:none}
   </div>
 </header>
 <nav class="tnav">
-  <button class="ttab active" onclick="switchTop('at',this)">📊 Sales Dashboard</button>
+  <button class="ttab active" onclick="switchTop('at',this)">💼 Recouvrement</button>
   <button class="ttab" onclick="switchTop('ca',this)">📈 CA &amp; Encaissements</button>
   <button class="ttab" onclick="switchTop('treso',this)">💰 Trésorerie</button>
 </nav>
@@ -101,6 +101,11 @@ a.flink{text-decoration:none}
     <button class="stab" id="stab-cic-echus" onclick="switchSub('cic-echus',this)">CIC ÉCHUS <span class="cnt" id="cnt-cic-echus"></span></button>
     <button class="stab" id="stab-bnp-non-echus" onclick="switchSub('bnp-non-echus',this)">BNP NON ÉCHUS <span class="cnt" id="cnt-bnp-non-echus"></span></button>
     <button class="stab" id="stab-cic-non-echus" onclick="switchSub('cic-non-echus',this)">CIC NON ÉCHUS <span class="cnt" id="cnt-cic-non-echus"></span></button>
+    <div style="margin-left:auto;display:flex;gap:4px;padding:6px 0">
+      <button class="stab" id="ytab-all" onclick="switchYear('all',this)" style="border-bottom:2px solid var(--accent);color:var(--text)">Tout</button>
+      <button class="stab" id="ytab-2025" onclick="switchYear('2025',this)">2025</button>
+      <button class="stab" id="ytab-2026" onclick="switchYear('2026',this)">2026</button>
+    </div>
   </nav>
   <div class="main">
     <div class="twrap">
@@ -476,7 +481,8 @@ function filterAT(){
     const mq=!q||r.fac.toLowerCase().includes(q)||r.cl.toLowerCase().includes(q);
     const my=!yr||(r.dt||'').startsWith(yr);
     const mc=!cl||r.cl===cl;
-    return mq&&my&&mc;
+    const sy=S_YEAR==='all'||(r.dt||'').startsWith(S_YEAR);
+    return mq&&my&&mc&&sy;
   });
   S.page=1;renderTable();
 }
@@ -499,23 +505,59 @@ function statusBadge(r){
 }
 
 function renderTable(){
-  const{data,page,per,sc,sd}=S;
-  const rows=data.slice((page-1)*per,page*per);
+  const{data,sc,sd}=S;
   const tot=data.reduce((s,r)=>s+r.m,0);
   document.getElementById('atInfo').textContent=`${data.length} résultat${data.length!==1?'s':''} — Total : ${eur(tot)}`;
-  if(!rows.length){document.getElementById('atTable').innerHTML='<div class="empty">Aucun enregistrement</div>';document.getElementById('atPag').innerHTML='';return;}
+  if(!data.length){document.getElementById('atTable').innerHTML='<div class="empty">Aucun enregistrement</div>';document.getElementById('atPag').innerHTML='';return;}
+
+  // Group by client
+  const groups={};
+  data.forEach(r=>{const cl=r.cl||'N/A';if(!groups[cl])groups[cl]={cl,total:0,count:0,rows:[]};groups[cl].total+=r.m;groups[cl].count++;groups[cl].rows.push(r);});
+  const sorted=Object.values(groups).sort((a,b)=>b.total-a.total);
+
   const ar=d=>d==='asc'?'↑':'↓';
-  const th=(col,lbl,r)=>`<th onclick="sortAT('${col}')" class="${sc===col?'sorted':''}" style="text-align:${r?'right':'left'}">${lbl} <span style="opacity:.5">${sc===col?ar(sd):'↕'}</span></th>`;
-  let h=`<table><thead><tr>${th('fac','N° Facture')}${th('cl','Client')}${th('dt','Date fact.')}${th('ech','Échéance')}${th('m','Montant TTC',true)}${th('ret','Retard (j)',true)}<th>Statut</th></tr></thead><tbody>`;
-  rows.forEach(r=>{
-    const ac=r.m>0?'ap':r.m<0?'an':'az';
-    const as=(r.m>0?'+':'')+eur(r.m);
-    const rs=r.ret&&r.ret>0?`<span class="rp">${r.ret}j</span>`:`<span class="rz">—</span>`;
-    h+=`<tr><td class="mn" style="color:var(--accent2);white-space:nowrap">${r.fac}</td><td style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${r.cl}">${r.cl}</td><td class="mn" style="color:var(--text2);font-size:11px;white-space:nowrap">${fmtDt(r.dt)}</td><td class="mn" style="color:var(--text2);font-size:11px;white-space:nowrap">${r.ech&&r.ech!=='None'?r.ech:'—'}</td><td class="${ac}" style="white-space:nowrap">${as}</td><td style="text-align:right">${rs}</td><td>${statusBadge(r)}</td></tr>`;
+  let h=`<table><thead><tr>
+    <th>Client / N° Facture</th>
+    <th style="text-align:right">Date fact.</th>
+    <th style="text-align:right">Échéance</th>
+    <th style="text-align:right">Montant TTC</th>
+    <th style="text-align:right">Retard (j)</th>
+    <th>Statut</th>
+  </tr></thead><tbody>`;
+
+  sorted.forEach(g=>{
+    const gid='g'+Math.abs(g.cl.split('').reduce((a,c)=>a+c.charCodeAt(0),0)).toString();
+    h+=`<tr style="background:var(--bg3);cursor:pointer" onclick="toggleGroup('${gid}')">
+      <td colspan="3" style="font-family:var(--mono);font-size:11px;font-weight:600;color:var(--accent2);padding:10px 12px">
+        <span id="arr-${gid}">▶</span> ${g.cl} <span style="color:var(--text2);font-weight:400">(${g.count} fact.)</span>
+      </td>
+      <td style="text-align:right;font-family:var(--mono);font-weight:700;color:var(--green);padding:10px 12px">${eur(g.total)}</td>
+      <td colspan="2"></td>
+    </tr>`;
+    g.rows.forEach(r=>{
+      const ac=r.m>0?'ap':r.m<0?'an':'az';
+      const as=(r.m>0?'+':'')+eur(r.m);
+      const rs=(r.ret!=null&&r.ret>0)?`<span class="rp">${r.ret}j</span>`:`<span class="rz">—</span>`;
+      h+=`<tr class="grp-${gid}" style="display:none;background:rgba(255,255,255,.02)">
+        <td class="mn" style="color:var(--accent2);white-space:nowrap;padding-left:28px">${r.fac}</td>
+        <td class="mn" style="color:var(--text2);font-size:11px;text-align:right;white-space:nowrap">${fmtDt(r.dt)}</td>
+        <td class="mn" style="color:var(--text2);font-size:11px;text-align:right;white-space:nowrap">${r.ech&&r.ech!=='None'?r.ech:'—'}</td>
+        <td class="${ac}" style="white-space:nowrap">${as}</td>
+        <td style="text-align:right">${rs}</td>
+        <td>${statusBadge(r)}</td>
+      </tr>`;
+    });
   });
   h+='</tbody></table>';
   document.getElementById('atTable').innerHTML=h;
-  renderPag(data.length,page,per);
+  document.getElementById('atPag').innerHTML='';
+}
+function toggleGroup(gid){
+  const rows=document.querySelectorAll('.grp-'+gid);
+  const show=rows[0]&&rows[0].style.display==='none';
+  rows.forEach(r=>r.style.display=show?'':'none');
+  const arr=document.getElementById('arr-'+gid);
+  if(arr)arr.textContent=show?'▼':'▶';
 }
 
 function renderPag(total,page,per){
