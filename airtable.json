@@ -1,1 +1,1 @@
-{\"updated\":\"{{formatDate(now; \"YYYY-MM-DDTHH:mm:ssZ\")}}\",\"bnp_echus\":[{{2.string}}],\"cic_echus\":[{{4.string}}],\"bnp_non_echus\":[{{6.string}}],\"cic_non_echus\":[{{8.string}}]}
+{\"updated\":\"2026-05-07T10:25:40+02:00\",\"bnp_echus\":[],\"cic_echus\":[],\"bnp_non_echus\":[],\"cic_non_echus\":[]}
